@@ -1,0 +1,10 @@
+{
+  "short_name": "vdslab",
+  "name": "vdslab Website",
+  "icons": [
+  ],
+  "start_url": "/",
+  "background_color": "#fff",
+  "theme_color": "rgb(47,87,89)",
+  "display": "standalone"
+}
