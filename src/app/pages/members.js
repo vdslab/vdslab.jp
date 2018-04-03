@@ -42,7 +42,7 @@ export class Members extends React.Component {
   render () {
     const {staffs} = this.state
     return <div>
-      <Head subtitle='Members' />'
+      <Head subtitle='Members' />
       <div className='columns'>
         <div className='column is-2'>
           <aside className='menu'>
