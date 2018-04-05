@@ -24,12 +24,16 @@ const Root = () => <Router>
     <section className='hero is-primary is-bold' style={{backgroundColor: 'rgb(47,87,89)', backgroundImage: 'none'}}>
       <div className='hero-body'>
         <div className='container has-text-centered'>
-          <h1 className='title'>
-            <img src='/images/logo.svg' alt='vdslab website' style={{height: '180px'}} />
-          </h1>
-          <h2 className='subtitle'>
-            日本大学文理学部情報科学科 尾上研究室
-          </h2>
+          <div className='column is-half-desktop is-offset-one-quarter-desktop'>
+            <h1 className='title'>
+              <figure className='image is-2by1'>
+                <img src='/images/logo.svg' alt='vdslab website' />
+              </figure>
+            </h1>
+            <h2 className='subtitle'>
+              日本大学文理学部情報科学科 <br className='is-hidden-tablet' /> 尾上研究室
+            </h2>
+          </div>
         </div>
       </div>
       <div className='hero-foot'>
