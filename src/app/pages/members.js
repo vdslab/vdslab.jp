@@ -4,17 +4,34 @@ import {Head} from '../head'
 import {getStaffs} from '../api'
 
 const Member = ({member}) => <article className='media'>
-  <figure className='media-left'>
-    <p className='image is-128x128'>
-      <img src={member.picture.url} />
-    </p>
-  </figure>
-  <div className='media-content'>
-    <div className='content'>
-      <p>
-        <strong>{member.name}</strong> <small>{member.title}</small>
-      </p>
-      <p dangerouslySetInnerHTML={{__html: markdown.toHTML(member.description)}} />
+  <div className='tile is-ancestor'>
+    <div className='tile is-vertical'>
+      <div className='tile is-parent' style={{paddingBottom: 0}} >
+        <div className='tile is-child' style={{paddingBottom: 0}} >
+          <div className='column' style={{paddingBottom: 0}} >
+            <h4 className='title is-4 is-inline'>
+              {member.name}
+            </h4>
+            <p className='subtitle is-inline'>
+              {member.title}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className='tile is-parent'>
+        <div className='tile is-child is-2'>
+          <div className='column is-half-mobile is-offset-one-quarter-mobile'>
+            <figure className='image'>
+              <img src={member.picture.url} />
+            </figure>
+          </div>
+        </div>
+        <div className='tile is-child'>
+          <div className='column'>
+            <div className='content' dangerouslySetInnerHTML={{__html: markdown.toHTML(member.description)}} />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </article>
@@ -54,14 +71,12 @@ export class Members extends React.Component {
           </aside>
         </div>
         <div className='column'>
-          <div className='content'>
-            <h3 id='staffs'>指導教員</h3>
-            <div>{
-              staffs.map((member) => <Member key={member.id} member={member} />)
-            }</div>
-            <h3 id='students'>学生</h3>
-            <p>準備中</p>
-          </div>
+          <h3 id='staffs' className='title'>指導教員</h3>
+          <div>{
+            staffs.map((member) => <Member key={member.id} member={member} />)
+          }</div>
+          <h3 id='students' className='title'>学生</h3>
+          <p>準備中</p>
         </div>
       </div>
     </div>

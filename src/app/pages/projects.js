@@ -21,18 +21,18 @@ const Category = ({category, large}) => {
 }
 
 const Project = ({project}) => <article className='media'>
-  <figure className='media-left'>
-    <p className='image'>
-      <img src={project.picture.url} style={{maxWidth: '480px'}} />
-    </p>
-  </figure>
-  <div className='media-content'>
-    <div className='content'>
-      <h3>{project.name}</h3>
+  <div className='columns'>
+    <div className='column'>
+      <h3 className='title'>{project.name}</h3>
       <div className='tags'>{
         project.categories.map((category) => <Category key={category.id} category={category} />)
       }</div>
-      <p dangerouslySetInnerHTML={{__html: markdown.toHTML(project.description)}} />
+      <div className='content' dangerouslySetInnerHTML={{__html: markdown.toHTML(project.description)}} />
+    </div>
+    <div className='column'>
+      <figure className='image'>
+        <img src={project.picture.url} />
+      </figure>
     </div>
   </div>
 </article>

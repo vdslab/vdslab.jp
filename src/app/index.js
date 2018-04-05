@@ -26,7 +26,7 @@ const Root = () => <Router>
         <div className='container has-text-centered'>
           <div className='column is-half-desktop is-offset-one-quarter-desktop'>
             <h1 className='title'>
-              <figure className='image is-2by1'>
+              <figure className='image'>
                 <img src='/images/logo.svg' alt='vdslab website' />
               </figure>
             </h1>
