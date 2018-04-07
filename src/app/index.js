@@ -14,14 +14,14 @@ const TabLink = ({to, children, exact}) => <Route
   exact={exact}
   children={({match}) => {
     return <li className={match ? 'is-active' : ''}>
-      <Link to={to} style={{color: match ? 'rgb(47,87,89)' : 'white'}}>{children}</Link>
+      <Link to={to} style={{color: match ? 'rgb(32,88,90)' : 'white'}}>{children}</Link>
     </li>
   }}
 />
 
 const Root = () => <Router>
   <div>
-    <section className='hero is-primary is-bold' style={{backgroundColor: 'rgb(47,87,89)', backgroundImage: 'none'}}>
+    <section className='hero is-primary is-bold' style={{backgroundColor: 'rgb(32,88,90)', backgroundImage: 'none'}}>
       <div className='hero-body'>
         <div className='container has-text-centered'>
           <div className='column is-half-desktop is-offset-one-quarter-desktop'>
