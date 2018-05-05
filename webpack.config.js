@@ -39,7 +39,7 @@ const options = {
       swDest: 'sw.js',
       globDirectory: './public',
       globPatterns: [
-        '*.{html,css,js.json}'
+        '*.{html,css,js,json}'
       ],
       globIgnores: [
         '_redirects',
