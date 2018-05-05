@@ -26,18 +26,18 @@ export const Top = () => <div>
         <h2>Links</h2>
       </div>
       <aside className='menu'>
-        <p className='menu-label'>大学関係</p>
+        <p style={{color: '#000'}} className='menu-label'>大学関係</p>
         <ul className='menu-list'>
           <li><a href='http://www.nihon-u.ac.jp/'>日本大学</a></li>
           <li><a href='https://www.chs.nihon-u.ac.jp/'>日本大学 文理学部</a></li>
           <li><a href='http://www.is.chs.nihon-u.ac.jp/'>日本大学 文理学部 情報科学科</a></li>
         </ul>
-        <p className='menu-label'>Publications</p>
+        <p style={{color: '#000'}} className='menu-label'>Publications</p>
         <ul className='menu-list'>
           <li><a href='https://scholar.google.co.jp/citations?user=sdlDSdcAAAAJ&hl=ja'>Google Scholar</a></li>
           <li><a href='https://orcid.org/0000-0003-2739-3249'>ORCID</a></li>
         </ul>
-        <p className='menu-label'>Products</p>
+        <p style={{color: '#000'}} className='menu-label'>Products</p>
         <ul className='menu-list'>
           <li><a href='https://github.com/vdslab'>GitHub</a></li>
         </ul>
