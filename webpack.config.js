@@ -39,7 +39,7 @@ const options = {
       swDest: 'sw.js',
       globDirectory: './public',
       globPatterns: [
-        '*.{html,css,js,json}'
+        '*.{html,css,js,json,txt}'
       ],
       globIgnores: [
         '_redirects',
@@ -52,7 +52,7 @@ const options = {
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     historyApiFallback: true,
-    port: 8080,
+    port: 8081,
     proxy: {
       '/.netlify/functions': {
         target: 'http://localhost:9000',
