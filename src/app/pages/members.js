@@ -1,7 +1,7 @@
 import React from 'react'
 import {markdown} from 'markdown'
 import {Head} from '../head'
-import {getStaffs} from '../api'
+import {getMembers} from '../api'
 
 const Member = ({member}) => <article className='media'>
   <div className='tile is-ancestor'>
@@ -40,14 +40,16 @@ export class Members extends React.Component {
   constructor () {
     super()
     this.state = {
-      staffs: []
+      staffs: [],
+      students: []
     }
   }
 
   componentDidMount () {
-    this.staffsSubscription = getStaffs().subscribe(({data}) => {
+    this.staffsSubscription = getMembers().subscribe(({data}) => {
       this.setState({
-        staffs: data.allMembers
+        staffs: data.staffs,
+        students: data.students
       })
     })
   }
@@ -57,7 +59,8 @@ export class Members extends React.Component {
   }
 
   render () {
-    const {staffs} = this.state
+    const {staffs, students} = this.state
+
     return <div>
       <Head subtitle='Members' />
       <div className='columns'>
@@ -76,7 +79,9 @@ export class Members extends React.Component {
             staffs.map((member) => <Member key={member.id} member={member} />)
           }</div>
           <h3 id='students' className='title'>学生</h3>
-          <p>準備中</p>
+          <div>{
+            students.map((member) => <Member key={member.id} member={member} />)
+          }</div>
         </div>
       </div>
     </div>

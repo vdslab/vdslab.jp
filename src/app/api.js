@@ -14,9 +14,14 @@ const request = (query) => {
   return Observable.fromPromise(promise)
 }
 
-export const getStaffs = () => {
+export const getMembers = () => {
   const query = `{
-    allMembers (filter: {type: Staff}, orderBy: order_ASC) {
+    staffs: allMembers (filter: {type: Staff}, orderBy: order_ASC) {
+      id, name, title, description, picture {
+        url
+      }
+    }
+    students: allMembers (filter: {type: Student}, orderBy: order_ASC) {
       id, name, title, description, picture {
         url
       }

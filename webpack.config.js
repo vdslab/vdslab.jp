@@ -37,15 +37,15 @@ const options = {
     ]),
     new WorkboxPlugin.GenerateSW({
       swDest: 'sw.js',
-      globDirectory: './public',
-      globPatterns: [
-        '*.{html,css,js,json,txt}'
-      ],
-      globIgnores: [
-        '_redirects',
-        'bundle.js',
-        'sw.js'
-      ],
+      // globDirectory: './public',
+      // globPatterns: [
+      //   '*.{html,css,js,json,txt}'
+      // ],
+      // globIgnores: [
+      //   '_redirects',
+      //   'bundle.js',
+      //   'sw.js'
+      // ],
       navigateFallback: '/index.html'
     })
   ],
