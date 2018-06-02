@@ -75,3 +75,15 @@ export const getProjectCategories = () => {
   }`
   return request(query)
 }
+
+export const getNews = () => {
+  const query = `{
+    news: allNews(orderBy: date_DESC, first: 5) {
+      id
+      title
+      content
+      date
+    }
+  }`
+  return request(query)
+}

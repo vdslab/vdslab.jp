@@ -12,6 +12,7 @@ const Member = ({member}) => <article className='media'>
             <h4 className='title is-4 is-inline'>
               {member.name}
             </h4>
+            &nbsp;
             <p className='subtitle is-inline'>
               {member.title}
             </p>
@@ -46,7 +47,7 @@ export class Members extends React.Component {
   }
 
   componentDidMount () {
-    this.staffsSubscription = getMembers().subscribe(({data}) => {
+    this.membersSubscription = getMembers().subscribe(({data}) => {
       this.setState({
         staffs: data.staffs,
         students: data.students
@@ -55,7 +56,7 @@ export class Members extends React.Component {
   }
 
   componentWillUnmount () {
-    this.staffsSubscription.unsubscribe()
+    this.membersSubscription.unsubscribe()
   }
 
   render () {
