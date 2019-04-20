@@ -1,7 +1,7 @@
 import React from 'react'
-import {Helmet} from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
-export const Head = ({subtitle}) => {
+export const Head = ({ subtitle }) => {
   const baseTitle = 'vdslab'
   const title = `${subtitle} - ${baseTitle}`
   const description = `日本大学文理学部情報科学科 尾上研究室のWebサイトです。`

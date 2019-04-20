@@ -1,14 +1,14 @@
 import React from 'react'
-import {markdown} from 'markdown'
-import {Head} from '../head'
-import {getMembers} from '../api'
+import { markdown } from 'markdown'
+import { Head } from '../head'
+import { getMembers } from '../api'
 
-const Member = ({member}) => <article className='media'>
+const Member = ({ member }) => <article className='media'>
   <div className='tile is-ancestor'>
     <div className='tile is-vertical'>
-      <div className='tile is-parent' style={{paddingBottom: 0}} >
-        <div className='tile is-child' style={{paddingBottom: 0}} >
-          <div className='column' style={{paddingBottom: 0}} >
+      <div className='tile is-parent' style={{ paddingBottom: 0 }} >
+        <div className='tile is-child' style={{ paddingBottom: 0 }} >
+          <div className='column' style={{ paddingBottom: 0 }} >
             <h4 className='title is-4 is-inline'>
               {member.name}
             </h4>
@@ -29,7 +29,7 @@ const Member = ({member}) => <article className='media'>
         </div>
         <div className='tile is-child'>
           <div className='column'>
-            <div className='content' dangerouslySetInnerHTML={{__html: markdown.toHTML(member.description)}} />
+            <div className='content' dangerouslySetInnerHTML={{ __html: markdown.toHTML(member.description) }} />
           </div>
         </div>
       </div>
@@ -47,7 +47,7 @@ export class Members extends React.Component {
   }
 
   componentDidMount () {
-    this.membersSubscription = getMembers().subscribe(({data}) => {
+    this.membersSubscription = getMembers().subscribe(({ data }) => {
       this.setState({
         staffs: data.staffs,
         students: data.students
@@ -60,7 +60,7 @@ export class Members extends React.Component {
   }
 
   render () {
-    const {staffs, students} = this.state
+    const { staffs, students } = this.state
 
     return <div>
       <Head subtitle='Members' />

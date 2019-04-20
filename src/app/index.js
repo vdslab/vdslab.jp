@@ -1,13 +1,13 @@
 import React from 'react'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
-import {Top} from './pages/top'
-import {Projects} from './pages/projects'
-import {Members} from './pages/members'
+import { Top } from './pages/top'
+import { Projects } from './pages/projects'
+import { Members } from './pages/members'
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
@@ -36,19 +36,19 @@ if ('serviceWorker' in navigator) {
     })
 }
 
-const TabLink = ({to, children, exact}) => <Route
+const TabLink = ({ to, children, exact }) => <Route
   path={to}
   exact={exact}
-  children={({match}) => {
+  children={({ match }) => {
     return <li className={match ? 'is-active' : ''}>
-      <Link to={to} style={{color: match ? 'rgb(32,88,90)' : 'white'}}>{children}</Link>
+      <Link to={to} style={{ color: match ? 'rgb(32,88,90)' : 'white' }}>{children}</Link>
     </li>
   }}
 />
 
 const Root = () => <Router>
   <div>
-    <section className='hero is-primary is-bold' style={{backgroundColor: 'rgb(32,88,90)', backgroundImage: 'none'}}>
+    <section className='hero is-primary is-bold' style={{ backgroundColor: 'rgb(32,88,90)', backgroundImage: 'none' }}>
       <div className='hero-body'>
         <div className='container has-text-centered'>
           <div className='column is-half-desktop is-offset-one-quarter-desktop'>

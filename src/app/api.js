@@ -1,10 +1,10 @@
-import {Observable} from 'rxjs/Observable'
+import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/fromPromise'
 
 const request = (query) => {
   const options = {
     method: 'POST',
-    body: JSON.stringify({query}),
+    body: JSON.stringify({ query }),
     headers: {
       'Content-Type': 'application/json'
     }

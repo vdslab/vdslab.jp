@@ -1,7 +1,7 @@
 import React from 'react'
-import {markdown} from 'markdown'
-import {Head} from '../head'
-import {getNews} from '../api'
+import { markdown } from 'markdown'
+import { Head } from '../head'
+import { getNews } from '../api'
 
 const formatDate = (date) => `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
 
@@ -14,7 +14,7 @@ export class Top extends React.Component {
   }
 
   componentDidMount () {
-    this.newsSubscription = getNews().subscribe(({data}) => {
+    this.newsSubscription = getNews().subscribe(({ data }) => {
       this.setState({
         news: data.news
       })
@@ -26,7 +26,7 @@ export class Top extends React.Component {
   }
 
   render () {
-    const {news} = this.state
+    const { news } = this.state
     return <div>
       <Head subtitle='Top' />
       <div className='columns'>
@@ -48,7 +48,7 @@ export class Top extends React.Component {
                   return <article key={item.id} className='media'>
                     <div className='media-content'>
                       <h4 className='title'>{item.title} ({formatDate(new Date(item.date))})</h4>
-                      <div className='content' dangerouslySetInnerHTML={{__html: markdown.toHTML(item.content)}} />
+                      <div className='content' dangerouslySetInnerHTML={{ __html: markdown.toHTML(item.content) }} />
                     </div>
                   </article>
                 })
@@ -61,18 +61,18 @@ export class Top extends React.Component {
             <h2>Links</h2>
           </div>
           <aside className='menu'>
-            <p style={{color: '#000'}} className='menu-label'>大学関係</p>
+            <p style={{ color: '#000' }} className='menu-label'>大学関係</p>
             <ul className='menu-list'>
               <li><a href='http://www.nihon-u.ac.jp/'>日本大学</a></li>
               <li><a href='https://www.chs.nihon-u.ac.jp/'>日本大学 文理学部</a></li>
               <li><a href='http://www.is.chs.nihon-u.ac.jp/'>日本大学 文理学部 情報科学科</a></li>
             </ul>
-            <p style={{color: '#000'}} className='menu-label'>Publications</p>
+            <p style={{ color: '#000' }} className='menu-label'>Publications</p>
             <ul className='menu-list'>
               <li><a href='https://scholar.google.co.jp/citations?user=sdlDSdcAAAAJ&hl=ja'>Google Scholar</a></li>
               <li><a href='https://orcid.org/0000-0003-2739-3249'>ORCID</a></li>
             </ul>
-            <p style={{color: '#000'}} className='menu-label'>Products</p>
+            <p style={{ color: '#000' }} className='menu-label'>Products</p>
             <ul className='menu-list'>
               <li><a href='https://github.com/vdslab'>GitHub</a></li>
             </ul>
