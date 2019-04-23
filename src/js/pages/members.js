@@ -3,6 +3,19 @@ import { markdown } from 'markdown'
 import { Head } from '../head'
 import { getMembers } from '../api'
 
+const groupStudents = (members) => {
+  const years = Array.from(new Set(members.map((member) => member.assignedYear)))
+  years.sort()
+  return years.map((year) => {
+    const yearMembers = members.filter((member) => member.assignedYear === year)
+    yearMembers.sort((m1, m2) => m1.order - m2.order)
+    return {
+      year,
+      members: yearMembers
+    }
+  })
+}
+
 const Staff = ({ member }) => <article className='media'>
   <div className='tile is-ancestor'>
     <div className='tile is-vertical'>
@@ -77,7 +90,7 @@ export class Members extends React.Component {
     this.membersSubscription = getMembers().subscribe(({ data }) => {
       this.setState({
         staffs: data.staffs,
-        students: data.students
+        students: groupStudents(data.students)
       })
     })
   }
@@ -97,7 +110,14 @@ export class Members extends React.Component {
             <p className='menu-label'>Members</p>
             <ul className='menu-list'>
               <li><a href='#staffs'>指導教員</a></li>
-              <li><a href='#students'>学生</a></li>
+              <li>
+                <a href='#students'>学生</a>
+                <ul>{
+                  students.map(({ year }) => <li key={year}>
+                    <a href={`#students-${year}`}>{year}年配属</a>
+                  </li>)
+                }</ul>
+              </li>
             </ul>
           </aside>
         </div>
@@ -108,7 +128,14 @@ export class Members extends React.Component {
           }</div>
           <h3 id='students' className='title'>学生</h3>
           <div>{
-            students.map((member) => <Student key={member.id} member={member} />)
+            students.map(({ year, members }) => {
+              return <div id={`students-${year}`} key={year}>
+                <h4>{year}年配属</h4>
+                <div>{
+                  members.map((member) => <Student key={member.id} member={member} />)
+                }</div>
+              </div>
+            })
           }</div>
         </div>
       </div>

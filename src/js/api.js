@@ -21,10 +21,8 @@ export const getMembers = () => {
         url
       }
     }
-    students: allMembers (filter: {type: Student}, orderBy: order_ASC) {
-      id, name, title, description, picture {
-        url
-      }
+    students: allMembers (filter: {type: Student}) {
+      id, name, title, description, order, assignedYear
     }
   }`
   return request(query)
