@@ -3,7 +3,7 @@ import { markdown } from 'markdown'
 import { Head } from '../head'
 import { getMembers } from '../api'
 
-const Member = ({ member }) => <article className='media'>
+const Staff = ({ member }) => <article className='media'>
   <div className='tile is-ancestor'>
     <div className='tile is-vertical'>
       <div className='tile is-parent' style={{ paddingBottom: 0 }} >
@@ -27,6 +27,33 @@ const Member = ({ member }) => <article className='media'>
             </figure>
           </div>
         </div>
+        <div className='tile is-child'>
+          <div className='column'>
+            <div className='content' dangerouslySetInnerHTML={{ __html: markdown.toHTML(member.description) }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+const Student = ({ member }) => <article className='media'>
+  <div className='tile is-ancestor'>
+    <div className='tile is-vertical'>
+      <div className='tile is-parent' style={{ paddingBottom: 0 }} >
+        <div className='tile is-child' style={{ paddingBottom: 0 }} >
+          <div className='column' style={{ paddingBottom: 0 }} >
+            <h4 className='title is-4 is-inline'>
+              {member.name}
+            </h4>
+            &nbsp;
+            <p className='subtitle is-inline'>
+              {member.title}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className='tile is-parent'>
         <div className='tile is-child'>
           <div className='column'>
             <div className='content' dangerouslySetInnerHTML={{ __html: markdown.toHTML(member.description) }} />
@@ -77,11 +104,11 @@ export class Members extends React.Component {
         <div className='column'>
           <h3 id='staffs' className='title'>指導教員</h3>
           <div>{
-            staffs.map((member) => <Member key={member.id} member={member} />)
+            staffs.map((member) => <Staff key={member.id} member={member} />)
           }</div>
           <h3 id='students' className='title'>学生</h3>
           <div>{
-            students.map((member) => <Member key={member.id} member={member} />)
+            students.map((member) => <Student key={member.id} member={member} />)
           }</div>
         </div>
       </div>

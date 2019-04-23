@@ -1,3 +1,5 @@
+import 'bulma/css/bulma.css'
+import logoPath from '../images/logo.svg'
 import React from 'react'
 import { render } from 'react-dom'
 import {
@@ -10,8 +12,9 @@ import { Projects } from './pages/projects'
 import { Members } from './pages/members'
 
 if ('serviceWorker' in navigator) {
+  const swName = '/sw.js'
   navigator.serviceWorker
-    .register('/sw.js')
+    .register(swName)
     .then((reg) => {
       reg.onupdatefound = () => {
         const installingWorker = reg.installing
@@ -54,7 +57,7 @@ const Root = () => <Router>
           <div className='column is-half-desktop is-offset-one-quarter-desktop'>
             <h1 className='title'>
               <figure className='image'>
-                <img src='/images/logo.svg' alt='vdslab website' />
+                <img src={logoPath} alt='vdslab website' />
               </figure>
             </h1>
             <h2 className='subtitle'>
