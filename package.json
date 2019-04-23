@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "parcel src/index.html",
-    "deploy": "rm -rf dist && parcel build src/index.html && netlify deploy --prod -d dist"
+    "build": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "Yosuke Onoue <onoue@likr-lab.com>",
