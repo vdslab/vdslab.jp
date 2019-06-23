@@ -9,7 +9,11 @@ const request = (query) => {
       'Content-Type': 'application/json'
     }
   }
-  const promise = window.fetch('https://api.graphcms.com/simple/v1/cje3n0xx2187j0196bfwbdyge', options)
+  const promise = window
+    .fetch(
+      'https://api.graphcms.com/simple/v1/cje3n0xx2187j0196bfwbdyge',
+      options
+    )
     .then((response) => response.json())
   return Observable.fromPromise(promise)
 }
