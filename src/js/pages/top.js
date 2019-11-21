@@ -1,5 +1,5 @@
 import React from 'react'
-import { markdown } from 'markdown'
+import { toHTML } from '../markdown'
 import { Head } from '../head'
 import { getNews } from '../api'
 
@@ -56,7 +56,7 @@ export class Top extends React.Component {
                         <div
                           className='content'
                           dangerouslySetInnerHTML={{
-                            __html: markdown.toHTML(item.content)
+                            __html: toHTML(item.content)
                           }}
                         />
                       </div>

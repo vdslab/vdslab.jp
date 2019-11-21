@@ -60,13 +60,13 @@ export class Projects extends React.Component {
     this.categoriesSubscription = getProjectCategories().subscribe(
       ({ data }) => {
         this.setState({
-          categories: data.allProjectCategories
+          categories: data.projectCategories
         })
       }
     )
     this.projectsSubscription = getProjects().subscribe(({ data }) => {
       this.setState({
-        projects: data.allProjects
+        projects: data.projects
       })
     })
   }
@@ -79,7 +79,7 @@ export class Projects extends React.Component {
         : getProjects()
       this.projectsSubscription = observable.subscribe(({ data }) => {
         this.setState({
-          projects: data.allProjects
+          projects: data.projects
         })
       })
     }

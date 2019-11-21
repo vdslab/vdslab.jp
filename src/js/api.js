@@ -11,7 +11,7 @@ const request = (query) => {
   }
   const promise = window
     .fetch(
-      'https://api.graphcms.com/simple/v1/cje3n0xx2187j0196bfwbdyge',
+      'https://api-apeast.graphcms.com/v1/ck1vrsd0c1mts019whoce6cox/master',
       options
     )
     .then((response) => response.json())
@@ -20,12 +20,12 @@ const request = (query) => {
 
 export const getMembers = () => {
   const query = `{
-    staffs: allMembers (filter: {type: Staff}, orderBy: order_ASC) {
+    staffs: members (where: {type: Staff}, orderBy: order_ASC) {
       id, name, title, description, picture {
         url
       }
     }
-    students: allMembers (filter: {type: Student}) {
+    students: members (where: {type: Student}) {
       id, name, title, description, order, assignedYear
     }
   }`
@@ -34,7 +34,7 @@ export const getMembers = () => {
 
 export const getProjects = () => {
   const query = `{
-    allProjects(orderBy: startYear_DESC) {
+    projects(orderBy: startYear_DESC) {
       id
       name
       description
@@ -52,7 +52,7 @@ export const getProjects = () => {
 
 export const getProjectsByCategoryId = (categoryId) => {
   const query = `{
-    allProjects(filter: {categories_some: {id: "${categoryId}"}}, orderBy: startYear_DESC) {
+    projects(where: {categories_some: {id: "${categoryId}"}}, orderBy: startYear_DESC) {
       id
       name
       description
@@ -70,7 +70,7 @@ export const getProjectsByCategoryId = (categoryId) => {
 
 export const getProjectCategories = () => {
   const query = `{
-    allProjectCategories {
+    projectCategories {
       id
       name
     }
@@ -80,7 +80,7 @@ export const getProjectCategories = () => {
 
 export const getNews = () => {
   const query = `{
-    news: allNews(orderBy: date_DESC, first: 5) {
+    news: newses(orderBy: date_DESC, first: 5) {
       id
       title
       content
