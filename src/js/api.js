@@ -1,10 +1,10 @@
 import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/fromPromise'
 
-const request = (query) => {
+const request = (query, variables = {}) => {
   const options = {
     method: 'POST',
-    body: JSON.stringify({ query }),
+    body: JSON.stringify({ query, variables }),
     headers: {
       'Content-Type': 'application/json'
     }
@@ -15,6 +15,7 @@ const request = (query) => {
       options
     )
     .then((response) => response.json())
+    .then(({ data }) => data)
   return Observable.fromPromise(promise)
 }
 
@@ -34,7 +35,7 @@ export const getMembers = () => {
 
 export const getProjects = () => {
   const query = `{
-    projects(orderBy: startYear_DESC) {
+    projects: projects(orderBy: startYear_DESC) {
       id
       name
       description
@@ -52,7 +53,7 @@ export const getProjects = () => {
 
 export const getProjectsByCategoryId = (categoryId) => {
   const query = `{
-    projects(where: {categories_some: {id: "${categoryId}"}}, orderBy: startYear_DESC) {
+    projects: projects(where: {categories_some: {id: "${categoryId}"}}, orderBy: startYear_DESC) {
       id
       name
       description
@@ -70,7 +71,7 @@ export const getProjectsByCategoryId = (categoryId) => {
 
 export const getProjectCategories = () => {
   const query = `{
-    projectCategories {
+    categories: categories {
       id
       name
     }
@@ -78,14 +79,35 @@ export const getProjectCategories = () => {
   return request(query)
 }
 
-export const getNews = () => {
-  const query = `{
-    news: newses(orderBy: date_DESC, first: 5) {
-      id
-      title
-      content
-      date
+export const getPosts = (page = 1, perPage = 5) => {
+  const skip = (page - 1) * perPage
+  const query = `query($perPage:Int!, $skip:Int!) {
+  posts: posts(orderBy: date_DESC, first: $perPage, skip: $skip) {
+    id
+    title
+    content
+    date
+  }
+  count: postsConnection {
+    aggregate {
+      count
     }
-  }`
-  return request(query)
+  }
+}`
+  return request(query, {
+    perPage,
+    skip
+  })
+}
+
+export const getPost = (postId) => {
+  const query = `query($postId:ID!) {
+  post: post(where: { id: $postId }) {
+    id
+    title
+    content
+    date
+  }
+}`
+  return request(query, { postId })
 }

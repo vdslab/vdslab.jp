@@ -1,10 +1,11 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-export const Head = ({ subtitle }) => {
+export const Head = ({ subtitle, description: myDescription }) => {
   const baseTitle = 'vdslab'
-  const title = `${subtitle} - ${baseTitle}`
-  const description = `日本大学文理学部情報科学科 尾上研究室のWebサイトです。`
+  const title = subtitle ? `${subtitle} - ${baseTitle}` : baseTitle
+  const defaultDescription = `日本大学文理学部情報科学科 尾上研究室のWebサイトです。`
+  const description = myDescription || defaultDescription
   const url = window.location.toString()
   return (
     <Helmet>

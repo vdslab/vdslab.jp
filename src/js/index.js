@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { Top } from './pages/top'
 import { Projects } from './pages/projects'
 import { Members } from './pages/members'
+import News from './pages/news'
+import NewsDetail from './pages/news-detail'
 
 if ('serviceWorker' in navigator) {
   const swName = '/sw.js'
@@ -80,6 +82,9 @@ const Root = () => (
                 <TabLink to='/' exact>
                   Top
                 </TabLink>
+                <TabLink to='/news' exact>
+                  News
+                </TabLink>
                 <TabLink to='/projects'>Projects</TabLink>
                 <TabLink to='/members'>Members</TabLink>
               </ul>
@@ -90,6 +95,8 @@ const Root = () => (
       <section className='section'>
         <div className='container'>
           <Route path='/' exact component={Top} />
+          <Route path='/news' exact component={News} />
+          <Route path='/news/:postId' component={NewsDetail} />
           <Route path='/projects/:category?' exact component={Projects} />
           <Route path='/members' exact component={Members} />
         </div>

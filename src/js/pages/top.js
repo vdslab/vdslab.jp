@@ -1,33 +1,32 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { toHTML } from '../markdown'
 import { Head } from '../head'
-import { getNews } from '../api'
-
-const formatDate = (date) =>
-  `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+import { getPosts } from '../api'
+import NewsArticle from '../components/news-article'
 
 export class Top extends React.Component {
   constructor() {
     super()
     this.state = {
-      news: []
+      posts: []
     }
   }
 
   componentDidMount() {
-    this.newsSubscription = getNews().subscribe(({ data }) => {
+    this.postsSubscription = getPosts(1, 3).subscribe(({ posts }) => {
       this.setState({
-        news: data.news
+        posts
       })
     })
   }
 
   componentWillUnmount() {
-    this.newsSubscription.unsubscribe()
+    this.postsSubscription.unsubscribe()
   }
 
   render() {
-    const { news } = this.state
+    const { posts } = this.state
     return (
       <div>
         <Head subtitle='Top' />
@@ -45,24 +44,13 @@ export class Top extends React.Component {
             </div>
             <div className='content'>
               <h2>News</h2>
-              <div>
-                {news.map((item) => {
-                  return (
-                    <article key={item.id} className='media'>
-                      <div className='media-content'>
-                        <h4 className='title'>
-                          {item.title} ({formatDate(new Date(item.date))})
-                        </h4>
-                        <div
-                          className='content'
-                          dangerouslySetInnerHTML={{
-                            __html: toHTML(item.content)
-                          }}
-                        />
-                      </div>
-                    </article>
-                  )
+              <div className='field'>
+                {posts.map((item) => {
+                  return <NewsArticle key={item.id} item={item} />
                 })}
+              </div>
+              <div className='field has-text-right'>
+                <Link to='/news'>more...</Link>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { markdown } from 'markdown'
+import { toHTML } from '../markdown'
 import { Head } from '../head'
 import { getMembers } from '../api'
 
@@ -44,7 +44,7 @@ const Staff = ({ member }) => (
               <div
                 className='content'
                 dangerouslySetInnerHTML={{
-                  __html: markdown.toHTML(member.description)
+                  __html: toHTML(member.description)
                 }}
               />
             </div>
@@ -74,7 +74,7 @@ const Student = ({ member }) => (
               <div
                 className='content'
                 dangerouslySetInnerHTML={{
-                  __html: markdown.toHTML(member.description)
+                  __html: toHTML(member.description)
                 }}
               />
             </div>
@@ -95,12 +95,14 @@ export class Members extends React.Component {
   }
 
   componentDidMount() {
-    this.membersSubscription = getMembers().subscribe(({ data }) => {
-      this.setState({
-        staffs: data.staffs,
-        students: groupStudents(data.students)
-      })
-    })
+    this.membersSubscription = getMembers().subscribe(
+      ({ staffs, students }) => {
+        this.setState({
+          staffs,
+          students: groupStudents(students)
+        })
+      }
+    )
   }
 
   componentWillUnmount() {

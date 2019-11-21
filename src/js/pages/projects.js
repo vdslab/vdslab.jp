@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { markdown } from 'markdown'
+import { toHTML } from '../markdown'
 import { Head } from '../head'
 import {
   getProjects,
@@ -34,7 +34,7 @@ const Project = ({ project }) => (
         <div
           className='content'
           dangerouslySetInnerHTML={{
-            __html: markdown.toHTML(project.description)
+            __html: toHTML(project.description)
           }}
         />
       </div>
@@ -58,16 +58,12 @@ export class Projects extends React.Component {
 
   componentDidMount() {
     this.categoriesSubscription = getProjectCategories().subscribe(
-      ({ data }) => {
-        this.setState({
-          categories: data.projectCategories
-        })
+      ({ categories }) => {
+        this.setState({ categories })
       }
     )
-    this.projectsSubscription = getProjects().subscribe(({ data }) => {
-      this.setState({
-        projects: data.projects
-      })
+    this.projectsSubscription = getProjects().subscribe(({ projects }) => {
+      this.setState({ projects })
     })
   }
 
@@ -77,10 +73,8 @@ export class Projects extends React.Component {
       const observable = category
         ? getProjectsByCategoryId(category)
         : getProjects()
-      this.projectsSubscription = observable.subscribe(({ data }) => {
-        this.setState({
-          projects: data.projects
-        })
+      this.projectsSubscription = observable.subscribe(({ projects }) => {
+        this.setState({ projects })
       })
     }
   }
