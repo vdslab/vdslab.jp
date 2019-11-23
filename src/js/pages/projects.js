@@ -1,25 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { toHTML } from '../markdown'
 import { Head } from '../head'
-import {
-  getProjects,
-  getProjectsByCategoryId,
-  getProjectCategories
-} from '../api'
-
-const Category = ({ category, large }) => {
-  const className = large ? 'tag is-link is-medium' : 'tag is-link'
-  return (
-    <Link
-      className={className}
-      style={{ backgroundColor: 'rgb(47, 87, 89)' }}
-      to={`/projects/${category.id}`}
-    >
-      {category.name}
-    </Link>
-  )
-}
+import CategoryTag from '../components/category-tag'
+import { getCategories, getProjects, getProjectsByCategoryId } from '../api'
 
 const Project = ({ project }) => (
   <article className='media'>
@@ -28,7 +12,11 @@ const Project = ({ project }) => (
         <h3 className='title'>{project.name}</h3>
         <div className='tags'>
           {project.categories.map((category) => (
-            <Category key={category.id} category={category} />
+            <CategoryTag
+              key={category.id}
+              category={category}
+              to={`/projects?category=${category.id}`}
+            />
           ))}
         </div>
         <div
@@ -38,68 +26,68 @@ const Project = ({ project }) => (
           }}
         />
       </div>
-      <div className='column'>
-        <figure className='image'>
-          <img src={project.picture.url} />
-        </figure>
-      </div>
+      {project.picture && (
+        <div className='column'>
+          <figure className='image'>
+            <img src={project.picture.url} />
+          </figure>
+        </div>
+      )}
     </div>
   </article>
 )
 
-export class Projects extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      projects: [],
-      categories: []
-    }
-  }
+const Projects = () => {
+  const [projects, setProjects] = useState([])
+  const [categories, setCategories] = useState([])
 
-  componentDidMount() {
-    this.categoriesSubscription = getProjectCategories().subscribe(
+  const { search } = useLocation()
+  const params = new URLSearchParams(search)
+  const category = params.get('category')
+
+  useEffect(() => {
+    const categoriesSubscription = getCategories().subscribe(
       ({ categories }) => {
-        this.setState({ categories })
+        setCategories(categories)
       }
     )
-    this.projectsSubscription = getProjects().subscribe(({ projects }) => {
-      this.setState({ projects })
-    })
-  }
-
-  componentDidUpdate(prevProps) {
-    const { category } = this.props.match.params
-    if (category !== prevProps.match.params.category) {
-      const observable = category
-        ? getProjectsByCategoryId(category)
-        : getProjects()
-      this.projectsSubscription = observable.subscribe(({ projects }) => {
-        this.setState({ projects })
-      })
+    return () => {
+      categoriesSubscription.unsubscribe()
     }
-  }
+  }, [])
 
-  componentWillUnmount() {
-    this.categoriesSubscription.unsubscribe()
-    this.projectsSubscription.unsubscribe()
-  }
+  useEffect(() => {
+    const observable = category
+      ? getProjectsByCategoryId(category)
+      : getProjects()
+    const projectsSubscription = observable.subscribe(({ projects }) => {
+      setProjects(projects)
+    })
+    return () => {
+      projectsSubscription.unsubscribe()
+    }
+  }, [category])
 
-  render() {
-    const { projects, categories } = this.state
-    return (
-      <div>
-        <Head subtitle='Projects' />
-        <div className='tags'>
-          {categories.map((category) => (
-            <Category key={category.id} category={category} large />
-          ))}
-        </div>
-        <div>
-          {projects.map((project) => (
-            <Project key={project.id} project={project} />
-          ))}
-        </div>
+  return (
+    <div>
+      <Head subtitle='Projects' />
+      <div className='tags'>
+        {categories.map((category) => (
+          <CategoryTag
+            key={category.id}
+            category={category}
+            large
+            to={`/projects?category=${category.id}`}
+          />
+        ))}
       </div>
-    )
-  }
+      <div>
+        {projects.map((project) => (
+          <Project key={project.id} project={project} />
+        ))}
+      </div>
+    </div>
+  )
 }
+
+export default Projects

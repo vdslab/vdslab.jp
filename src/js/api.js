@@ -19,64 +19,40 @@ const request = (query, variables = {}) => {
   return Observable.fromPromise(promise)
 }
 
+export const getCategories = () => {
+  const query = `{
+  categories: categories {
+    id
+    name
+  }
+}`
+  return request(query)
+}
+
 export const getMembers = () => {
   const query = `{
-    staffs: members (where: {type: Staff}, orderBy: order_ASC) {
-      id, name, title, description, picture {
-        url
-      }
+  staffs: members (where: {type: Staff}, orderBy: order_ASC) {
+    id, name, title, description, picture {
+      url
     }
-    students: members (where: {type: Student}) {
-      id, name, title, description, order, assignedYear
-    }
-  }`
+  }
+  students: members (where: {type: Student}) {
+    id, name, title, description, order, assignedYear
+  }
+}`
   return request(query)
 }
 
-export const getProjects = () => {
-  const query = `{
-    projects: projects(orderBy: startYear_DESC) {
-      id
-      name
-      description
-      picture {
-        url
-      }
-      categories {
-        id
-        name
-      }
-    }
-  }`
-  return request(query)
-}
-
-export const getProjectsByCategoryId = (categoryId) => {
-  const query = `{
-    projects: projects(where: {categories_some: {id: "${categoryId}"}}, orderBy: startYear_DESC) {
-      id
-      name
-      description
-      picture {
-        url
-      }
-      categories {
-        id
-        name
-      }
-    }
-  }`
-  return request(query)
-}
-
-export const getProjectCategories = () => {
-  const query = `{
-    categories: categories {
-      id
-      name
-    }
-  }`
-  return request(query)
+export const getPost = (postId) => {
+  const query = `query($postId:ID!) {
+  post: post(where: { id: $postId }) {
+    id
+    title
+    content
+    date
+  }
+}`
+  return request(query, { postId })
 }
 
 export const getPosts = (page = 1, perPage = 5) => {
@@ -100,14 +76,80 @@ export const getPosts = (page = 1, perPage = 5) => {
   })
 }
 
-export const getPost = (postId) => {
-  const query = `query($postId:ID!) {
-  post: post(where: { id: $postId }) {
+export const getProducts = () => {
+  const query = `{
+  products: products(orderBy: publishYear_DESC) {
     id
-    title
-    content
-    date
+    name
+    description
+    publishYear
+    picture {
+      url
+    }
+    categories {
+      id
+      name
+    }
   }
 }`
-  return request(query, { postId })
+  return request(query)
+}
+
+export const getProductsByCategoryId = (categoryId) => {
+  const query = `query($categoryId:ID!) {
+  products: products(where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC) {
+    id
+    name
+    description
+    publishYear
+    picture {
+      url
+    }
+    categories {
+      id
+      name
+    }
+  }
+}`
+  return request(query, { categoryId })
+}
+
+export const getProjects = () => {
+  const query = `{
+  projects: projects(orderBy: startYear_DESC) {
+    id
+    name
+    description
+    startYear
+    endYear
+    picture {
+      url
+    }
+    categories {
+      id
+      name
+    }
+  }
+}`
+  return request(query)
+}
+
+export const getProjectsByCategoryId = (categoryId) => {
+  const query = `query($categoryId:ID!) {
+  projects: projects(where: {categories_some: {id: $categoryId}}, orderBy: startYear_DESC) {
+    id
+    name
+    description
+    startYear
+    endYear
+    picture {
+      url
+    }
+    categories {
+      id
+      name
+    }
+  }
+}`
+  return request(query)
 }
