@@ -4,4 +4,4 @@ const parser = md({
   linkify: true
 })
 
-export const toHTML = (text) => parser.render(text)
+export const toHTML = (text) => parser.render(text || '')

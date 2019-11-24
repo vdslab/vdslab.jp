@@ -31,12 +31,12 @@ export const getCategories = () => {
 
 export const getMembers = () => {
   const query = `{
-  staffs: members (where: {type: Staff}, orderBy: order_ASC) {
+  staffs: members (where: {status: PUBLISHED, type: Staff}, orderBy: order_ASC) {
     id, name, title, description, picture {
       url
     }
   }
-  students: members (where: {type: Student}) {
+  students: members (where: {status: PUBLISHED, type: Student}) {
     id, name, title, description, order, assignedYear
   }
 }`
@@ -58,7 +58,7 @@ export const getPost = (postId) => {
 export const getPosts = (page = 1, perPage = 5) => {
   const skip = (page - 1) * perPage
   const query = `query($perPage:Int!, $skip:Int!) {
-  posts: posts(orderBy: date_DESC, first: $perPage, skip: $skip) {
+  posts: posts(where: {status: PUBLISHED}, orderBy: date_DESC, first: $perPage, skip: $skip) {
     id
     title
     content
@@ -78,7 +78,7 @@ export const getPosts = (page = 1, perPage = 5) => {
 
 export const getProducts = () => {
   const query = `{
-  products: products(orderBy: publishYear_DESC) {
+  products: products(where: {status: PUBLISHED}, orderBy: publishYear_DESC) {
     id
     name
     description
@@ -97,7 +97,7 @@ export const getProducts = () => {
 
 export const getProductsByCategoryId = (categoryId) => {
   const query = `query($categoryId:ID!) {
-  products: products(where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC) {
+  products: products(where: {status: PUBLISHED, categories_some: {id: $categoryId}}, orderBy: publishYear_DESC) {
     id
     name
     description
@@ -116,7 +116,7 @@ export const getProductsByCategoryId = (categoryId) => {
 
 export const getProjects = () => {
   const query = `{
-  projects: projects(orderBy: startYear_DESC) {
+  projects: projects(where: {status: PUBLISHED}, orderBy: startYear_DESC) {
     id
     name
     description
@@ -136,7 +136,7 @@ export const getProjects = () => {
 
 export const getProjectsByCategoryId = (categoryId) => {
   const query = `query($categoryId:ID!) {
-  projects: projects(where: {categories_some: {id: $categoryId}}, orderBy: startYear_DESC) {
+  projects: projects(where: {status: PUBLISHED, categories_some: {id: $categoryId}}, orderBy: startYear_DESC) {
     id
     name
     description
