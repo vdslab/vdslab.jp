@@ -11,7 +11,7 @@ const NewsArticle = ({ item }) => {
     <article className="media">
       <div className="media-content">
         <h4 className="title">
-          <Link to={`/news/${item.id}`}>
+          <Link className="has-text-black" to={`/news/${item.id}`}>
             {item.title} ({formatDate(new Date(item.date))})
           </Link>
         </h4>
