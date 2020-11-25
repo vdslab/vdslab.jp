@@ -1,23 +1,23 @@
-import { Observable } from 'rxjs/Observable'
-import 'rxjs/add/observable/fromPromise'
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/observable/fromPromise";
 
 const request = (query, variables = {}) => {
   const options = {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify({ query, variables }),
     headers: {
-      'Content-Type': 'application/json'
-    }
-  }
+      "Content-Type": "application/json",
+    },
+  };
   const promise = window
     .fetch(
-      'https://api-apeast.graphcms.com/v1/ck1vrsd0c1mts019whoce6cox/master',
-      options
+      "https://api-apeast.graphcms.com/v1/ck1vrsd0c1mts019whoce6cox/master",
+      options,
     )
     .then((response) => response.json())
-    .then(({ data }) => data)
-  return Observable.fromPromise(promise)
-}
+    .then(({ data }) => data);
+  return Observable.fromPromise(promise);
+};
 
 export const getCategories = () => {
   const query = `{
@@ -25,9 +25,9 @@ export const getCategories = () => {
     id
     name
   }
-}`
-  return request(query)
-}
+}`;
+  return request(query);
+};
 
 export const getMembers = () => {
   const query = `{
@@ -39,9 +39,9 @@ export const getMembers = () => {
   students: members (where: {status: PUBLISHED, type: Student}) {
     id, name, title, description, order, assignedYear
   }
-}`
-  return request(query)
-}
+}`;
+  return request(query);
+};
 
 export const getPost = (postId) => {
   const query = `query($postId:ID!) {
@@ -51,12 +51,12 @@ export const getPost = (postId) => {
     content
     date
   }
-}`
-  return request(query, { postId })
-}
+}`;
+  return request(query, { postId });
+};
 
 export const getPosts = (page = 1, perPage = 5) => {
-  const skip = (page - 1) * perPage
+  const skip = (page - 1) * perPage;
   const query = `query($perPage:Int!, $skip:Int!) {
   posts: posts(where: {status: PUBLISHED}, orderBy: date_DESC, first: $perPage, skip: $skip) {
     id
@@ -69,12 +69,12 @@ export const getPosts = (page = 1, perPage = 5) => {
       count
     }
   }
-}`
+}`;
   return request(query, {
     perPage,
-    skip
-  })
-}
+    skip,
+  });
+};
 
 export const getProducts = () => {
   const query = `{
@@ -91,9 +91,9 @@ export const getProducts = () => {
       name
     }
   }
-}`
-  return request(query)
-}
+}`;
+  return request(query);
+};
 
 export const getProductsByCategoryId = (categoryId) => {
   const query = `query($categoryId:ID!) {
@@ -110,9 +110,9 @@ export const getProductsByCategoryId = (categoryId) => {
       name
     }
   }
-}`
-  return request(query, { categoryId })
-}
+}`;
+  return request(query, { categoryId });
+};
 
 export const getProjects = () => {
   const query = `{
@@ -130,9 +130,9 @@ export const getProjects = () => {
       name
     }
   }
-}`
-  return request(query)
-}
+}`;
+  return request(query);
+};
 
 export const getProjectsByCategoryId = (categoryId) => {
   const query = `query($categoryId:ID!) {
@@ -150,6 +150,6 @@ export const getProjectsByCategoryId = (categoryId) => {
       name
     }
   }
-}`
-  return request(query)
-}
+}`;
+  return request(query);
+};

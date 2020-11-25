@@ -1,7 +1,7 @@
-import md from 'markdown-it'
+import md from "markdown-it";
 
 const parser = md({
-  linkify: true
-})
+  linkify: true,
+});
 
-export const toHTML = (text) => parser.render(text || '')
+export const toHTML = (text) => parser.render(text || "");

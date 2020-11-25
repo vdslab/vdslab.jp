@@ -1,50 +1,52 @@
-import React from 'react'
-import { toHTML } from '../markdown'
-import { Head } from '../head'
-import { getMembers } from '../api'
+import React from "react";
+import { toHTML } from "../markdown";
+import { Head } from "../head";
+import { getMembers } from "../api";
 
 const groupStudents = (members) => {
   const years = Array.from(
-    new Set(members.map((member) => member.assignedYear))
-  )
-  years.sort()
+    new Set(members.map((member) => member.assignedYear)),
+  );
+  years.sort();
   return years.map((year) => {
-    const yearMembers = members.filter((member) => member.assignedYear === year)
-    yearMembers.sort((m1, m2) => m1.order - m2.order)
+    const yearMembers = members.filter(
+      (member) => member.assignedYear === year,
+    );
+    yearMembers.sort((m1, m2) => m1.order - m2.order);
     return {
       year,
-      members: yearMembers
-    }
-  })
-}
+      members: yearMembers,
+    };
+  });
+};
 
 const Staff = ({ member }) => (
-  <article className='media'>
-    <div className='tile is-ancestor'>
-      <div className='tile is-vertical'>
-        <div className='tile is-parent' style={{ paddingBottom: 0 }}>
-          <div className='tile is-child' style={{ paddingBottom: 0 }}>
-            <div className='column' style={{ paddingBottom: 0 }}>
-              <h4 className='title is-4 is-inline'>{member.name}</h4>
+  <article className="media">
+    <div className="tile is-ancestor">
+      <div className="tile is-vertical">
+        <div className="tile is-parent" style={{ paddingBottom: 0 }}>
+          <div className="tile is-child" style={{ paddingBottom: 0 }}>
+            <div className="column" style={{ paddingBottom: 0 }}>
+              <h4 className="title is-4 is-inline">{member.name}</h4>
               &nbsp;
-              <p className='subtitle is-inline'>{member.title}</p>
+              <p className="subtitle is-inline">{member.title}</p>
             </div>
           </div>
         </div>
-        <div className='tile is-parent'>
-          <div className='tile is-child is-2'>
-            <div className='column is-half-mobile is-offset-one-quarter-mobile'>
-              <figure className='image'>
+        <div className="tile is-parent">
+          <div className="tile is-child is-2">
+            <div className="column is-half-mobile is-offset-one-quarter-mobile">
+              <figure className="image">
                 <img src={member.picture.url} />
               </figure>
             </div>
           </div>
-          <div className='tile is-child'>
-            <div className='column'>
+          <div className="tile is-child">
+            <div className="column">
               <div
-                className='content'
+                className="content"
                 dangerouslySetInnerHTML={{
-                  __html: toHTML(member.description)
+                  __html: toHTML(member.description),
                 }}
               />
             </div>
@@ -53,28 +55,28 @@ const Staff = ({ member }) => (
       </div>
     </div>
   </article>
-)
+);
 
 const Student = ({ member }) => (
-  <article className='media'>
-    <div className='tile is-ancestor'>
-      <div className='tile is-vertical'>
-        <div className='tile is-parent' style={{ paddingBottom: 0 }}>
-          <div className='tile is-child' style={{ paddingBottom: 0 }}>
-            <div className='column' style={{ paddingBottom: 0 }}>
-              <h4 className='title is-4 is-inline'>{member.name}</h4>
+  <article className="media">
+    <div className="tile is-ancestor">
+      <div className="tile is-vertical">
+        <div className="tile is-parent" style={{ paddingBottom: 0 }}>
+          <div className="tile is-child" style={{ paddingBottom: 0 }}>
+            <div className="column" style={{ paddingBottom: 0 }}>
+              <h4 className="title is-4 is-inline">{member.name}</h4>
               &nbsp;
-              <p className='subtitle is-inline'>{member.title}</p>
+              <p className="subtitle is-inline">{member.title}</p>
             </div>
           </div>
         </div>
-        <div className='tile is-parent'>
-          <div className='tile is-child'>
-            <div className='column'>
+        <div className="tile is-parent">
+          <div className="tile is-child">
+            <div className="column">
               <div
-                className='content'
+                className="content"
                 dangerouslySetInnerHTML={{
-                  __html: toHTML(member.description)
+                  __html: toHTML(member.description),
                 }}
               />
             </div>
@@ -83,15 +85,15 @@ const Student = ({ member }) => (
       </div>
     </div>
   </article>
-)
+);
 
 export class Members extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       staffs: [],
-      students: []
-    }
+      students: [],
+    };
   }
 
   componentDidMount() {
@@ -99,32 +101,32 @@ export class Members extends React.Component {
       ({ staffs, students }) => {
         this.setState({
           staffs,
-          students: groupStudents(students)
-        })
-      }
-    )
+          students: groupStudents(students),
+        });
+      },
+    );
   }
 
   componentWillUnmount() {
-    this.membersSubscription.unsubscribe()
+    this.membersSubscription.unsubscribe();
   }
 
   render() {
-    const { staffs, students } = this.state
+    const { staffs, students } = this.state;
 
     return (
       <div>
-        <Head subtitle='Members' />
-        <div className='columns'>
-          <div className='column is-2'>
-            <aside className='menu'>
-              <p className='menu-label'>Members</p>
-              <ul className='menu-list'>
+        <Head subtitle="Members" />
+        <div className="columns">
+          <div className="column is-2">
+            <aside className="menu">
+              <p className="menu-label">Members</p>
+              <ul className="menu-list">
                 <li>
-                  <a href='#staffs'>指導教員</a>
+                  <a href="#staffs">指導教員</a>
                 </li>
                 <li>
-                  <a href='#students'>学生</a>
+                  <a href="#students">学生</a>
                   <ul>
                     {students.map(({ year }) => (
                       <li key={year}>
@@ -136,8 +138,8 @@ export class Members extends React.Component {
               </ul>
             </aside>
           </div>
-          <div className='column'>
-            <h3 id='staffs' className='title'>
+          <div className="column">
+            <h3 id="staffs" className="title">
               指導教員
             </h3>
             <div>
@@ -145,7 +147,7 @@ export class Members extends React.Component {
                 <Staff key={member.id} member={member} />
               ))}
             </div>
-            <h3 id='students' className='title'>
+            <h3 id="students" className="title">
               学生
             </h3>
             <div>
@@ -159,12 +161,12 @@ export class Members extends React.Component {
                       ))}
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { toHTML } from '../markdown'
-import { Head } from '../head'
-import CategoryTag from '../components/category-tag'
-import { getCategories, getProducts, getProductsByCategoryId } from '../api'
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { toHTML } from "../markdown";
+import { Head } from "../head";
+import CategoryTag from "../components/category-tag";
+import { getCategories, getProducts, getProductsByCategoryId } from "../api";
 
 const Product = ({ product }) => (
-  <article className='media'>
-    <div className='columns'>
-      <div className='column'>
-        <h3 className='title'>{product.name}</h3>
-        <div className='tags'>
+  <article className="media">
+    <div className="columns">
+      <div className="column">
+        <h3 className="title">{product.name}</h3>
+        <div className="tags">
           {product.categories.map((category) => (
             <CategoryTag
               key={category.id}
@@ -20,58 +20,58 @@ const Product = ({ product }) => (
           ))}
         </div>
         <div
-          className='content'
+          className="content"
           dangerouslySetInnerHTML={{
-            __html: toHTML(product.description)
+            __html: toHTML(product.description),
           }}
         />
       </div>
       {product.picture && (
-        <div className='column'>
-          <figure className='image'>
+        <div className="column">
+          <figure className="image">
             <img src={product.picture.url} />
           </figure>
         </div>
       )}
     </div>
   </article>
-)
+);
 
 const Products = () => {
-  const [products, setProducts] = useState([])
-  const [categories, setCategories] = useState([])
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
 
-  const { search } = useLocation()
-  const params = new URLSearchParams(search)
-  const category = params.get('category')
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const category = params.get("category");
 
   useEffect(() => {
     const categoriesSubscription = getCategories().subscribe(
       ({ categories }) => {
-        setCategories(categories)
-      }
-    )
+        setCategories(categories);
+      },
+    );
     return () => {
-      categoriesSubscription.unsubscribe()
-    }
-  }, [])
+      categoriesSubscription.unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     const observable = category
       ? getProductsByCategoryId(category)
-      : getProducts()
+      : getProducts();
     const productsSubscription = observable.subscribe(({ products }) => {
-      setProducts(products)
-    })
+      setProducts(products);
+    });
     return () => {
-      productsSubscription.unsubscribe()
-    }
-  }, [category])
+      productsSubscription.unsubscribe();
+    };
+  }, [category]);
 
   return (
     <div>
-      <Head subtitle='Products' />
-      <div className='tags'>
+      <Head subtitle="Products" />
+      <div className="tags">
         {categories.map((category) => (
           <CategoryTag
             key={category.id}
@@ -87,7 +87,7 @@ const Products = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

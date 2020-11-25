@@ -1,38 +1,38 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { toHTML } from '../markdown'
-import { Head } from '../head'
-import { getPosts } from '../api'
-import NewsArticle from '../components/news-article'
+import React from "react";
+import { Link } from "react-router-dom";
+import { toHTML } from "../markdown";
+import { Head } from "../head";
+import { getPosts } from "../api";
+import NewsArticle from "../components/news-article";
 
 export class Top extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      posts: []
-    }
+      posts: [],
+    };
   }
 
   componentDidMount() {
     this.postsSubscription = getPosts(1, 3).subscribe(({ posts }) => {
       this.setState({
-        posts
-      })
-    })
+        posts,
+      });
+    });
   }
 
   componentWillUnmount() {
-    this.postsSubscription.unsubscribe()
+    this.postsSubscription.unsubscribe();
   }
 
   render() {
-    const { posts } = this.state
+    const { posts } = this.state;
     return (
       <div>
-        <Head subtitle='Top' />
-        <div className='columns'>
-          <div className='column'>
-            <div className='content'>
+        <Head subtitle="Top" />
+        <div className="columns">
+          <div className="column">
+            <div className="content">
               <h2>About</h2>
               <p>
                 日本大学文理学部情報科学科 尾上研究室(vdslab)のWebサイトです。
@@ -42,64 +42,64 @@ export class Top extends React.Component {
                 可視化を通じて現実の問題に対して「深い洞察」を与えるような人とデータの対話を目指します。
               </p>
             </div>
-            <div className='content'>
+            <div className="content">
               <h2>News</h2>
-              <div className='field'>
+              <div className="field">
                 {posts.map((item) => {
-                  return <NewsArticle key={item.id} item={item} />
+                  return <NewsArticle key={item.id} item={item} />;
                 })}
               </div>
-              <div className='field has-text-right'>
-                <Link to='/news'>more...</Link>
+              <div className="field has-text-right">
+                <Link to="/news">more...</Link>
               </div>
             </div>
           </div>
-          <div className='column is-4'>
-            <div className='content'>
+          <div className="column is-4">
+            <div className="content">
               <h2>Links</h2>
             </div>
-            <aside className='menu'>
-              <p style={{ color: '#000' }} className='menu-label'>
+            <aside className="menu">
+              <p style={{ color: "#000" }} className="menu-label">
                 大学関係
               </p>
-              <ul className='menu-list'>
+              <ul className="menu-list">
                 <li>
-                  <a href='http://www.nihon-u.ac.jp/'>日本大学</a>
+                  <a href="http://www.nihon-u.ac.jp/">日本大学</a>
                 </li>
                 <li>
-                  <a href='https://www.chs.nihon-u.ac.jp/'>日本大学 文理学部</a>
+                  <a href="https://www.chs.nihon-u.ac.jp/">日本大学 文理学部</a>
                 </li>
                 <li>
-                  <a href='http://www.is.chs.nihon-u.ac.jp/'>
+                  <a href="http://www.is.chs.nihon-u.ac.jp/">
                     日本大学 文理学部 情報科学科
                   </a>
                 </li>
               </ul>
-              <p style={{ color: '#000' }} className='menu-label'>
+              <p style={{ color: "#000" }} className="menu-label">
                 Publications
               </p>
-              <ul className='menu-list'>
+              <ul className="menu-list">
                 <li>
-                  <a href='https://scholar.google.co.jp/citations?user=sdlDSdcAAAAJ&hl=ja'>
+                  <a href="https://scholar.google.co.jp/citations?user=sdlDSdcAAAAJ&hl=ja">
                     Google Scholar
                   </a>
                 </li>
                 <li>
-                  <a href='https://orcid.org/0000-0003-2739-3249'>ORCID</a>
+                  <a href="https://orcid.org/0000-0003-2739-3249">ORCID</a>
                 </li>
               </ul>
-              <p style={{ color: '#000' }} className='menu-label'>
+              <p style={{ color: "#000" }} className="menu-label">
                 Products
               </p>
-              <ul className='menu-list'>
+              <ul className="menu-list">
                 <li>
-                  <a href='https://github.com/vdslab'>GitHub</a>
+                  <a href="https://github.com/vdslab">GitHub</a>
                 </li>
               </ul>
             </aside>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
