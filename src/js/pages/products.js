@@ -46,26 +46,18 @@ const Products = () => {
   const category = params.get("category");
 
   useEffect(() => {
-    const categoriesSubscription = getCategories().subscribe(
-      ({ categories }) => {
-        setCategories(categories);
-      },
-    );
-    return () => {
-      categoriesSubscription.unsubscribe();
-    };
+    getCategories().then(({ categories }) => {
+      setCategories(categories);
+    });
   }, []);
 
   useEffect(() => {
-    const observable = category
+    const promise = category
       ? getProductsByCategoryId(category)
       : getProducts();
-    const productsSubscription = observable.subscribe(({ products }) => {
+    promise.then(({ products }) => {
       setProducts(products);
     });
-    return () => {
-      productsSubscription.unsubscribe();
-    };
   }, [category]);
 
   return (

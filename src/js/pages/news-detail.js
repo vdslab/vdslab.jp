@@ -10,12 +10,9 @@ const NewsDetail = () => {
 
   const [post, setPost] = useState(null);
   useEffect(() => {
-    const subscription = getPost(params.postId).subscribe(({ post }) => {
+    getPost(params.postId).then(({ post }) => {
       setPost(post);
     });
-    return () => {
-      subscription.unsubscribe();
-    };
   }, [params.postId]);
 
   if (post == null) {

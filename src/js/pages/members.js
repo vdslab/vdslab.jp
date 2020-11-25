@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { toHTML } from "../markdown";
 import { Head } from "../head";
 import { getMembers } from "../api";
@@ -87,86 +87,69 @@ const Student = ({ member }) => (
   </article>
 );
 
-export class Members extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      staffs: [],
-      students: [],
-    };
-  }
+export function Members() {
+  const [staffs, setStaffs] = useState([]);
+  const [students, setStudents] = useState([]);
 
-  componentDidMount() {
-    this.membersSubscription = getMembers().subscribe(
-      ({ staffs, students }) => {
-        this.setState({
-          staffs,
-          students: groupStudents(students),
-        });
-      },
-    );
-  }
+  useEffect(() => {
+    getMembers().then(({ staffs, students }) => {
+      setStaffs(staffs);
+      setStudents(groupStudents(students));
+    });
+  }, []);
 
-  componentWillUnmount() {
-    this.membersSubscription.unsubscribe();
-  }
-
-  render() {
-    const { staffs, students } = this.state;
-
-    return (
-      <div>
-        <Head subtitle="Members" />
-        <div className="columns">
-          <div className="column is-2">
-            <aside className="menu">
-              <p className="menu-label">Members</p>
-              <ul className="menu-list">
-                <li>
-                  <a href="#staffs">指導教員</a>
-                </li>
-                <li>
-                  <a href="#students">学生</a>
-                  <ul>
-                    {students.map(({ year }) => (
-                      <li key={year}>
-                        <a href={`#students-${year}`}>{year}年配属</a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              </ul>
-            </aside>
+  return (
+    <div>
+      <Head subtitle="Members" />
+      <div className="columns">
+        <div className="column is-2">
+          <aside className="menu">
+            <p className="menu-label">Members</p>
+            <ul className="menu-list">
+              <li>
+                <a href="#staffs">指導教員</a>
+              </li>
+              <li>
+                <a href="#students">学生</a>
+                <ul>
+                  {students.map(({ year }) => (
+                    <li key={year}>
+                      <a href={`#students-${year}`}>{year}年配属</a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
+          </aside>
+        </div>
+        <div className="column">
+          <h3 id="staffs" className="title">
+            指導教員
+          </h3>
+          <div>
+            {staffs.map((member) => (
+              <Staff key={member.id} member={member} />
+            ))}
           </div>
-          <div className="column">
-            <h3 id="staffs" className="title">
-              指導教員
-            </h3>
-            <div>
-              {staffs.map((member) => (
-                <Staff key={member.id} member={member} />
-              ))}
-            </div>
-            <h3 id="students" className="title">
-              学生
-            </h3>
-            <div>
-              {students.map(({ year, members }) => {
-                return (
-                  <div id={`students-${year}`} key={year}>
-                    <h4>{year}年配属</h4>
-                    <div>
-                      {members.map((member) => (
-                        <Student key={member.id} member={member} />
-                      ))}
-                    </div>
+          <h3 id="students" className="title">
+            学生
+          </h3>
+          <div>
+            {students.map(({ year, members }) => {
+              return (
+                <div id={`students-${year}`} key={year}>
+                  <h4>{year}年配属</h4>
+                  <div>
+                    {members.map((member) => (
+                      <Student key={member.id} member={member} />
+                    ))}
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

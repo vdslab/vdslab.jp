@@ -46,26 +46,18 @@ const Projects = () => {
   const category = params.get("category");
 
   useEffect(() => {
-    const categoriesSubscription = getCategories().subscribe(
-      ({ categories }) => {
-        setCategories(categories);
-      },
-    );
-    return () => {
-      categoriesSubscription.unsubscribe();
-    };
+    getCategories().then(({ categories }) => {
+      setCategories(categories);
+    });
   }, []);
 
   useEffect(() => {
-    const observable = category
+    const promise = category
       ? getProjectsByCategoryId(category)
       : getProjects();
-    const projectsSubscription = observable.subscribe(({ projects }) => {
+    promise.then(({ projects }) => {
       setProjects(projects);
     });
-    return () => {
-      projectsSubscription.unsubscribe();
-    };
   }, [category]);
 
   return (

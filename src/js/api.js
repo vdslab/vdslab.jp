@@ -1,6 +1,3 @@
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/observable/fromPromise";
-
 const request = (query, variables = {}) => {
   const options = {
     method: "POST",
@@ -9,14 +6,12 @@ const request = (query, variables = {}) => {
       "Content-Type": "application/json",
     },
   };
-  const promise = window
-    .fetch(
-      "https://api-ap-northeast-1.graphcms.com/v2/ck1vrsd0c1mts019whoce6cox/master",
-      options,
-    )
+  return fetch(
+    "https://api-ap-northeast-1.graphcms.com/v2/ck1vrsd0c1mts019whoce6cox/master",
+    options,
+  )
     .then((response) => response.json())
     .then(({ data }) => data);
-  return Observable.fromPromise(promise);
 };
 
 export const getCategories = () => {

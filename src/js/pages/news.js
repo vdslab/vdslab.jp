@@ -19,15 +19,10 @@ const News = ({ match }) => {
   const [maxPage, setMaxPage] = useState(1);
 
   useEffect(() => {
-    const subscription = getPosts(page, perPage).subscribe(
-      ({ posts, count }) => {
-        setPosts(posts);
-        setMaxPage(Math.ceil(count.aggregate.count / perPage));
-      },
-    );
-    return () => {
-      subscription.unsubscribe();
-    };
+    getPosts(page, perPage).then(({ posts, count }) => {
+      setPosts(posts);
+      setMaxPage(Math.ceil(count.aggregate.count / perPage));
+    });
   }, [page]);
   return (
     <div>
