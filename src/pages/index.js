@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { toHTML } from "../markdown";
-import { Head } from "../head";
+import Link from "next/link";
+
 import { getPosts } from "../api";
+import Head from "../components/head";
 import NewsArticle from "../components/news-article";
 
-export function Top() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    getPosts(1, 3).then(({ posts }) => {
-      setPosts(posts);
-    });
-  }, []);
-
+function IndexPage({ posts }) {
   return (
     <div>
       <Head subtitle="Top" />
@@ -37,7 +28,7 @@ export function Top() {
               })}
             </div>
             <div className="field has-text-right">
-              <Link to="/news">more...</Link>
+              <Link href="/news/list">more...</Link>
             </div>
           </div>
         </div>
@@ -89,3 +80,12 @@ export function Top() {
     </div>
   );
 }
+
+export async function getStaticProps({ params }) {
+  const { posts } = await getPosts(1, 3);
+  return {
+    props: { posts },
+  };
+}
+
+export default IndexPage;

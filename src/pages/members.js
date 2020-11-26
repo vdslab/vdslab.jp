@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { toHTML } from "../markdown";
-import { Head } from "../head";
 import { getMembers } from "../api";
+import Head from "../components/head";
+import { toHTML } from "../markdown";
 
 const groupStudents = (members) => {
   const years = Array.from(
     new Set(members.map((member) => member.assignedYear)),
   );
   years.sort();
+  years.reverse();
   return years.map((year) => {
     const yearMembers = members.filter(
       (member) => member.assignedYear === year,
@@ -87,17 +87,7 @@ const Student = ({ member }) => (
   </article>
 );
 
-export function Members() {
-  const [staffs, setStaffs] = useState([]);
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    getMembers().then(({ staffs, students }) => {
-      setStaffs(staffs);
-      setStudents(groupStudents(students));
-    });
-  }, []);
-
+export function MembersPage({ staffs, students }) {
   return (
     <div>
       <Head subtitle="Members" />
@@ -153,3 +143,12 @@ export function Members() {
     </div>
   );
 }
+
+export async function getStaticProps() {
+  const { staffs, students } = await getMembers();
+  return {
+    props: { staffs, students: groupStudents(students) },
+  };
+}
+
+export default MembersPage;

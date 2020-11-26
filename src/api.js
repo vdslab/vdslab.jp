@@ -1,4 +1,4 @@
-const request = (query, variables = {}) => {
+function request(query, variables = {}) {
   const options = {
     method: "POST",
     body: JSON.stringify({ query, variables }),
@@ -12,9 +12,9 @@ const request = (query, variables = {}) => {
   )
     .then((response) => response.json())
     .then(({ data }) => data);
-};
+}
 
-export const getCategories = () => {
+export function getCategories() {
   const query = `{
   categories: categories {
     id
@@ -22,9 +22,9 @@ export const getCategories = () => {
   }
 }`;
   return request(query);
-};
+}
 
-export const getMembers = () => {
+export function getMembers() {
   const query = `{
   staffs: members (stage: PUBLISHED, where: {type: Staff}, orderBy: order_ASC) {
     id, name, title, description, picture {
@@ -36,9 +36,9 @@ export const getMembers = () => {
   }
 }`;
   return request(query);
-};
+}
 
-export const getPost = (postId) => {
+export function getPost(postId) {
   const query = `query($postId:ID!) {
   post: post(where: { id: $postId }) {
     id
@@ -48,9 +48,21 @@ export const getPost = (postId) => {
   }
 }`;
   return request(query, { postId });
-};
+}
 
-export const getPosts = (page = 1, perPage = 5) => {
+export async function getPostCount() {
+  const query = `{
+  postsConnection {
+    aggregate {
+      count
+    }
+  }
+}`;
+  const response = await request(query);
+  return response.postsConnection.aggregate.count;
+}
+
+export function getPosts(page = 1, perPage = 5) {
   const skip = (page - 1) * perPage;
   const query = `query($perPage:Int!, $skip:Int!) {
   posts: posts(stage: PUBLISHED, orderBy: date_DESC, first: $perPage, skip: $skip) {
@@ -69,9 +81,18 @@ export const getPosts = (page = 1, perPage = 5) => {
     perPage,
     skip,
   });
-};
+}
 
-export const getProducts = () => {
+export function getPostIds() {
+  const query = `{
+  posts {
+    id
+  }
+}`;
+  return request(query);
+}
+
+export function getProducts() {
   const query = `{
   products: products(stage: PUBLISHED, orderBy: publishYear_DESC) {
     id
@@ -88,9 +109,9 @@ export const getProducts = () => {
   }
 }`;
   return request(query);
-};
+}
 
-export const getProductsByCategoryId = (categoryId) => {
+export function getProductsByCategoryId(categoryId) {
   const query = `query($categoryId:ID!) {
   products: products(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC) {
     id
@@ -107,9 +128,9 @@ export const getProductsByCategoryId = (categoryId) => {
   }
 }`;
   return request(query, { categoryId });
-};
+}
 
-export const getProjects = () => {
+export function getProjects() {
   const query = `{
   projects: projects(stage: PUBLISHED, orderBy: startYear_DESC) {
     id
@@ -127,9 +148,9 @@ export const getProjects = () => {
   }
 }`;
   return request(query);
-};
+}
 
-export const getProjectsByCategoryId = (categoryId) => {
+export function getProjectsByCategoryId(categoryId) {
   const query = `query($categoryId:ID!) {
   projects: projects(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: startYear_DESC) {
     id
@@ -147,4 +168,4 @@ export const getProjectsByCategoryId = (categoryId) => {
   }
 }`;
   return request(query, { categoryId });
-};
+}
