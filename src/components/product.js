@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { toHTML } from "../markdown";
 import CategoryTag from "./category-tag";
 
@@ -29,7 +30,12 @@ function Product({ product }) {
         {product.picture && (
           <div className="column">
             <figure className="image">
-              <img src={product.picture.url} />
+              <Image
+                src={product.picture.url}
+                width={product.picture.width}
+                height={product.picture.height}
+                alt={product.name}
+              />
             </figure>
           </div>
         )}

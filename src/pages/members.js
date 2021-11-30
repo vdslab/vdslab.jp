@@ -41,8 +41,8 @@ const Staff = ({ member }) => (
                 <Image
                   src={member.picture.url}
                   alt={member.name}
-                  width="512px"
-                  height="512px"
+                  width={member.picture.width}
+                  height={member.picture.height}
                 />
               </figure>
             </div>
