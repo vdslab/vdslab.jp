@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getMembers } from "../api";
 import Head from "../components/head";
 import { toHTML } from "../markdown";
@@ -37,7 +38,12 @@ const Staff = ({ member }) => (
           <div className="tile is-child is-2">
             <div className="column is-half-mobile is-offset-one-quarter-mobile">
               <figure className="image">
-                <img src={member.picture.url} />
+                <Image
+                  src={member.picture.url}
+                  alt={member.name}
+                  width="512px"
+                  height="512px"
+                />
               </figure>
             </div>
           </div>
