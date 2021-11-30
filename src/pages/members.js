@@ -4,13 +4,13 @@ import { toHTML } from "../markdown";
 
 const groupStudents = (members) => {
   const years = Array.from(
-    new Set(members.map((member) => member.assignedYear)),
+    new Set(members.map((member) => member.assignedYear))
   );
   years.sort();
   years.reverse();
   return years.map((year) => {
     const yearMembers = members.filter(
-      (member) => member.assignedYear === year,
+      (member) => member.assignedYear === year
     );
     yearMembers.sort((m1, m2) => m1.order - m2.order);
     return {
