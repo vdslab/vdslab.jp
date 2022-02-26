@@ -2,6 +2,8 @@ import { getMembers } from "../api";
 import Head from "../components/head";
 import { toHTML } from "../markdown";
 
+const latestAssignedYear = 2021;
+
 const groupStudents = (members) => {
   const years = Array.from(
     new Set(members.map((member) => member.assignedYear)),
@@ -18,6 +20,20 @@ const groupStudents = (members) => {
       members: yearMembers,
     };
   });
+};
+
+const getOBs = (members) => {
+  const OBs = members.filter((member) => {
+    return latestAssignedYear - member.year >= 2;
+  });
+  return OBs;
+};
+
+const getUndergraduates = (membars) => {
+  const undergraduates = membars.filter((member) => {
+    return latestAssignedYear - member.year < 2;
+  });
+  return undergraduates;
 };
 
 const Staff = ({ member }) => (
@@ -88,6 +104,9 @@ const Student = ({ member }) => (
 );
 
 export function MembersPage({ staffs, students }) {
+  const undergraduates = getUndergraduates(students);
+  const OBs = getOBs(students);
+
   return (
     <div>
       <Head subtitle="Members" />
@@ -125,7 +144,24 @@ export function MembersPage({ staffs, students }) {
             学生
           </h3>
           <div>
-            {students.map(({ year, members }) => {
+            {undergraduates.map(({ year, members }) => {
+              return (
+                <div id={`students-${year}`} key={year}>
+                  <h4>{year}年配属</h4>
+                  <div>
+                    {members.map((member) => (
+                      <Student key={member.id} member={member} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <h3 id="OBs" className="title">
+            OB
+          </h3>
+          <div>
+            {OBs.map(({ year, members }) => {
               return (
                 <div id={`students-${year}`} key={year}>
                   <h4>{year}年配属</h4>
