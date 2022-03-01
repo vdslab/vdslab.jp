@@ -2,7 +2,16 @@ import { getMembers } from "../api";
 import Head from "../components/head";
 import { toHTML } from "../markdown";
 
-const latestAssignedYear = 2021;
+
+const getAssignedYear = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const april = 4;
+  return month < april ? year - 1: year;
+}
+
+const latestAssignedYear = getAssignedYear();
 
 const groupStudents = (members) => {
   const years = Array.from(
