@@ -115,6 +115,25 @@ export function getProducts() {
   return request(query);
 }
 
+export function getProduct(productId) {
+  const query = `query($productId:ID!) {
+    product: product(where: { id: $productId}) {
+      id
+      name
+      description
+      publishYear
+      picture {
+        url
+      }
+      categories {
+        id
+        name
+      }
+    }
+  }`;
+  return request(query, { productId });
+}
+
 export function getProductsByCategoryId(categoryId) {
   const query = `query($categoryId:ID!) {
   products: products(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC) {
@@ -134,6 +153,15 @@ export function getProductsByCategoryId(categoryId) {
   }
 }`;
   return request(query, { categoryId });
+}
+
+export function getProductIds() {
+  const query = `{
+    products {
+      id
+    }
+  }`;
+  return request(query);
 }
 
 export function getProjects() {
@@ -158,6 +186,26 @@ export function getProjects() {
   return request(query);
 }
 
+export function getProject(projectId) {
+  const query = `query($projectId:ID!) {
+    project: project(where: { id: $projectId }) {
+      id
+      name
+      description
+      startYear
+      endYear
+      picture {
+        url
+      }
+      categories {
+        id
+        name
+      }
+    }
+  }`;
+  return request(query, { projectId });
+}
+
 export function getProjectsByCategoryId(categoryId) {
   const query = `query($categoryId:ID!) {
   projects: projects(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: startYear_DESC) {
@@ -178,4 +226,13 @@ export function getProjectsByCategoryId(categoryId) {
   }
 }`;
   return request(query, { categoryId });
+}
+
+export function getProjectIds() {
+  const query = `{
+    projects {
+      id
+    }
+  }`;
+  return request(query);
 }
