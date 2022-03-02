@@ -1,5 +1,5 @@
 import { getProject, getProjectIds } from "../../../api";
-import Head from "next/dist/next-server/lib/head";
+import Head from "../../../components/head";
 import Project from "../../../components/project";
 
 function ProjectPage({ project }) {

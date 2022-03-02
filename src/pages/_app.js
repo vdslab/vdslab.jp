@@ -2,6 +2,8 @@ import "bulma/css/bulma.css";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import logoSvg from "../../public/images/logo.svg";
 
 function TabLink({ children, exact, href }) {
   const router = useRouter();
@@ -29,7 +31,7 @@ function App({ Component, pageProps }) {
             <div className="column is-half-desktop is-offset-one-quarter-desktop">
               <h1 className="title">
                 <figure className="image">
-                  <img src="/images/logo.svg" alt="vdslab website" />
+                  <Image src={logoSvg} alt="vdslab website" />
                 </figure>
               </h1>
               <h2 className="subtitle">

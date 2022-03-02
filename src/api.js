@@ -29,6 +29,8 @@ export function getMembers() {
   staffs: members (stage: PUBLISHED, where: {type: Staff}, orderBy: order_ASC) {
     id, name, title, description, picture {
       url
+      height
+      width
     }
   }
   students: members (stage: PUBLISHED, where: {type: Student}) {
@@ -101,6 +103,8 @@ export function getProducts() {
     publishYear
     picture {
       url
+      height
+      width
     }
     categories {
       id
@@ -139,6 +143,8 @@ export function getProductsByCategoryId(categoryId) {
     publishYear
     picture {
       url
+      height
+      width
     }
     categories {
       id
@@ -168,6 +174,8 @@ export function getProjects() {
     endYear
     picture {
       url
+      height
+      width
     }
     categories {
       id
@@ -208,6 +216,8 @@ export function getProjectsByCategoryId(categoryId) {
     endYear
     picture {
       url
+      height
+      width
     }
     categories {
       id

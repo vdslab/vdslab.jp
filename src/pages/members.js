@@ -1,16 +1,28 @@
+import Image from "next/image";
 import { getMembers } from "../api";
 import Head from "../components/head";
 import { toHTML } from "../markdown";
 
+
+const getAssignedYear = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const april = 4;
+  return month < april ? year - 1: year;
+}
+
+const latestAssignedYear = getAssignedYear();
+
 const groupStudents = (members) => {
   const years = Array.from(
-    new Set(members.map((member) => member.assignedYear)),
+    new Set(members.map((member) => member.assignedYear))
   );
   years.sort();
   years.reverse();
   return years.map((year) => {
     const yearMembers = members.filter(
-      (member) => member.assignedYear === year,
+      (member) => member.assignedYear === year
     );
     yearMembers.sort((m1, m2) => m1.order - m2.order);
     return {
@@ -18,6 +30,20 @@ const groupStudents = (members) => {
       members: yearMembers,
     };
   });
+};
+
+const getOBs = (members) => {
+  const OBs = members.filter((member) => {
+    return latestAssignedYear - member.year >= 2;
+  });
+  return OBs;
+};
+
+const getUndergraduates = (membars) => {
+  const undergraduates = membars.filter((member) => {
+    return latestAssignedYear - member.year < 2;
+  });
+  return undergraduates;
 };
 
 const Staff = ({ member }) => (
@@ -37,7 +63,12 @@ const Staff = ({ member }) => (
           <div className="tile is-child is-2">
             <div className="column is-half-mobile is-offset-one-quarter-mobile">
               <figure className="image">
-                <img src={member.picture.url} />
+                <Image
+                  src={member.picture.url}
+                  alt={member.name}
+                  width={member.picture.width}
+                  height={member.picture.height}
+                />
               </figure>
             </div>
           </div>
@@ -88,6 +119,9 @@ const Student = ({ member }) => (
 );
 
 export function MembersPage({ staffs, students }) {
+  const undergraduates = getUndergraduates(students);
+  const OBs = getOBs(students);
+
   return (
     <div>
       <Head subtitle="Members" />
@@ -125,7 +159,24 @@ export function MembersPage({ staffs, students }) {
             学生
           </h3>
           <div>
-            {students.map(({ year, members }) => {
+            {undergraduates.map(({ year, members }) => {
+              return (
+                <div id={`students-${year}`} key={year}>
+                  <h4>{year}年配属</h4>
+                  <div>
+                    {members.map((member) => (
+                      <Student key={member.id} member={member} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <h3 id="OBs" className="title">
+            OB
+          </h3>
+          <div>
+            {OBs.map(({ year, members }) => {
               return (
                 <div id={`students-${year}`} key={year}>
                   <h4>{year}年配属</h4>
