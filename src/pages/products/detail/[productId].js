@@ -1,5 +1,5 @@
 import { getProduct, getProductIds } from "../../../api";
-import Head from "next/dist/next-server/lib/head";
+import Head from "../../../components/head";
 import Product from "../../../components/product";
 
 function ProductPage({ product }) {
