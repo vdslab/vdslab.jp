@@ -124,6 +124,8 @@ export function getProduct(productId) {
       publishYear
       picture {
         url
+        height
+        width
       }
       categories {
         id
