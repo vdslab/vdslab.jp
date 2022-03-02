@@ -5,11 +5,11 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import logoSvg from "../../public/images/logo.svg";
 
-function TabLink({ children, exact, href }) {
+function TabLink({ children, exact, href,activePath }) {
   const router = useRouter();
   const match = exact
     ? router.pathname === href
-    : router.pathname.startsWith(href);
+    : router.pathname.startsWith(activePath);
   return (
     <li className={match ? "is-active" : ""}>
       <Link href={href}>
@@ -48,10 +48,10 @@ function App({ Component, pageProps }) {
                 <TabLink href="/" exact>
                   Top
                 </TabLink>
-                <TabLink href="/news/list">News</TabLink>
-                <TabLink href="/projects">Projects</TabLink>
-                <TabLink href="/products">Products</TabLink>
-                <TabLink href="/members">Members</TabLink>
+                <TabLink href="/news/list" activePath="/news">News</TabLink>
+                <TabLink href="/projects" activePath="/projects">Projects</TabLink>
+                <TabLink href="/products" activePath="/products">Products</TabLink>
+                <TabLink href="/members" activePath="/members">Members</TabLink>
               </ul>
             </div>
           </nav>
