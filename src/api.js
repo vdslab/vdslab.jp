@@ -94,9 +94,10 @@ export function getPostIds() {
   return request(query);
 }
 
-export function getProducts() {
-  const query = `{
-  products: products(stage: PUBLISHED, orderBy: publishYear_DESC) {
+export function getProducts(page = 1, perPage = 5) {
+  const skip = (page - 1) * perPage;
+  const query = `query($perPage:Int!, $skip:Int!) {
+  products: products(stage: PUBLISHED, orderBy: publishYear_DESC,first: $perPage, skip: $skip) {
     id
     name
     description
@@ -111,8 +112,16 @@ export function getProducts() {
       name
     }
   }
+  count: productsConnection {
+    aggregate {
+      count
+    }
+  }
 }`;
-  return request(query);
+  return request(query, {
+    perPage,
+    skip,
+  });
 }
 
 export function getProduct(productId) {
@@ -164,6 +173,42 @@ export function getProductIds() {
     }
   }`;
   return request(query);
+}
+
+export async function getProductCount() {
+  const query = `{
+    productsConnection {
+      aggregate {
+        count
+      }
+    }
+  }`;
+  const response = await request(query);
+  return response.productsConnection.aggregate.count;
+}
+
+export async function getProductCategories() {
+  const query = `{
+    productCategoryArray: products(stage: PUBLISHED){
+      categories {
+        id
+        name
+      }
+    }
+  }`;
+  const response = await request(query);
+  const { productCategoryArray } = response;
+  const productCategoryMap = new Map();
+  productCategoryArray.forEach((product) => {
+    product.categories.forEach((category) => {
+      productCategoryMap.set(category.id, category.name);
+    });
+  });
+  const productCategories = [];
+  productCategoryMap.forEach((name, id) => {
+    productCategories.push({ id: id, name: name });
+  });
+  return { productCategories };
 }
 
 export function getProjects() {
