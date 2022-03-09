@@ -16,10 +16,7 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
             key={category.id}
             category={category}
             large
-            href={{
-              pathname: "/products/[categoryId]",
-              query: { categoryId: category.id,page: "1" },
-            }}
+            href={{ pathname: "/products/[categoryId]", query: { categoryId: category.id , page: "1" } }}
           />
         ))}
       </div>
