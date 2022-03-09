@@ -16,7 +16,10 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
             key={category.id}
             category={category}
             large
-            href={{ pathname: "/products/[categoryId]", query: { categoryId: category.id , page: "1" } }}
+            href={{
+              pathname: "/products/[categoryId]",
+              query: { categoryId: category.id }
+            }}
           />
         ))}
       </div>
@@ -28,7 +31,10 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
       <div className="field">
         <nav className="pagination is-centerd">
           <Link
-            href={{ pathname: "/products/list/[page]", query: { page: page - 1 } }}
+            href={{
+              pathname: "/products/list/[page]",
+              query: { page: page - 1 }
+            }}
           >
             <a
               className="pagination-previous"
@@ -41,7 +47,10 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
             </a>
           </Link>
           <Link
-            href={{ pathname: "/products/list/[page]", query: { page: page + 1 } }}
+            href={{
+              pathname: "/products/list/[page]",
+              query: { page: page + 1 }
+            }}
           >
             <a
               className="pagination-next"
