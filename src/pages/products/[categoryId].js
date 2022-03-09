@@ -1,14 +1,14 @@
-import { getCategories, getProductsByCategoryId } from "../../api";
+import { getProductCategories, getProductsByCategoryId } from "../../api";
 import CategoryTag from "../../components/category-tag";
 import Head from "../../components/head";
 import Product from "../../components/product";
 
-function ProductsPage({ categories, products }) {
+function ProductsPage({ productCategories, products }) {
   return (
     <div>
       <Head subtitle="Products" />
       <div className="tags">
-        {categories.map((category) => (
+        {productCategories.map((category) => (
           <CategoryTag
             key={category.id}
             category={category}
@@ -30,17 +30,19 @@ function ProductsPage({ categories, products }) {
 }
 
 export async function getStaticProps({ params }) {
-  const { categories } = await getCategories();
+  const { productCategories } = await getProductCategories();
   const { products } = await getProductsByCategoryId(params.categoryId);
   return {
-    props: { categories, products },
+    props: { productCategories, products },
   };
 }
 
 export async function getStaticPaths() {
-  const { categories } = await getCategories();
+  const { productCategories } = await getProductCategories();
   return {
-    paths: categories.map(({ id: categoryId }) => ({ params: { categoryId } })),
+    paths: productCategories.map(({ id: categoryId }) => ({
+      params: { categoryId },
+    })),
     fallback: false,
   };
 }
