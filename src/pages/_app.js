@@ -49,7 +49,7 @@ function App({ Component, pageProps }) {
                   Top
                 </TabLink>
                 <TabLink href="/news/list" activePath="/news">News</TabLink>
-                <TabLink href="/projects" activePath="/projects">Projects</TabLink>
+                <TabLink href="/projects/list" activePath="/projects">Projects</TabLink>
                 <TabLink href="/products/list" activePath="/products">Products</TabLink>
                 <TabLink href="/members" activePath="/members">Members</TabLink>
               </ul>

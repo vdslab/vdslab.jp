@@ -97,7 +97,7 @@ export function getPostIds() {
 export function getProducts(page = 1, perPage = 5) {
   const skip = (page - 1) * perPage;
   const query = `query($perPage:Int!, $skip:Int!) {
-  products: products(stage: PUBLISHED, orderBy: publishYear_DESC,first: $perPage, skip: $skip) {
+  products: products(stage: PUBLISHED, orderBy: publishYear_DESC, first: $perPage, skip: $skip) {
     id
     name
     description
@@ -196,8 +196,7 @@ export async function getProductCategories() {
       }
     }
   }`;
-  const response = await request(query);
-  const { productCategoryArray } = response;
+  const { productCategoryArray } = await request(query);
   const productCategoryMap = new Map();
   productCategoryArray.forEach((product) => {
     product.categories.forEach((category) => {
@@ -211,9 +210,10 @@ export async function getProductCategories() {
   return { productCategories };
 }
 
-export function getProjects() {
-  const query = `{
-  projects: projects(stage: PUBLISHED, orderBy: startYear_DESC) {
+export function getProjects(page = 1, perPage = 5) {
+  const skip = (page - 1) * perPage;
+  const query = `query($perPage:Int!, $skip:Int!) {
+  projects: projects(stage: PUBLISHED, orderBy: startYear_DESC, first: $perPage, skip: $skip) {
     id
     name
     description
@@ -229,8 +229,16 @@ export function getProjects() {
       name
     }
   }
+  count: projectsConnection {
+    aggregate {
+      count
+    }
+  }
 }`;
-  return request(query);
+  return request(query, {
+    perPage,
+    skip,
+  });
 }
 
 export function getProject(projectId) {
@@ -282,4 +290,39 @@ export function getProjectIds() {
     }
   }`;
   return request(query);
+}
+
+export async function getProjectCount() {
+  const query = `{
+    projectsConnection {
+      aggregate {
+        count
+      }
+    }
+  }`;
+  const response = await request(query);
+  return response.projectsConnection.aggregate.count;
+}
+
+export async function getProjectCategories() {
+  const query = `{
+    projectCategoryArray: projects(stage: PUBLISHED) {
+      categories {
+        id
+        name
+      }
+    }
+  }`;
+  const { projectCategoryArray } = await request(query);
+  const projectCategoryMap = new Map();
+  projectCategoryArray.forEach((project) => {
+    project.categories.forEach((category) => {
+      projectCategoryMap.set(category.id, category.name);
+    });
+  });
+  const projectCategories = [];
+  projectCategoryMap.forEach((name, id) => {
+    projectCategories.push({ id: id, name: name });
+  });
+  return { projectCategories };
 }
