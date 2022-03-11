@@ -75,9 +75,8 @@ function ProductsPage({
 export async function getStaticProps({ params }) {
   const page = +(params?.page || 1);
   const { categoryId } = params;
+  const { products, count } = await getProductsByCategoryId(page, perPage, categoryId);
   const { productCategories } = await getProductCategories();
-  const { products } = await getProductsByCategoryId(page, perPage, categoryId);
-  const { count } = await getProductCountByCategoryId(params.categoryId);
   const maxPage = Math.ceil(count.aggregate.count / perPage);
   return {
     props: { maxPage, page, products, productCategories, categoryId },
@@ -88,8 +87,8 @@ export async function getStaticPaths() {
   const { productCategories } = await getProductCategories();
   const paths = [];
   for (const category of productCategories) {
-    const { count } = await getProductCountByCategoryId(category.id);
-    const maxPage = Math.ceil(count.aggregate.count / perPage);
+    const count = await getProductCountByCategoryId(category.id);
+    const maxPage = Math.ceil(count / perPage);
     for (let page = 1; page <= maxPage; ++page) {
       paths.push({
         params: { categoryId: category.id, page: page.toString() },

@@ -163,11 +163,16 @@ export function getProductsByCategoryId(page = 1, perPage = 5, categoryId) {
           name
         }
       }
+      count: productsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
+        aggregate {
+          count
+        }
+      }
     }`;
   return request(query, { perPage, skip, categoryId });
 }
 
-export function getProductCountByCategoryId(categoryId) {
+export async function getProductCountByCategoryId(categoryId) {
   const query = `query($categoryId:ID!) {
     count: productsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
       aggregate {
@@ -175,7 +180,8 @@ export function getProductCountByCategoryId(categoryId) {
       }
     }
   }`;
-  return request(query, { categoryId });
+  const response = await request(query, { categoryId })
+  return response.count.aggregate.count;
 }
 
 export function getProductIds() {
@@ -292,11 +298,16 @@ export function getProjectsByCategoryId(page = 1, perPage = 5, categoryId) {
         name
       }
     }
+    count: projectsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
+      aggregate {
+        count
+      }
+    }
   }`;
   return request(query, { perPage, skip, categoryId });
 }
 
-export function getProjectCountByCategoryId(categoryId) {
+export async function getProjectCountByCategoryId(categoryId) {
   const query = `query($categoryId:ID!) {
     count: projectsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
       aggregate {
@@ -304,7 +315,8 @@ export function getProjectCountByCategoryId(categoryId) {
       }
     }
   }`;
-  return request(query, { categoryId });
+  const response = await request(query, { categoryId });
+  return response.count.aggregate.count;
 }
 
 export function getProjectIds() {
