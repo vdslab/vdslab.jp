@@ -145,24 +145,36 @@ export function getProduct(productId) {
   return request(query, { productId });
 }
 
-export function getProductsByCategoryId(categoryId) {
+export function getProductsByCategoryId(page = 1, perPage = 5,categoryId) {
+  const skip = (page - 1) * perPage;
+  const query = `query($perPage:Int!, $skip:Int!, $categoryId:ID!) {
+      products: products(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC, first: $perPage, skip: $skip) {
+        id
+        name
+        description
+        publishYear
+        picture {
+          url
+          height
+          width
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }`;
+  return request(query, { perPage, skip, categoryId });
+}
+
+export function getProductCountByCategoryId(categoryId) {
   const query = `query($categoryId:ID!) {
-  products: products(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC) {
-    id
-    name
-    description
-    publishYear
-    picture {
-      url
-      height
-      width
+    count: productsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
+      aggregate {
+        count
+      }
     }
-    categories {
-      id
-      name
-    }
-  }
-}`;
+  }`;
   return request(query, { categoryId });
 }
 

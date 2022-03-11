@@ -1,12 +1,18 @@
 import Link from "next/link";
-import { getProducts, getProductCount, getProductCategories } from "../../../api";
+import { getProductCategories, getProductsByCategoryId, getProductCountByCategoryId } from "../../../api";
 import CategoryTag from "../../../components/category-tag";
 import Head from "../../../components/head";
 import Product from "../../../components/product";
 
 const perPage = 5;
 
-function ProductsListPage({ maxPage, page, products, productCategories }) {
+function ProductsPage({
+  maxPage,
+  page,
+  products,
+  productCategories,
+  categoryId
+}) {
   return (
     <div>
       <Head subtitle="Products" />
@@ -18,7 +24,7 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
             large
             href={{
               pathname: "/products/[categoryId]/[page]",
-              query: { categoryId: category.id,page: 1 }
+              query: { categoryId: category.id, page: 1 }
             }}
           />
         ))}
@@ -32,15 +38,13 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
         <nav className="pagination is-centerd">
           <Link
             href={{
-              pathname: "/products/list/[page]",
-              query: { page: page - 1 }
+              pathname: "/products/[categoryId]/[page]",
+              query: { categoryId: categoryId, page: page - 1 }
             }}
           >
             <a
               className="pagination-previous"
-              style={{
-                pointerEvents: page <= 1 ? "none" : "auto",
-              }}
+              style={{ pointerEvents: page <= 1 ? "none" : "auto" }}
               disabled={page === 1}
             >
               前へ
@@ -48,8 +52,8 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
           </Link>
           <Link
             href={{
-              pathname: "/products/list/[page]",
-              query: { page: page + 1 }
+              pathname: "/products/[categoryId]/[page]",
+              query: { categoryId: categoryId, page: page + 1 }
             }}
           >
             <a
@@ -70,20 +74,27 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
 
 export async function getStaticProps({ params }) {
   const page = +(params?.page || 1);
+  const { categoryId } = params;
   const { productCategories } = await getProductCategories();
-  const { products, count } = await getProducts(page, perPage);
+  const { products } = await getProductsByCategoryId(page, perPage, categoryId);
+  const { count } = await getProductCountByCategoryId(params.categoryId);
   const maxPage = Math.ceil(count.aggregate.count / perPage);
   return {
-    props: { maxPage, page, products, productCategories },
+    props: { maxPage, page, products, productCategories, categoryId },
   };
 }
 
 export async function getStaticPaths() {
+  const { productCategories } = await getProductCategories();
   const paths = [];
-  const count = await getProductCount();
-  const maxPage = Math.ceil(count / perPage);
-  for (let page = 1; page <= maxPage; ++page) {
-    paths.push({ params: { page: page.toString() } });
+  for (const category of productCategories) {
+    const { count } = await getProductCountByCategoryId(category.id);
+    const maxPage = Math.ceil(count.aggregate.count / perPage);
+    for (let page = 1; page <= maxPage; ++page) {
+      paths.push({
+        params: { categoryId: category.id, page: page.toString() },
+      });
+    }
   }
   return {
     paths,
@@ -91,4 +102,4 @@ export async function getStaticPaths() {
   };
 }
 
-export default ProductsListPage;
+export default ProductsPage;
