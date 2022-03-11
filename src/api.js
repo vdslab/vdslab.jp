@@ -145,7 +145,7 @@ export function getProduct(productId) {
   return request(query, { productId });
 }
 
-export function getProductsByCategoryId(page = 1, perPage = 5,categoryId) {
+export function getProductsByCategoryId(page = 1, perPage = 5, categoryId) {
   const skip = (page - 1) * perPage;
   const query = `query($perPage:Int!, $skip:Int!, $categoryId:ID!) {
       products: products(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC, first: $perPage, skip: $skip) {
@@ -225,28 +225,28 @@ export async function getProductCategories() {
 export function getProjects(page = 1, perPage = 5) {
   const skip = (page - 1) * perPage;
   const query = `query($perPage:Int!, $skip:Int!) {
-  projects: projects(stage: PUBLISHED, orderBy: startYear_DESC, first: $perPage, skip: $skip) {
-    id
-    name
-    description
-    startYear
-    endYear
-    picture {
-      url
-      height
-      width
-    }
-    categories {
+    projects: projects(stage: PUBLISHED, orderBy: startYear_DESC, first: $perPage, skip: $skip) {
       id
       name
+      description
+      startYear
+      endYear
+      picture {
+        url
+        height
+        width
+      }
+      categories {
+        id
+        name
+      }
     }
-  }
-  count: projectsConnection {
-    aggregate {
-      count
+    count: projectsConnection {
+      aggregate {
+        count
+      }
     }
-  }
-}`;
+  }`;
   return request(query, {
     perPage,
     skip,
@@ -273,25 +273,37 @@ export function getProject(projectId) {
   return request(query, { projectId });
 }
 
-export function getProjectsByCategoryId(categoryId) {
-  const query = `query($categoryId:ID!) {
-  projects: projects(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: startYear_DESC) {
-    id
-    name
-    description
-    startYear
-    endYear
-    picture {
-      url
-      height
-      width
-    }
-    categories {
+export function getProjectsByCategoryId(page = 1, perPage = 5, categoryId) {
+  const skip = (page - 1) * perPage;
+  const query = `query($perPage:Int!, $skip:Int!, $categoryId:ID!) {
+    projects: projects(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: startYear_DESC, first: $perPage, skip: $skip) {
       id
       name
+      description
+      startYear
+      endYear
+      picture {
+        url
+        height
+        width
+      }
+      categories {
+        id
+        name
+      }
     }
-  }
-}`;
+  }`;
+  return request(query, { perPage, skip, categoryId });
+}
+
+export function getProjectCountByCategoryId(categoryId) {
+  const query = `query($categoryId:ID!) {
+    count: projectsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
+      aggregate {
+        count
+      }
+    }
+  }`;
   return request(query, { categoryId });
 }
 
