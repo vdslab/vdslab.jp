@@ -180,7 +180,7 @@ export async function getProductCountByCategoryId(categoryId) {
       }
     }
   }`;
-  const response = await request(query, { categoryId })
+  const response = await request(query, { categoryId });
   return response.count.aggregate.count;
 }
 
