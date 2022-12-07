@@ -10,10 +10,8 @@ function NewsArticle({ item }) {
     <article className="media">
       <div className="media-content">
         <h4 className="title">
-          <Link href={`/news/detail/${item.id}`}>
-            <a className="has-text-black">
-              {item.title} ({formatDate(new Date(item.date))})
-            </a>
+          <Link href={`/news/detail/${item.id}`} className="has-text-black">
+            {item.title} ({formatDate(new Date(item.date))})
           </Link>
         </h4>
         <div

@@ -9,8 +9,11 @@ function Product({ product }) {
       <div className="columns">
         <div className="column">
           <h3 className="title">
-            <Link href={`/products/detail/${product.id}`}>
-              <a className="has-text-black">{product.name}</a>
+            <Link
+              href={`/products/detail/${product.id}`}
+              className="has-text-black"
+            >
+              {product.name}
             </Link>
           </h3>
           <div className="tags">
@@ -20,7 +23,7 @@ function Product({ product }) {
                 category={category}
                 href={{
                   pathname: "/products/[categoryId]/[page]",
-                  query: { categoryId: category.id,page: 1 },
+                  query: { categoryId: category.id, page: 1 },
                 }}
               />
             ))}

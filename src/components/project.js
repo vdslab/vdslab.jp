@@ -9,8 +9,11 @@ function Project({ project }) {
       <div className="columns">
         <div className="column">
           <h3 className="title">
-            <Link href={`/projects/detail/${project.id}`}>
-              <a className="has-text-black">{project.name}</a>
+            <Link
+              href={`/projects/detail/${project.id}`}
+              className="has-text-black"
+            >
+              {project.name}
             </Link>
           </h3>
           <div className="tags">
@@ -20,7 +23,7 @@ function Project({ project }) {
                 category={category}
                 href={{
                   pathname: "/projects/[categoryId]/[page]",
-                  query: { categoryId: category.id,page: 1 },
+                  query: { categoryId: category.id, page: 1 },
                 }}
               />
             ))}

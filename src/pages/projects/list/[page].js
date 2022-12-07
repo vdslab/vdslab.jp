@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { getProjects, getProjectCount, getProjectCategories } from "../../../api";
+import {
+  getProjects,
+  getProjectCount,
+  getProjectCategories,
+} from "../../../api";
 import CategoryTag from "../../../components/category-tag";
 import Head from "../../../components/head";
 import Project from "../../../components/project";
@@ -35,32 +39,26 @@ function ProjectsListPage({ maxPage, page, projectCategories, projects }) {
               pathname: "/projects/list/[page]",
               query: { page: page - 1 },
             }}
+            className="pagination-previous"
+            style={{
+              pointerEvents: page <= 1 ? "none" : "auto",
+            }}
+            disabled={page === 1}
           >
-            <a
-              className="pagination-previous"
-              style={{
-                pointerEvents: page <= 1 ? "none" : "auto",
-              }}
-              disabled={page === 1}
-            >
-              前へ
-            </a>
+            前へ
           </Link>
           <Link
             href={{
               pathname: "/projects/list/[page]",
               query: { page: page + 1 },
             }}
+            className="pagination-next"
+            style={{
+              pointerEvents: page >= maxPage ? "none" : "auto",
+            }}
+            disabled={page === maxPage}
           >
-            <a
-              className="pagination-next"
-              style={{
-                pointerEvents: page >= maxPage ? "none" : "auto",
-              }}
-              disabled={page === maxPage}
-            >
-              次へ
-            </a>
+            次へ
           </Link>
         </nav>
       </div>

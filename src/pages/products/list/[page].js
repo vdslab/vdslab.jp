@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { getProducts, getProductCount, getProductCategories } from "../../../api";
+import {
+  getProducts,
+  getProductCount,
+  getProductCategories,
+} from "../../../api";
 import CategoryTag from "../../../components/category-tag";
 import Head from "../../../components/head";
 import Product from "../../../components/product";
@@ -18,7 +22,7 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
             large
             href={{
               pathname: "/products/[categoryId]/[page]",
-              query: { categoryId: category.id,page: 1 }
+              query: { categoryId: category.id, page: 1 },
             }}
           />
         ))}
@@ -33,34 +37,28 @@ function ProductsListPage({ maxPage, page, products, productCategories }) {
           <Link
             href={{
               pathname: "/products/list/[page]",
-              query: { page: page - 1 }
+              query: { page: page - 1 },
             }}
+            className="pagination-previous"
+            style={{
+              pointerEvents: page <= 1 ? "none" : "auto",
+            }}
+            disabled={page === 1}
           >
-            <a
-              className="pagination-previous"
-              style={{
-                pointerEvents: page <= 1 ? "none" : "auto",
-              }}
-              disabled={page === 1}
-            >
-              前へ
-            </a>
+            前へ
           </Link>
           <Link
             href={{
               pathname: "/products/list/[page]",
-              query: { page: page + 1 }
+              query: { page: page + 1 },
             }}
+            className="pagination-next"
+            style={{
+              pointerEvents: page >= maxPage ? "none" : "auto",
+            }}
+            disabled={page === maxPage}
           >
-            <a
-              className="pagination-next"
-              style={{
-                pointerEvents: page >= maxPage ? "none" : "auto",
-              }}
-              disabled={page === maxPage}
-            >
-              次へ
-            </a>
+            次へ
           </Link>
         </nav>
       </div>

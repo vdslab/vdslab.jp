@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { getProductCategories, getProductsByCategoryId, getProductCountByCategoryId } from "../../../api";
+import {
+  getProductCategories,
+  getProductsByCategoryId,
+  getProductCountByCategoryId,
+} from "../../../api";
 import CategoryTag from "../../../components/category-tag";
 import Head from "../../../components/head";
 import Product from "../../../components/product";
@@ -11,7 +15,7 @@ function ProductsPage({
   page,
   products,
   productCategories,
-  categoryId
+  categoryId,
 }) {
   return (
     <div>
@@ -24,7 +28,7 @@ function ProductsPage({
             large
             href={{
               pathname: "/products/[categoryId]/[page]",
-              query: { categoryId: category.id, page: 1 }
+              query: { categoryId: category.id, page: 1 },
             }}
           />
         ))}
@@ -39,32 +43,26 @@ function ProductsPage({
           <Link
             href={{
               pathname: "/products/[categoryId]/[page]",
-              query: { categoryId: categoryId, page: page - 1 }
+              query: { categoryId: categoryId, page: page - 1 },
             }}
+            className="pagination-previous"
+            style={{ pointerEvents: page <= 1 ? "none" : "auto" }}
+            disabled={page === 1}
           >
-            <a
-              className="pagination-previous"
-              style={{ pointerEvents: page <= 1 ? "none" : "auto" }}
-              disabled={page === 1}
-            >
-              前へ
-            </a>
+            前へ
           </Link>
           <Link
             href={{
               pathname: "/products/[categoryId]/[page]",
-              query: { categoryId: categoryId, page: page + 1 }
+              query: { categoryId: categoryId, page: page + 1 },
             }}
+            className="pagination-next"
+            style={{
+              pointerEvents: page >= maxPage ? "none" : "auto",
+            }}
+            disabled={page === maxPage}
           >
-            <a
-              className="pagination-next"
-              style={{
-                pointerEvents: page >= maxPage ? "none" : "auto",
-              }}
-              disabled={page === maxPage}
-            >
-              次へ
-            </a>
+            次へ
           </Link>
         </nav>
       </div>
@@ -75,7 +73,11 @@ function ProductsPage({
 export async function getStaticProps({ params }) {
   const page = +(params?.page || 1);
   const { categoryId } = params;
-  const { products, count } = await getProductsByCategoryId(page, perPage, categoryId);
+  const { products, count } = await getProductsByCategoryId(
+    page,
+    perPage,
+    categoryId
+  );
   const { productCategories } = await getProductCategories();
   const maxPage = Math.ceil(count.aggregate.count / perPage);
   return {

@@ -5,15 +5,15 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import logoSvg from "../../public/images/logo.svg";
 
-function TabLink({ children, exact, href,activePath }) {
+function TabLink({ children, exact, href, activePath }) {
   const router = useRouter();
   const match = exact
     ? router.pathname === href
     : router.pathname.startsWith(activePath);
   return (
     <li className={match ? "is-active" : ""}>
-      <Link href={href}>
-        <a style={{ color: match ? "rgb(32,88,90)" : "white" }}>{children}</a>
+      <Link href={href} style={{ color: match ? "rgb(32,88,90)" : "white" }}>
+        {children}
       </Link>
     </li>
   );
@@ -48,10 +48,18 @@ function App({ Component, pageProps }) {
                 <TabLink href="/" exact>
                   Top
                 </TabLink>
-                <TabLink href="/news/list" activePath="/news">News</TabLink>
-                <TabLink href="/projects/list" activePath="/projects">Projects</TabLink>
-                <TabLink href="/products/list" activePath="/products">Products</TabLink>
-                <TabLink href="/members" activePath="/members">Members</TabLink>
+                <TabLink href="/news/list" activePath="/news">
+                  News
+                </TabLink>
+                <TabLink href="/projects/list" activePath="/projects">
+                  Projects
+                </TabLink>
+                <TabLink href="/products/list" activePath="/products">
+                  Products
+                </TabLink>
+                <TabLink href="/members" activePath="/members">
+                  Members
+                </TabLink>
               </ul>
             </div>
           </nav>
