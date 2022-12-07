@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-
 import { getPost, getPostIds } from "../../../api";
 import Head from "../../../components/head";
 import NewsArticle from "../../../components/news-article";
