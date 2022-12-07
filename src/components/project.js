@@ -19,8 +19,8 @@ function Project({ project }) {
                 key={category.id}
                 category={category}
                 href={{
-                  pathname: "/projects/[categoryId]",
-                  query: { categoryId: category.id },
+                  pathname: "/projects/[categoryId]/[page]",
+                  query: { categoryId: category.id,page: 1 },
                 }}
               />
             ))}

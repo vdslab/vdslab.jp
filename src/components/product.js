@@ -19,8 +19,8 @@ function Product({ product }) {
                 key={category.id}
                 category={category}
                 href={{
-                  pathname: "/products/[categoryId]",
-                  query: { categoryId: category.id },
+                  pathname: "/products/[categoryId]/[page]",
+                  query: { categoryId: category.id,page: 1 },
                 }}
               />
             ))}

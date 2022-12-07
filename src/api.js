@@ -94,9 +94,10 @@ export function getPostIds() {
   return request(query);
 }
 
-export function getProducts() {
-  const query = `{
-  products: products(stage: PUBLISHED, orderBy: publishYear_DESC) {
+export function getProducts(page = 1, perPage = 5) {
+  const skip = (page - 1) * perPage;
+  const query = `query($perPage:Int!, $skip:Int!) {
+  products: products(stage: PUBLISHED, orderBy: publishYear_DESC, first: $perPage, skip: $skip) {
     id
     name
     description
@@ -111,8 +112,16 @@ export function getProducts() {
       name
     }
   }
+  count: productsConnection {
+    aggregate {
+      count
+    }
+  }
 }`;
-  return request(query);
+  return request(query, {
+    perPage,
+    skip,
+  });
 }
 
 export function getProduct(productId) {
@@ -124,6 +133,8 @@ export function getProduct(productId) {
       publishYear
       picture {
         url
+        height
+        width
       }
       categories {
         id
@@ -134,25 +145,43 @@ export function getProduct(productId) {
   return request(query, { productId });
 }
 
-export function getProductsByCategoryId(categoryId) {
+export function getProductsByCategoryId(page = 1, perPage = 5, categoryId) {
+  const skip = (page - 1) * perPage;
+  const query = `query($perPage:Int!, $skip:Int!, $categoryId:ID!) {
+      products: products(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC, first: $perPage, skip: $skip) {
+        id
+        name
+        description
+        publishYear
+        picture {
+          url
+          height
+          width
+        }
+        categories {
+          id
+          name
+        }
+      }
+      count: productsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
+        aggregate {
+          count
+        }
+      }
+    }`;
+  return request(query, { perPage, skip, categoryId });
+}
+
+export async function getProductCountByCategoryId(categoryId) {
   const query = `query($categoryId:ID!) {
-  products: products(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: publishYear_DESC) {
-    id
-    name
-    description
-    publishYear
-    picture {
-      url
-      height
-      width
+    count: productsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
+      aggregate {
+        count
+      }
     }
-    categories {
-      id
-      name
-    }
-  }
-}`;
-  return request(query, { categoryId });
+  }`;
+  const response = await request(query, { categoryId });
+  return response.count.aggregate.count;
 }
 
 export function getProductIds() {
@@ -164,26 +193,70 @@ export function getProductIds() {
   return request(query);
 }
 
-export function getProjects() {
+export async function getProductCount() {
   const query = `{
-  projects: projects(stage: PUBLISHED, orderBy: startYear_DESC) {
-    id
-    name
-    description
-    startYear
-    endYear
-    picture {
-      url
-      height
-      width
+    productsConnection {
+      aggregate {
+        count
+      }
     }
-    categories {
+  }`;
+  const response = await request(query);
+  return response.productsConnection.aggregate.count;
+}
+
+export async function getProductCategories() {
+  const query = `{
+    productCategoryArray: products(stage: PUBLISHED){
+      categories {
+        id
+        name
+      }
+    }
+  }`;
+  const { productCategoryArray } = await request(query);
+  const productCategoryMap = new Map();
+  productCategoryArray.forEach((product) => {
+    product.categories.forEach((category) => {
+      productCategoryMap.set(category.id, category.name);
+    });
+  });
+  const productCategories = [];
+  productCategoryMap.forEach((name, id) => {
+    productCategories.push({ id: id, name: name });
+  });
+  return { productCategories };
+}
+
+export function getProjects(page = 1, perPage = 5) {
+  const skip = (page - 1) * perPage;
+  const query = `query($perPage:Int!, $skip:Int!) {
+    projects: projects(stage: PUBLISHED, orderBy: startYear_DESC, first: $perPage, skip: $skip) {
       id
       name
+      description
+      startYear
+      endYear
+      picture {
+        url
+        height
+        width
+      }
+      categories {
+        id
+        name
+      }
     }
-  }
-}`;
-  return request(query);
+    count: projectsConnection {
+      aggregate {
+        count
+      }
+    }
+  }`;
+  return request(query, {
+    perPage,
+    skip,
+  });
 }
 
 export function getProject(projectId) {
@@ -206,26 +279,44 @@ export function getProject(projectId) {
   return request(query, { projectId });
 }
 
-export function getProjectsByCategoryId(categoryId) {
-  const query = `query($categoryId:ID!) {
-  projects: projects(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: startYear_DESC) {
-    id
-    name
-    description
-    startYear
-    endYear
-    picture {
-      url
-      height
-      width
-    }
-    categories {
+export function getProjectsByCategoryId(page = 1, perPage = 5, categoryId) {
+  const skip = (page - 1) * perPage;
+  const query = `query($perPage:Int!, $skip:Int!, $categoryId:ID!) {
+    projects: projects(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}, orderBy: startYear_DESC, first: $perPage, skip: $skip) {
       id
       name
+      description
+      startYear
+      endYear
+      picture {
+        url
+        height
+        width
+      }
+      categories {
+        id
+        name
+      }
     }
-  }
-}`;
-  return request(query, { categoryId });
+    count: projectsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
+      aggregate {
+        count
+      }
+    }
+  }`;
+  return request(query, { perPage, skip, categoryId });
+}
+
+export async function getProjectCountByCategoryId(categoryId) {
+  const query = `query($categoryId:ID!) {
+    count: projectsConnection(stage: PUBLISHED, where: {categories_some: {id: $categoryId}}) {
+      aggregate {
+        count
+      }
+    }
+  }`;
+  const response = await request(query, { categoryId });
+  return response.count.aggregate.count;
 }
 
 export function getProjectIds() {
@@ -235,4 +326,39 @@ export function getProjectIds() {
     }
   }`;
   return request(query);
+}
+
+export async function getProjectCount() {
+  const query = `{
+    projectsConnection {
+      aggregate {
+        count
+      }
+    }
+  }`;
+  const response = await request(query);
+  return response.projectsConnection.aggregate.count;
+}
+
+export async function getProjectCategories() {
+  const query = `{
+    projectCategoryArray: projects(stage: PUBLISHED) {
+      categories {
+        id
+        name
+      }
+    }
+  }`;
+  const { projectCategoryArray } = await request(query);
+  const projectCategoryMap = new Map();
+  projectCategoryArray.forEach((project) => {
+    project.categories.forEach((category) => {
+      projectCategoryMap.set(category.id, category.name);
+    });
+  });
+  const projectCategories = [];
+  projectCategoryMap.forEach((name, id) => {
+    projectCategories.push({ id: id, name: name });
+  });
+  return { projectCategories };
 }
