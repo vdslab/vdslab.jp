@@ -9,7 +9,7 @@ const getAssignedYear = () => {
   const year = date.getFullYear();
   const month = date.getMonth();
   const april = 4;
-  return month < april ? year - 1: year;
+  return month < april ? year - 1 : year;
 }
 
 const latestAssignedYear = getAssignedYear();
@@ -118,7 +118,9 @@ const Student = ({ member }) => (
   </article>
 );
 
-export function MembersPage({ staffs, students }) {
+
+
+export function MembersPage({ staffs, students, graduateStudent }) {
   const undergraduates = getUndergraduates(students);
   const OBs = getOBs(students);
 
@@ -139,6 +141,16 @@ export function MembersPage({ staffs, students }) {
                   {students.map(({ year }) => (
                     <li key={year}>
                       <a href={`#students-${year}`}>{year}年配属</a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li>
+                <a href="#graduateStudents">院生</a>
+                <ul>
+                  {graduateStudent.map(({ year }) => (
+                    <li key={year}>
+                      <a href={`#graduateStudents-${year}`}>{year}年配属</a>
                     </li>
                   ))}
                 </ul>
@@ -189,6 +201,23 @@ export function MembersPage({ staffs, students }) {
               );
             })}
           </div>
+          <h3 id="graduateStudents" className="title">
+            院生
+          </h3>
+          <div>
+            {graduateStudent.map(({ year, members }) => {
+              return (
+                <div id={`graduateStudents-${year}`} key={year}>
+                  <h4>{year}年配属</h4>
+                  <div>
+                    {members.map((member) => (
+                      <Student key={member.id} member={member} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
@@ -196,9 +225,9 @@ export function MembersPage({ staffs, students }) {
 }
 
 export async function getStaticProps() {
-  const { staffs, students } = await getMembers();
+  const { staffs, students, graduateStudent } = await getMembers();
   return {
-    props: { staffs, students: groupStudents(students) },
+    props: { staffs, students: groupStudents(students), graduateStudent: groupStudents(graduateStudent) },
   };
 }
 
