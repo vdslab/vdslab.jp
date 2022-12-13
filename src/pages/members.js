@@ -129,7 +129,7 @@ export function MembersPage({ staffs, students, graduateStudent }) {
       <Head subtitle="Members" />
       <div className="columns">
         <div className="column is-2">
-          <aside className="menu">
+          <aside className="menu" style={{ position: "sticky", top: "48px" }}>
             <p className="menu-label">Members</p>
             <ul className="menu-list">
               <li>
