@@ -8,7 +8,7 @@ function request(query, variables = {}) {
   };
   return fetch(
     "https://api-ap-northeast-1.graphcms.com/v2/ck1vrsd0c1mts019whoce6cox/master",
-    options,
+    options
   )
     .then((response) => response.json())
     .then(({ data }) => data);

@@ -3,14 +3,13 @@ import { getMembers } from "../api";
 import Head from "../components/head";
 import { toHTML } from "../markdown";
 
-
 const getAssignedYear = () => {
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth();
   const april = 4;
   return month < april ? year - 1 : year;
-}
+};
 
 const latestAssignedYear = getAssignedYear();
 
@@ -118,7 +117,6 @@ const Student = ({ member }) => (
   </article>
 );
 
-
 const LinkList = ({ linkName, displayName, membars }) => (
   <li>
     <a href={`#${linkName}`}>{displayName}</a>
@@ -171,10 +169,26 @@ export function MembersPage({ staffs, students, graduateStudent }) {
               <li>
                 <a href="#staffs">指導教員</a>
               </li>
-              <LinkList linkName={"students"} displayName={"学部生"} membars={undergraduates} />
-              <LinkList linkName={"graduateStudents"} displayName={"院生"} membars={graduate} />
-              <LinkList linkName={"obs"} displayName={"学部生OB"} membars={OBs} />
-              <LinkList linkName={"graduateObs"} displayName={"院生OB"} membars={graduateOBs} />
+              <LinkList
+                linkName={"students"}
+                displayName={"学部生"}
+                membars={undergraduates}
+              />
+              <LinkList
+                linkName={"graduateStudents"}
+                displayName={"院生"}
+                membars={graduate}
+              />
+              <LinkList
+                linkName={"obs"}
+                displayName={"学部生OB"}
+                membars={OBs}
+              />
+              <LinkList
+                linkName={"graduateObs"}
+                displayName={"院生OB"}
+                membars={graduateOBs}
+              />
             </ul>
           </aside>
         </div>
@@ -187,10 +201,26 @@ export function MembersPage({ staffs, students, graduateStudent }) {
               <Staff key={member.id} member={member} />
             ))}
           </div>
-          <StudentList linkName={"students"} displayName={"学部生"} membars={undergraduates} />
-          <StudentList linkName={"graduateStudents"} displayName={"院生"} membars={graduate} />
-          <StudentList linkName={"obs"} displayName={"学部生OB"} membars={OBs} />
-          <StudentList linkName={"graduateObs"} displayName={"院生OB"} membars={graduateOBs} />
+          <StudentList
+            linkName={"students"}
+            displayName={"学部生"}
+            membars={undergraduates}
+          />
+          <StudentList
+            linkName={"graduateStudents"}
+            displayName={"院生"}
+            membars={graduate}
+          />
+          <StudentList
+            linkName={"obs"}
+            displayName={"学部生OB"}
+            membars={OBs}
+          />
+          <StudentList
+            linkName={"graduateObs"}
+            displayName={"院生OB"}
+            membars={graduateOBs}
+          />
         </div>
       </div>
     </div>
@@ -200,7 +230,11 @@ export function MembersPage({ staffs, students, graduateStudent }) {
 export async function getStaticProps() {
   const { staffs, students, graduateStudent } = await getMembers();
   return {
-    props: { staffs, students: groupStudents(students), graduateStudent: groupStudents(graduateStudent) },
+    props: {
+      staffs,
+      students: groupStudents(students),
+      graduateStudent: groupStudents(graduateStudent),
+    },
   };
 }
 
