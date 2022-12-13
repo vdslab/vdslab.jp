@@ -9,7 +9,7 @@ const getAssignedYear = () => {
   const year = date.getFullYear();
   const month = date.getMonth();
   const april = 4;
-  return month < april ? year - 1: year;
+  return month < april ? year - 1 : year;
 }
 
 const latestAssignedYear = getAssignedYear();
@@ -95,7 +95,7 @@ const Student = ({ member }) => (
         <div className="tile is-parent" style={{ paddingBottom: 0 }}>
           <div className="tile is-child" style={{ paddingBottom: 0 }}>
             <div className="column" style={{ paddingBottom: 0 }}>
-              <h4 className="title is-4 is-inline">{member.name}</h4>
+              <h5 className="title is-5 is-inline">{member.name}</h5>
               &nbsp;
               <p className="subtitle is-inline">{member.title}</p>
             </div>
@@ -118,31 +118,63 @@ const Student = ({ member }) => (
   </article>
 );
 
-export function MembersPage({ staffs, students }) {
+
+const LinkList = ({ linkName, displayName, membars }) => (
+  <li>
+    <a href={`#${linkName}`}>{displayName}</a>
+    <ul>
+      {membars.map(({ year }) => (
+        <li key={year}>
+          <a href={`#${linkName}-${year}`}>{year}年配属</a>
+        </li>
+      ))}
+    </ul>
+  </li>
+);
+
+const StudentList = ({ linkName, displayName, membars }) => (
+  <div className="m-5">
+    <h3 id={linkName} className="title">
+      {displayName}
+    </h3>
+    <div>
+      {membars.map(({ year, members }) => {
+        return (
+          <div id={`${linkName}-${year}`} className="m-5" key={year}>
+            <h4 className="title is-4">{year}年配属</h4>
+            <div>
+              {members.map((member) => (
+                <Student key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+);
+
+export function MembersPage({ staffs, students, graduateStudent }) {
   const undergraduates = getUndergraduates(students);
   const OBs = getOBs(students);
+  const graduate = getUndergraduates(graduateStudent);
+  const graduateOBs = getOBs(graduateStudent);
 
   return (
     <div>
       <Head subtitle="Members" />
       <div className="columns">
         <div className="column is-2">
-          <aside className="menu">
+          <aside className="menu" style={{ position: "sticky", top: "48px" }}>
             <p className="menu-label">Members</p>
             <ul className="menu-list">
               <li>
                 <a href="#staffs">指導教員</a>
               </li>
-              <li>
-                <a href="#students">学生</a>
-                <ul>
-                  {students.map(({ year }) => (
-                    <li key={year}>
-                      <a href={`#students-${year}`}>{year}年配属</a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
+              <LinkList linkName={"students"} displayName={"学部生"} membars={undergraduates} />
+              <LinkList linkName={"graduateStudents"} displayName={"院生"} membars={graduate} />
+              <LinkList linkName={"obs"} displayName={"学部生OB"} membars={OBs} />
+              <LinkList linkName={"graduateObs"} displayName={"院生OB"} membars={graduateOBs} />
             </ul>
           </aside>
         </div>
@@ -155,40 +187,10 @@ export function MembersPage({ staffs, students }) {
               <Staff key={member.id} member={member} />
             ))}
           </div>
-          <h3 id="students" className="title">
-            学生
-          </h3>
-          <div>
-            {undergraduates.map(({ year, members }) => {
-              return (
-                <div id={`students-${year}`} key={year}>
-                  <h4>{year}年配属</h4>
-                  <div>
-                    {members.map((member) => (
-                      <Student key={member.id} member={member} />
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <h3 id="OBs" className="title">
-            OB
-          </h3>
-          <div>
-            {OBs.map(({ year, members }) => {
-              return (
-                <div id={`students-${year}`} key={year}>
-                  <h4>{year}年配属</h4>
-                  <div>
-                    {members.map((member) => (
-                      <Student key={member.id} member={member} />
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <StudentList linkName={"students"} displayName={"学部生"} membars={undergraduates} />
+          <StudentList linkName={"graduateStudents"} displayName={"院生"} membars={graduate} />
+          <StudentList linkName={"obs"} displayName={"学部生OB"} membars={OBs} />
+          <StudentList linkName={"graduateObs"} displayName={"院生OB"} membars={graduateOBs} />
         </div>
       </div>
     </div>
@@ -196,9 +198,9 @@ export function MembersPage({ staffs, students }) {
 }
 
 export async function getStaticProps() {
-  const { staffs, students } = await getMembers();
+  const { staffs, students, graduateStudent } = await getMembers();
   return {
-    props: { staffs, students: groupStudents(students) },
+    props: { staffs, students: groupStudents(students), graduateStudent: groupStudents(graduateStudent) },
   };
 }
 
