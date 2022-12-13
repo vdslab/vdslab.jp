@@ -176,17 +176,17 @@ export function MembersPage({ staffs, students, graduateStudents }) {
               />
               <LinkList
                 linkName={"graduateStudents"}
-                displayName={"院生"}
+                displayName={"大学院生"}
                 membars={graduate}
               />
               <LinkList
                 linkName={"obs"}
-                displayName={"学部生OB"}
+                displayName={"学部卒業生"}
                 membars={OBs}
               />
               <LinkList
                 linkName={"graduateObs"}
-                displayName={"院生OB"}
+                displayName={"大学院卒業生"}
                 membars={graduateOBs}
               />
             </ul>
@@ -208,17 +208,17 @@ export function MembersPage({ staffs, students, graduateStudents }) {
           />
           <StudentList
             linkName={"graduateStudents"}
-            displayName={"院生"}
+            displayName={"大学院生"}
             membars={graduate}
           />
           <StudentList
             linkName={"obs"}
-            displayName={"学部生OB"}
+            displayName={"学部卒業生"}
             membars={OBs}
           />
           <StudentList
             linkName={"graduateObs"}
-            displayName={"院生OB"}
+            displayName={"大学院卒業生"}
             membars={graduateOBs}
           />
         </div>
