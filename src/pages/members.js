@@ -152,11 +152,11 @@ const StudentList = ({ linkName, displayName, membars }) => (
   </div>
 );
 
-export function MembersPage({ staffs, students, graduateStudent }) {
+export function MembersPage({ staffs, students, graduateStudents }) {
   const undergraduates = getUndergraduates(students);
   const OBs = getOBs(students);
-  const graduate = getUndergraduates(graduateStudent);
-  const graduateOBs = getOBs(graduateStudent);
+  const graduate = getUndergraduates(graduateStudents);
+  const graduateOBs = getOBs(graduateStudents);
 
   return (
     <div>
@@ -228,12 +228,12 @@ export function MembersPage({ staffs, students, graduateStudent }) {
 }
 
 export async function getStaticProps() {
-  const { staffs, students, graduateStudent } = await getMembers();
+  const { staffs, students, graduateStudents } = await getMembers();
   return {
     props: {
       staffs,
       students: groupStudents(students),
-      graduateStudent: groupStudents(graduateStudent),
+      graduateStudents: groupStudents(graduateStudents),
     },
   };
 }
