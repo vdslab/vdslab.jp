@@ -1,4 +1,4 @@
-import { getProduct, getProductIds } from "../../../api";
+import { getProduct } from "../../../api";
 import Head from "../../../components/head";
 import Product from "../../../components/product";
 
@@ -16,14 +16,14 @@ export async function getStaticProps({ params }) {
   const { product } = await getProduct(productId);
   return {
     props: { product },
+    revalidate: 3600,
   };
 }
 
 export async function getStaticPaths() {
-  const { products } = await getProductIds();
   return {
-    paths: products.map(({ id: productId }) => ({ params: { productId } })),
-    fallback: false,
+    paths: [],
+    fallback: "blocking",
   };
 }
 

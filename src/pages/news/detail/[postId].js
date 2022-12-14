@@ -1,4 +1,4 @@
-import { getPost, getPostIds } from "../../../api";
+import { getPost } from "../../../api";
 import Head from "../../../components/head";
 import NewsArticle from "../../../components/news-article";
 
@@ -16,14 +16,14 @@ export async function getStaticProps({ params }) {
   const { post } = await getPost(postId);
   return {
     props: { post },
+    revalidate: 3600,
   };
 }
 
 export async function getStaticPaths() {
-  const { posts } = await getPostIds();
   return {
-    paths: posts.map(({ id: postId }) => ({ params: { postId } })),
-    fallback: false,
+    paths: [],
+    fallback: "blocking",
   };
 }
 

@@ -1,4 +1,4 @@
-function request(query, variables = {}) {
+async function request(query, variables = {}) {
   const options = {
     method: "POST",
     body: JSON.stringify({ query, variables }),
@@ -6,12 +6,13 @@ function request(query, variables = {}) {
       "Content-Type": "application/json",
     },
   };
-  return fetch(
-    "https://api-ap-northeast-1.graphcms.com/v2/ck1vrsd0c1mts019whoce6cox/master",
+  const response = await fetch(
+    "https://ap-northeast-1.cdn.hygraph.com/content/ck1vrsd0c1mts019whoce6cox/master",
     options
-  )
-    .then((response) => response.json())
-    .then(({ data }) => data);
+  );
+  const data = await response.json();
+  console.log(data);
+  return data.data;
 }
 
 export function getCategories() {

@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  getProducts,
-  getProductCount,
-  getProductCategories,
-} from "../../../api";
+import { getProducts, getProductCategories } from "../../../api";
 import CategoryTag from "../../../components/category-tag";
 import Head from "../../../components/head";
 import Product from "../../../components/product";
@@ -73,19 +69,14 @@ export async function getStaticProps({ params }) {
   const maxPage = Math.ceil(count.aggregate.count / perPage);
   return {
     props: { maxPage, page, products, productCategories },
+    revalidate: 3600,
   };
 }
 
 export async function getStaticPaths() {
-  const paths = [];
-  const count = await getProductCount();
-  const maxPage = Math.ceil(count / perPage);
-  for (let page = 1; page <= maxPage; ++page) {
-    paths.push({ params: { page: page.toString() } });
-  }
   return {
-    paths,
-    fallback: false,
+    paths: [],
+    fallback: "blocking",
   };
 }
 

@@ -1,4 +1,4 @@
-import { getProject, getProjectIds } from "../../../api";
+import { getProject } from "../../../api";
 import Head from "../../../components/head";
 import Project from "../../../components/project";
 
@@ -16,14 +16,14 @@ export async function getStaticProps({ params }) {
   const { project } = await getProject(projectId);
   return {
     props: { project },
+    revalidate: 3600,
   };
 }
 
 export async function getStaticPaths() {
-  const { projects } = await getProjectIds();
   return {
-    paths: projects.map(({ id: projectId }) => ({ params: { projectId } })),
-    fallback: false,
+    paths: [],
+    fallback: "blocking",
   };
 }
 

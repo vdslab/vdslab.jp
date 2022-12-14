@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  getProjectCategories,
-  getProjectsByCategoryId,
-  getProjectCountByCategoryId,
-} from "../../../api";
+import { getProjectCategories, getProjectsByCategoryId } from "../../../api";
 import CategoryTag from "../../../components/category-tag";
 import Head from "../../../components/head";
 import Project from "../../../components/project";
@@ -82,23 +78,14 @@ export async function getStaticProps({ params }) {
   const maxPage = Math.ceil(count.aggregate.count / perPage);
   return {
     props: { maxPage, page, projectCategories, projects, categoryId },
+    revalidate: 3600,
   };
 }
 
 export async function getStaticPaths() {
-  const { projectCategories } = await getProjectCategories();
-  const paths = [];
-  for (const category of projectCategories) {
-    const count = await getProjectCountByCategoryId(category.id);
-    const maxPage = Math.ceil(count / perPage);
-    for (let page = 1; page <= maxPage; ++page)
-      paths.push({
-        params: { categoryId: category.id, page: page.toString() },
-      });
-  }
   return {
-    paths,
-    fallback: false,
+    paths: [],
+    fallback: "blocking",
   };
 }
 

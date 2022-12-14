@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  getProductCategories,
-  getProductsByCategoryId,
-  getProductCountByCategoryId,
-} from "../../../api";
+import { getProductCategories, getProductsByCategoryId } from "../../../api";
 import CategoryTag from "../../../components/category-tag";
 import Head from "../../../components/head";
 import Product from "../../../components/product";
@@ -82,24 +78,14 @@ export async function getStaticProps({ params }) {
   const maxPage = Math.ceil(count.aggregate.count / perPage);
   return {
     props: { maxPage, page, products, productCategories, categoryId },
+    revalidate: 3600,
   };
 }
 
 export async function getStaticPaths() {
-  const { productCategories } = await getProductCategories();
-  const paths = [];
-  for (const category of productCategories) {
-    const count = await getProductCountByCategoryId(category.id);
-    const maxPage = Math.ceil(count / perPage);
-    for (let page = 1; page <= maxPage; ++page) {
-      paths.push({
-        params: { categoryId: category.id, page: page.toString() },
-      });
-    }
-  }
   return {
-    paths,
-    fallback: false,
+    paths: [],
+    fallback: "blocking",
   };
 }
 

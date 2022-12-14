@@ -235,6 +235,7 @@ export async function getStaticProps() {
       students: groupStudents(students),
       graduateStudents: groupStudents(graduateStudents),
     },
+    revalidate: 3600,
   };
 }
 

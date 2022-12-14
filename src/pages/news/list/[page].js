@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
-
-import { getPostCount, getPosts } from "../../../api";
+import { getPosts } from "../../../api";
 import Head from "../../../components/head";
 import NewsArticle from "../../../components/news-article";
 
@@ -51,19 +49,14 @@ export async function getStaticProps({ params }) {
   const maxPage = Math.ceil(count.aggregate.count / perPage);
   return {
     props: { maxPage, page, posts },
+    revalidate: 3600,
   };
 }
 
 export async function getStaticPaths() {
-  const paths = [];
-  const count = await getPostCount();
-  const maxPage = Math.ceil(count / perPage);
-  for (let page = 1; page <= maxPage; ++page) {
-    paths.push({ params: { page: page.toString() } });
-  }
   return {
-    paths,
-    fallback: false,
+    paths: [],
+    fallback: "blocking",
   };
 }
 
