@@ -73,7 +73,7 @@ function App({ Component, pageProps }) {
       <footer className="footer">
         <div className="container">
           <div className="content has-text-centered">
-            <p>©️ 2018 Yosuke Onoue</p>
+            <p>©️ {new Date().getFullYear()} Yosuke Onoue</p>
           </div>
         </div>
       </footer>
