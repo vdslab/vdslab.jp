@@ -45,6 +45,13 @@ const getUndergraduates = (membars) => {
   return undergraduates;
 };
 
+const getGraduateStudentDoctor = (membars) => {
+  const graduateStudentDoctor = membars.filter((member) => {
+    return latestAssignedYear - member.year < 3;
+  });
+  return graduateStudentDoctor;
+};
+
 const Staff = ({ member }) => (
   <article className="media">
     <div className="tile is-ancestor">
@@ -152,11 +159,17 @@ const StudentList = ({ linkName, displayName, membars }) => (
   </div>
 );
 
-export function MembersPage({ staffs, students, graduateStudents }) {
+export function MembersPage({
+  staffs,
+  students,
+  graduateStudents,
+  graduateStudentDoctor,
+}) {
   const undergraduates = getUndergraduates(students);
   const OBs = getOBs(students);
   const graduate = getUndergraduates(graduateStudents);
   const graduateOBs = getOBs(graduateStudents);
+  const graduateDoctor = getGraduateStudentDoctor(graduateStudentDoctor);
 
   return (
     <div>
@@ -228,12 +241,14 @@ export function MembersPage({ staffs, students, graduateStudents }) {
 }
 
 export async function getStaticProps() {
-  const { staffs, students, graduateStudents } = await getMembers();
+  const { staffs, students, graduateStudents, graduateStudentDoctor } =
+    await getMembers();
   return {
     props: {
       staffs,
       students: groupStudents(students),
       graduateStudents: groupStudents(graduateStudents),
+      graduateStudentDoctor: groupStudents(graduateStudentDoctor),
     },
     revalidate: 3600,
   };
