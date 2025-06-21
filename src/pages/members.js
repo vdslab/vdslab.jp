@@ -189,8 +189,13 @@ export function MembersPage({
               />
               <LinkList
                 linkName={"graduateStudents"}
-                displayName={"大学院生"}
+                displayName={"修士課程学生"}
                 membars={graduate}
+              />
+              <LinkList
+                linkName={"graduateStudentDoctor"}
+                displayName={"博士課程学生"}
+                membars={graduateDoctor}
               />
               <LinkList
                 linkName={"obs"}
@@ -221,8 +226,13 @@ export function MembersPage({
           />
           <StudentList
             linkName={"graduateStudents"}
-            displayName={"大学院生"}
+            displayName={"修士課程学生"}
             membars={graduate}
+          />
+          <StudentList
+            linkName={"graduateStudentDoctor"}
+            displayName={"博士課程学生"}
+            membars={graduateDoctor}
           />
           <StudentList
             linkName={"obs"}
