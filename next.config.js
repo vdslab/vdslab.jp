@@ -1,5 +1,9 @@
 module.exports = {
   images: {
-    domains: ["media.graphcms.com", "media.graphassets.com"],
+    domains: [
+      "ap-northeast-1.graphassets.com",
+      "media.graphcms.com",
+      "media.graphassets.com",
+    ],
   },
 };
