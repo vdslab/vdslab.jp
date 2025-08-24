@@ -40,6 +40,9 @@ export function getMembers() {
   graduateStudents: members (stage: PUBLISHED, where: {type: GraduateStudent}) {
     id, name, title, description, order, assignedYear
   }
+  graduateStudentDoctor: members (stage: PUBLISHED, where: {type: GraduateStudentDoctor}) {
+    id, name, title, description, order, assignedYear
+  }
 }`;
   return request(query);
 }
