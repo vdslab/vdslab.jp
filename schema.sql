@@ -1,3 +1,12 @@
+DROP TABLE IF EXISTS product_categories CASCADE;
+DROP TABLE IF EXISTS project_categories CASCADE;
+DROP TABLE IF EXISTS members CASCADE;
+DROP TABLE IF EXISTS categories CASCADE;
+DROP TABLE IF EXISTS posts CASCADE;
+DROP TABLE IF EXISTS products CASCADE;
+DROP TABLE IF EXISTS projects CASCADE;
+DROP TYPE IF EXISTS member_type CASCADE;
+
 -- 1. メンバータイプ用の列挙型定義
 CREATE TYPE member_type AS ENUM ('Staff', 'Student', 'GraduateStudent', 'GraduateStudentDoctor');
 

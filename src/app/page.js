@@ -7,6 +7,9 @@ export const revalidate = 3600;
 
 export const metadata = {
   title: "Top",
+  openGraph: {
+    url: "/",
+  },
 };
 
 export default async function IndexPage() {

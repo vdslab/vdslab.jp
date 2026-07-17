@@ -12,9 +12,14 @@ export async function generateStaticParams() {
   return [];
 }
 
-export async function generateMetadata() {
+export async function generateMetadata({ params }) {
+  const { categoryId } = params;
+  const page = params?.page || "1";
   return {
     title: "Products",
+    openGraph: {
+      url: `/products/${categoryId}/${page}`,
+    },
   };
 }
 

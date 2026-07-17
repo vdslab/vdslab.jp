@@ -12,7 +12,10 @@ export async function generateMetadata({ params }) {
   const { projectId } = params;
   const { project } = await getProject(projectId);
   return {
-    title: project?.name || "Project Detail",
+    title: project ? project.name : "Projects",
+    openGraph: {
+      url: `/projects/detail/${projectId}`,
+    },
   };
 }
 

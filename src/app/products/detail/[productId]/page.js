@@ -12,7 +12,10 @@ export async function generateMetadata({ params }) {
   const { productId } = params;
   const { product } = await getProduct(productId);
   return {
-    title: product ? product.name : "Product",
+    title: product ? product.name : "Products",
+    openGraph: {
+      url: `/products/detail/${productId}`,
+    },
   };
 }
 

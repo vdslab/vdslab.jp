@@ -6,6 +6,9 @@ export const revalidate = 3600;
 
 export const metadata = {
   title: "Members",
+  openGraph: {
+    url: "/members",
+  },
 };
 
 const getAssignedYear = () => {

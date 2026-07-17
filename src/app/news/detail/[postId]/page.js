@@ -13,6 +13,9 @@ export async function generateMetadata({ params }) {
   const { post } = await getPost(postId);
   return {
     title: post ? post.title : "News",
+    openGraph: {
+      url: `/news/detail/${postId}`,
+    },
   };
 }
 

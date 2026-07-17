@@ -121,6 +121,9 @@ async function main() {
   console.log("Connecting to PostgreSQL database...");
   const client = new Client({
     connectionString: databaseUrl,
+    ssl: {
+      rejectUnauthorized: false
+    }
   });
 
   try {

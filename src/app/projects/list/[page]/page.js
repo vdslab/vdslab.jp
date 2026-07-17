@@ -15,7 +15,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const page = params?.page || "1";
   return {
-    title: `Projects (Page ${page})`,
+    title: "Projects",
+    openGraph: {
+      url: `/projects/list/${page}`,
+    },
   };
 }
 

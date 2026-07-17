@@ -19,7 +19,6 @@ export const metadata = {
   openGraph: {
     title: "vdslab",
     description: "日本大学文理学部情報科学科 尾上研究室のWebサイトです。",
-    type: "website",
     url: "https://vdslab.jp",
     siteName: "vdslab",
     images: [
@@ -27,6 +26,9 @@ export const metadata = {
         url: "/images/media.png",
       },
     ],
+  },
+  other: {
+    "og:type": "blog",
   },
   icons: {
     icon: "/images/favicon.ico",
