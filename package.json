@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "start": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "serve": "next start",
+    "test": "playwright test"
   },
   "keywords": [],
   "author": "Yosuke Onoue <onoue@likr-lab.com>",
@@ -17,6 +19,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "eslint": "^8.29.0",
     "eslint-config-next": "^13.0.6",
     "prettier": "^2.8.0"
