@@ -1,3 +1,13 @@
 [build]
   command = "npm run build"
   publish = ".next"
+
+# 今後すべてのブランチデプロイ（プレビュー環境）で動作するビルド設定
+[context.branch-deploy]
+  command = "npm run build"
+  publish = ".next"
+
+# 今後すべてのプルリクエスト（Deploy Previews）で動作するビルド設定
+[context.deploy-preview]
+  command = "npm run build"
+  publish = ".next"
