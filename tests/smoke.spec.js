@@ -69,7 +69,7 @@ test.describe("Smoke Tests", () => {
     expect(page.url()).toMatch(/\/projects\/list\/\d+/);
 
     // Projects ヘッドタイトルが含まれるか確認
-    await expect(page.locator("head title")).toContainText("Projects");
+    await expect(page).toHaveTitle(/Projects/);
 
     // コンソールエラーの確認 (警告として出力)
     checkConsoleErrors(consoleErrors, "プロジェクト一覧 (/projects/list)");
@@ -84,7 +84,7 @@ test.describe("Smoke Tests", () => {
     expect(page.url()).toMatch(/\/products\/list\/\d+/);
 
     // Products ヘッドタイトルが含まれるか確認
-    await expect(page.locator("head title")).toContainText("Products");
+    await expect(page).toHaveTitle(/Products/);
 
     // コンソールエラーの確認 (警告として出力)
     checkConsoleErrors(consoleErrors, "プロダクト一覧 (/products/list)");
