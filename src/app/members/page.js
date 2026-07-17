@@ -1,7 +1,12 @@
 import Image from "next/image";
-import { getMembers } from "../api";
-import Head from "../components/head";
-import { toHTML } from "../markdown";
+import { getMembers } from "../../api";
+import { toHTML } from "../../markdown";
+
+export const revalidate = 3600;
+
+export const metadata = {
+  title: "Members",
+};
 
 const getAssignedYear = () => {
   const date = new Date();
@@ -159,21 +164,22 @@ const StudentList = ({ linkName, displayName, membars }) => (
   </div>
 );
 
-export function MembersPage({
-  staffs,
-  students,
-  graduateStudents,
-  graduateStudentDoctor,
-}) {
-  const undergraduates = getUndergraduates(students);
-  const OBs = getOBs(students);
-  const graduate = getUndergraduates(graduateStudents);
-  const graduateOBs = getOBs(graduateStudents);
-  const graduateDoctor = getGraduateStudentDoctor(graduateStudentDoctor);
+export default async function MembersPage() {
+  const { staffs, students, graduateStudents, graduateStudentDoctor } =
+    await getMembers();
+
+  const groupedStudents = groupStudents(students);
+  const groupedGraduateStudents = groupStudents(graduateStudents);
+  const groupedGraduateStudentDoctor = groupStudents(graduateStudentDoctor);
+
+  const undergraduates = getUndergraduates(groupedStudents);
+  const OBs = getOBs(groupedStudents);
+  const graduate = getUndergraduates(groupedGraduateStudents);
+  const graduateOBs = getOBs(groupedGraduateStudents);
+  const graduateDoctor = getGraduateStudentDoctor(groupedGraduateStudentDoctor);
 
   return (
     <div>
-      <Head subtitle="Members" />
       <div className="columns">
         <div className="column is-2">
           <aside className="menu" style={{ position: "sticky", top: "48px" }}>
@@ -249,19 +255,3 @@ export function MembersPage({
     </div>
   );
 }
-
-export async function getStaticProps() {
-  const { staffs, students, graduateStudents, graduateStudentDoctor } =
-    await getMembers();
-  return {
-    props: {
-      staffs,
-      students: groupStudents(students),
-      graduateStudents: groupStudents(graduateStudents),
-      graduateStudentDoctor: groupStudents(graduateStudentDoctor),
-    },
-    revalidate: 3600,
-  };
-}
-
-export default MembersPage;

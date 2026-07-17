@@ -1,13 +1,19 @@
 import Link from "next/link";
 
 import { getPosts } from "../api";
-import Head from "../components/head";
 import NewsArticle from "../components/news-article";
 
-function IndexPage({ posts }) {
+export const revalidate = 3600;
+
+export const metadata = {
+  title: "Top",
+};
+
+export default async function IndexPage() {
+  const { posts } = await getPosts(1, 3);
+
   return (
     <div>
-      <Head subtitle="Top" />
       <div className="columns">
         <div className="column">
           <div className="content">
@@ -80,13 +86,3 @@ function IndexPage({ posts }) {
     </div>
   );
 }
-
-export async function getStaticProps({ params }) {
-  const { posts } = await getPosts(1, 3);
-  return {
-    props: { posts },
-    revalidate: 3600,
-  };
-}
-
-export default IndexPage;
