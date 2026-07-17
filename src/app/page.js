@@ -6,10 +6,17 @@ import NewsArticle from "../components/news-article";
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "Top",
+  title: "Top - vdslab",
   openGraph: {
-    url: "/",
+    title: "Top - vdslab",
+    url: "https://vdslab.jp/index",
+    images: [{ url: "/images/media.png" }],
+    siteName: "vdslab",
+    type: "website",
   },
+  twitter: {
+    title: "Top - vdslab",
+  }
 };
 
 export default async function IndexPage() {

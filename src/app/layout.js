@@ -10,6 +10,8 @@ export const metadata = {
     default: "vdslab",
   },
   description: "日本大学文理学部情報科学科 尾上研究室のWebサイトです。",
+  themeColor: "rgb(47,87,89)",
+  viewport: "width=device-width, initial-scale=1",
   twitter: {
     card: "summary",
     site: "@_likr",
@@ -21,17 +23,20 @@ export const metadata = {
     description: "日本大学文理学部情報科学科 尾上研究室のWebサイトです。",
     url: "https://vdslab.jp",
     siteName: "vdslab",
+    type: "website",
     images: [
       {
         url: "/images/media.png",
       },
     ],
   },
-  other: {
-    "og:type": "blog",
-  },
   icons: {
-    icon: "/images/favicon.ico",
+    icon: [
+      {
+        url: "/images/favicon.ico",
+        type: "image/x-icon",
+      }
+    ],
   },
   manifest: "/manifest.webmanifest",
 };

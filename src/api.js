@@ -1,4 +1,5 @@
 import pg from "pg";
+import mockData from "./data/mockData.json";
 
 const { Pool } = pg;
 
@@ -50,13 +51,43 @@ async function executeQuery(query, params = [], mockFallback = []) {
   }
 }
 
-export function getCategories() {
+export async function getCategories() {
+  if (isMockMode || !getPool()) {
+    return { categories: mockData.categories };
+  }
   return executeQuery("SELECT id, name FROM categories", [], []).then(
     (rows) => ({ categories: rows })
   );
 }
 
 export async function getMembers() {
+  if (isMockMode || !getPool()) {
+    const rows = mockData.members.map(m => ({
+      id: m.id,
+      name: m.name,
+      title: m.title || null,
+      description: m.description || null,
+      picture: m.picture ? { url: m.picture.url, width: m.picture.width, height: m.picture.height } : null,
+      type: m.type,
+      order: m.order || 0,
+      assignedYear: m.assignedYear || null
+    }));
+    
+    rows.sort((a, b) => {
+      if (a.order !== b.order) return a.order - b.order;
+      return a.id.localeCompare(b.id);
+    });
+
+    const staffs = rows.filter((m) => m.type === "Staff");
+    const students = rows.filter((m) => m.type === "Student");
+    const graduateStudents = rows.filter((m) => m.type === "GraduateStudent");
+    const graduateStudentDoctor = rows.filter(
+      (m) => m.type === "GraduateStudentDoctor"
+    );
+
+    return { staffs, students, graduateStudents, graduateStudentDoctor };
+  }
+
   const rows = await executeQuery(
     `SELECT 
       id, 
@@ -86,7 +117,11 @@ export async function getMembers() {
   return { staffs, students, graduateStudents, graduateStudentDoctor };
 }
 
-export function getPost(postId) {
+export async function getPost(postId) {
+  if (isMockMode || !getPool()) {
+    const post = mockData.posts.find(p => p.id === postId) || null;
+    return { post };
+  }
   return executeQuery(
     "SELECT id, title, content, date::text AS date FROM posts WHERE id = $1 LIMIT 1",
     [postId],
@@ -95,6 +130,9 @@ export function getPost(postId) {
 }
 
 export async function getPostCount() {
+  if (isMockMode || !getPool()) {
+    return mockData.posts.length;
+  }
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM posts",
     [],
@@ -104,6 +142,27 @@ export async function getPostCount() {
 }
 
 export async function getPosts(page = 1, perPage = 5) {
+  if (isMockMode || !getPool()) {
+    const sorted = [...mockData.posts].sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      if (dateA.getTime() !== dateB.getTime()) {
+        return dateB.getTime() - dateA.getTime();
+      }
+      return b.id.localeCompare(a.id);
+    });
+    const start = (page - 1) * perPage;
+    const posts = sorted.slice(start, start + perPage);
+    return {
+      posts,
+      count: {
+        aggregate: {
+          count: mockData.posts.length,
+        },
+      },
+    };
+  }
+
   const limit = perPage;
   const offset = (page - 1) * perPage;
 
@@ -126,13 +185,44 @@ export async function getPosts(page = 1, perPage = 5) {
   };
 }
 
-export function getPostIds() {
+export async function getPostIds() {
+  if (isMockMode || !getPool()) {
+    return { posts: mockData.posts.map(p => ({ id: p.id })) };
+  }
   return executeQuery("SELECT id FROM posts", [], []).then((rows) => ({
     posts: rows,
   }));
 }
 
 export async function getProducts(page = 1, perPage = 5) {
+  if (isMockMode || !getPool()) {
+    const sorted = [...mockData.products].sort((a, b) => {
+      const yearA = a.publishYear || 0;
+      const yearB = b.publishYear || 0;
+      if (yearA !== yearB) {
+        return yearB - yearA;
+      }
+      return a.id.localeCompare(b.id);
+    });
+    const start = (page - 1) * perPage;
+    const products = sorted.slice(start, start + perPage).map(p => ({
+      id: p.id,
+      name: p.name,
+      description: p.description || null,
+      publishYear: p.publishYear || null,
+      picture: p.picture ? { url: p.picture.url, width: p.picture.width, height: p.picture.height } : null,
+      categories: p.categories || []
+    }));
+    return {
+      products,
+      count: {
+        aggregate: {
+          count: mockData.products.length,
+        },
+      },
+    };
+  }
+
   const limit = perPage;
   const offset = (page - 1) * perPage;
 
@@ -179,7 +269,22 @@ export async function getProducts(page = 1, perPage = 5) {
   };
 }
 
-export function getProduct(productId) {
+export async function getProduct(productId) {
+  if (isMockMode || !getPool()) {
+    const p = mockData.products.find(p => p.id === productId);
+    if (!p) return { product: null };
+    return {
+      product: {
+        id: p.id,
+        name: p.name,
+        description: p.description || null,
+        publishYear: p.publishYear || null,
+        picture: p.picture ? { url: p.picture.url, width: p.picture.width, height: p.picture.height } : null,
+        categories: p.categories || []
+      }
+    };
+  }
+
   return executeQuery(
     `SELECT 
       p.id, 
@@ -206,11 +311,36 @@ export function getProduct(productId) {
   ).then((rows) => ({ product: rows[0] || null }));
 }
 
-export async function getProductsByCategoryId(
-  page = 1,
-  perPage = 5,
-  categoryId
-) {
+export async function getProductsByCategoryId(page = 1, perPage = 5, categoryId) {
+  if (isMockMode || !getPool()) {
+    const filtered = mockData.products.filter(p => p.categories && p.categories.some(c => c.id === categoryId));
+    const sorted = [...filtered].sort((a, b) => {
+      const yearA = a.publishYear || 0;
+      const yearB = b.publishYear || 0;
+      if (yearA !== yearB) {
+        return yearB - yearA;
+      }
+      return a.id.localeCompare(b.id);
+    });
+    const start = (page - 1) * perPage;
+    const products = sorted.slice(start, start + perPage).map(p => ({
+      id: p.id,
+      name: p.name,
+      description: p.description || null,
+      publishYear: p.publishYear || null,
+      picture: p.picture ? { url: p.picture.url, width: p.picture.width, height: p.picture.height } : null,
+      categories: p.categories || []
+    }));
+    return {
+      products,
+      count: {
+        aggregate: {
+          count: filtered.length,
+        },
+      },
+    };
+  }
+
   const limit = perPage;
   const offset = (page - 1) * perPage;
 
@@ -263,6 +393,10 @@ export async function getProductsByCategoryId(
 }
 
 export async function getProductCountByCategoryId(categoryId) {
+  if (isMockMode || !getPool()) {
+    const filtered = mockData.products.filter(p => p.categories && p.categories.some(c => c.id === categoryId));
+    return filtered.length;
+  }
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM product_categories WHERE category_id = $1",
     [categoryId],
@@ -271,13 +405,19 @@ export async function getProductCountByCategoryId(categoryId) {
   return rows[0]?.count ?? 0;
 }
 
-export function getProductIds() {
+export async function getProductIds() {
+  if (isMockMode || !getPool()) {
+    return { products: mockData.products.map(p => ({ id: p.id })) };
+  }
   return executeQuery("SELECT id FROM products", [], []).then((rows) => ({
     products: rows,
   }));
 }
 
 export async function getProductCount() {
+  if (isMockMode || !getPool()) {
+    return mockData.products.length;
+  }
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM products",
     [],
@@ -287,6 +427,19 @@ export async function getProductCount() {
 }
 
 export async function getProductCategories() {
+  if (isMockMode || !getPool()) {
+    const categoryMap = new Map();
+    mockData.products.forEach(p => {
+      if (p.categories) {
+        p.categories.forEach(c => {
+          categoryMap.set(c.id, c.name || mockData.categories.find(cat => cat.id === c.id)?.name || "");
+        });
+      }
+    });
+    const productCategories = Array.from(categoryMap.entries()).map(([id, name]) => ({ id, name }));
+    return { productCategories };
+  }
+
   const rows = await executeQuery(
     `SELECT DISTINCT c.id, c.name 
      FROM categories c
@@ -298,6 +451,35 @@ export async function getProductCategories() {
 }
 
 export async function getProjects(page = 1, perPage = 5) {
+  if (isMockMode || !getPool()) {
+    const sorted = [...mockData.projects].sort((a, b) => {
+      const yearA = a.startYear || 0;
+      const yearB = b.startYear || 0;
+      if (yearA !== yearB) {
+        return yearB - yearA;
+      }
+      return a.id.localeCompare(b.id);
+    });
+    const start = (page - 1) * perPage;
+    const projects = sorted.slice(start, start + perPage).map(p => ({
+      id: p.id,
+      name: p.name,
+      description: p.description || null,
+      startYear: p.startYear || null,
+      endYear: p.endYear || null,
+      picture: p.picture ? { url: p.picture.url, width: p.picture.width, height: p.picture.height } : null,
+      categories: p.categories || []
+    }));
+    return {
+      projects,
+      count: {
+        aggregate: {
+          count: mockData.projects.length,
+        },
+      },
+    };
+  }
+
   const limit = perPage;
   const offset = (page - 1) * perPage;
 
@@ -345,7 +527,23 @@ export async function getProjects(page = 1, perPage = 5) {
   };
 }
 
-export function getProject(projectId) {
+export async function getProject(projectId) {
+  if (isMockMode || !getPool()) {
+    const p = mockData.projects.find(p => p.id === projectId);
+    if (!p) return { project: null };
+    return {
+      project: {
+        id: p.id,
+        name: p.name,
+        description: p.description || null,
+        startYear: p.startYear || null,
+        endYear: p.endYear || null,
+        picture: p.picture ? { url: p.picture.url, width: p.picture.width, height: p.picture.height } : null,
+        categories: p.categories || []
+      }
+    };
+  }
+
   return executeQuery(
     `SELECT 
       p.id, 
@@ -373,11 +571,37 @@ export function getProject(projectId) {
   ).then((rows) => ({ project: rows[0] || null }));
 }
 
-export async function getProjectsByCategoryId(
-  page = 1,
-  perPage = 5,
-  categoryId
-) {
+export async function getProjectsByCategoryId(page = 1, perPage = 5, categoryId) {
+  if (isMockMode || !getPool()) {
+    const filtered = mockData.projects.filter(p => p.categories && p.categories.some(c => c.id === categoryId));
+    const sorted = [...filtered].sort((a, b) => {
+      const yearA = a.startYear || 0;
+      const yearB = b.startYear || 0;
+      if (yearA !== yearB) {
+        return yearB - yearA;
+      }
+      return a.id.localeCompare(b.id);
+    });
+    const start = (page - 1) * perPage;
+    const projects = sorted.slice(start, start + perPage).map(p => ({
+      id: p.id,
+      name: p.name,
+      description: p.description || null,
+      startYear: p.startYear || null,
+      endYear: p.endYear || null,
+      picture: p.picture ? { url: p.picture.url, width: p.picture.width, height: p.picture.height } : null,
+      categories: p.categories || []
+    }));
+    return {
+      projects,
+      count: {
+        aggregate: {
+          count: filtered.length,
+        },
+      },
+    };
+  }
+
   const limit = perPage;
   const offset = (page - 1) * perPage;
 
@@ -431,6 +655,10 @@ export async function getProjectsByCategoryId(
 }
 
 export async function getProjectCountByCategoryId(categoryId) {
+  if (isMockMode || !getPool()) {
+    const filtered = mockData.projects.filter(p => p.categories && p.categories.some(c => c.id === categoryId));
+    return filtered.length;
+  }
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM project_categories WHERE category_id = $1",
     [categoryId],
@@ -439,13 +667,19 @@ export async function getProjectCountByCategoryId(categoryId) {
   return rows[0]?.count ?? 0;
 }
 
-export function getProjectIds() {
+export async function getProjectIds() {
+  if (isMockMode || !getPool()) {
+    return { projects: mockData.projects.map(p => ({ id: p.id })) };
+  }
   return executeQuery("SELECT id FROM projects", [], []).then((rows) => ({
     projects: rows,
   }));
 }
 
 export async function getProjectCount() {
+  if (isMockMode || !getPool()) {
+    return mockData.projects.length;
+  }
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM projects",
     [],
@@ -455,6 +689,19 @@ export async function getProjectCount() {
 }
 
 export async function getProjectCategories() {
+  if (isMockMode || !getPool()) {
+    const categoryMap = new Map();
+    mockData.projects.forEach(p => {
+      if (p.categories) {
+        p.categories.forEach(c => {
+          categoryMap.set(c.id, c.name || mockData.categories.find(cat => cat.id === c.id)?.name || "");
+        });
+      }
+    });
+    const projectCategories = Array.from(categoryMap.entries()).map(([id, name]) => ({ id, name }));
+    return { projectCategories };
+  }
+
   const rows = await executeQuery(
     `SELECT DISTINCT c.id, c.name 
      FROM categories c

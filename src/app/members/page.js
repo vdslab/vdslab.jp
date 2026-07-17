@@ -5,10 +5,17 @@ import { toHTML } from "../../markdown";
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "Members",
+  title: "Members - vdslab",
   openGraph: {
-    url: "/members",
+    title: "Members - vdslab",
+    url: "https://vdslab.jp/members",
+    images: [{ url: "/images/media.png" }],
+    siteName: "vdslab",
+    type: "website",
   },
+  twitter: {
+    title: "Members - vdslab",
+  }
 };
 
 const getAssignedYear = () => {

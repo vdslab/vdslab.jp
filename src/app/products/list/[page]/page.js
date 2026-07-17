@@ -15,10 +15,17 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const page = params?.page || "1";
   return {
-    title: "Products",
+    title: "Products - vdslab",
     openGraph: {
-      url: `/products/list/${page}`,
+      title: "Products - vdslab",
+      url: `https://vdslab.jp/products/list/${page}`,
+      images: [{ url: "/images/media.png" }],
+      siteName: "vdslab",
+      type: "website",
     },
+    twitter: {
+      title: "Products - vdslab",
+    }
   };
 }
 

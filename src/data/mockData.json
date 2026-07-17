@@ -1,0 +1,1729 @@
+{
+  "categories": [
+    {
+      "id": "cjfa1qo89hhbx01925fktdjab",
+      "name": "グラフ描画"
+    },
+    {
+      "id": "cjfa1ub2yhhkc0192kbmpu9xb",
+      "name": "ネットワーク可視化"
+    },
+    {
+      "id": "cjfa1umfzg1mu0118hiyoi712",
+      "name": "生物学"
+    },
+    {
+      "id": "cjfa1uw3khhkz0192w3ti9365",
+      "name": "階層グラフ描画"
+    },
+    {
+      "id": "cjfa1vc2mg1pm0118chtdp2an",
+      "name": "地球科学"
+    },
+    {
+      "id": "cjfa1vpcog1q40118vehwzxh2",
+      "name": "評価グリッド法"
+    },
+    {
+      "id": "cjfajw0t8k08g0192gl286jld",
+      "name": "ビジュアルアナリティクス"
+    },
+    {
+      "id": "cjfajw69eikox0118c7j6h1e1",
+      "name": "統計分析"
+    },
+    {
+      "id": "cjy0cqrt900ik0116k0bq7amk",
+      "name": "公共政策"
+    },
+    {
+      "id": "ck3cbeu984tg10991a2zymgec",
+      "name": "社会調査"
+    },
+    {
+      "id": "ck3cbg5c84tjr099181ngcfdh",
+      "name": "科学コミュニケーション"
+    },
+    {
+      "id": "ck3nwm0zo26qd0991lmfxkr3u",
+      "name": "放射線健康影響"
+    },
+    {
+      "id": "ck3nwmdil26ri0991i6g1lyk6",
+      "name": "数理モデル"
+    },
+    {
+      "id": "ck3nwmlck26sh099155e7wvka",
+      "name": "シミュレーション"
+    },
+    {
+      "id": "cki73iaww25py0a34k27o89ib",
+      "name": "卒業演習"
+    },
+    {
+      "id": "cki73pjps25r80a42q4qmtf5v",
+      "name": "機械学習"
+    },
+    {
+      "id": "cki73vz7425ej0d38u6wn3g40",
+      "name": "地理的可視化"
+    },
+    {
+      "id": "cki73x9hs26rq0b45g8v9ku0z",
+      "name": "SNS分析"
+    },
+    {
+      "id": "cki747sco273l0b45xa78pjnj",
+      "name": "可視化ツール開発"
+    },
+    {
+      "id": "cki8rbdps075a0a858vnd80dn",
+      "name": "計算土木工学"
+    },
+    {
+      "id": "ckwljaabc8of10d84kw9fagj3",
+      "name": "文書可視化"
+    },
+    {
+      "id": "ckwljh9uw8qtf0a961ti0p9bu",
+      "name": "スポーツ可視化"
+    },
+    {
+      "id": "ckwljhlfk8ph30d84ju0hk4cr",
+      "name": "多次元データ可視化"
+    },
+    {
+      "id": "ckwlk80tk8u270b90yiga0dnl",
+      "name": "経済学"
+    },
+    {
+      "id": "ckwlkhes88url0d84lfgmzf5k",
+      "name": "音楽の可視化"
+    },
+    {
+      "id": "ckwll6cxk8wzv0d84kahi3tsb",
+      "name": "障害者支援"
+    },
+    {
+      "id": "ckwll6vg88xmt0c25ls9l337k",
+      "name": "モバイルアプリケーション開発"
+    },
+    {
+      "id": "ckwll74pk8x6y0d84htv90y25",
+      "name": "音声情報処理"
+    },
+    {
+      "id": "cldv2723917o10bzwjakeiqk1",
+      "name": "エンターテイメント"
+    },
+    {
+      "id": "cldv2exkb187u0bzw6f28gqy5",
+      "name": "ITコミュニティ"
+    }
+  ],
+  "members": [
+    {
+      "id": "cjf9yntslh8nc01920t1zsu84",
+      "name": "尾上 洋介",
+      "title": "教授",
+      "description": "日本大学文理学部情報科学科教授。2013年関西大学大学院総合情報学研究科知識情報学専攻博士課程前期課程修了、2016年京都大学大学院工学研究科電気工学専攻博士後期課程修了、博士（工学）。2016年4月から京都大学学際融合教育研究推進センター政策のための科学ユニット特定助教の後、2018年4月より現職。\n\n情報可視化やデータ科学、数理最適化を専門としています。特にネットワーク可視化に関するアルゴリズム、ソフトウェア開発を得意としています。数理的手法やプログラミングを活かして研究に取り組んでいきます。\n\n* [E-Mail – onoue.yousuke@nihon-u.ac.jp](mailto:onoue.yousuke@nihon-u.ac.jp)\n* [GitHub – https://github.com/likr](https://github.com/likr)\n* [Twitter - https://twitter.com/\\_likr](https://twitter.com/_likr)\n* [Facebook – https://www.facebook.com/likr0](https://www.facebook.com/likr0)\n* [Google Scholar – https://scholar.google.co.jp/citations?user=sdlDSdcAAAAJ](https://scholar.google.co.jp/citations?user=sdlDSdcAAAAJ)",
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/F5unqJ0jSH2jZCacVVlJ",
+        "height": 512,
+        "width": 512
+      },
+      "type": "Staff",
+      "order": 0,
+      "assignedYear": 2018
+    },
+    {
+      "id": "cjfntnr2y0dia0179odhu0ho5",
+      "name": "森田 瑛仁",
+      "title": "",
+      "description": "日本大学文理学部情報科学科学部生。埼玉県出身、東京都府中市在住。\n\n統計やユーザーインターフェースに興味があります。\n\n- [Email - moriakijp@gmail.com](<mailto:moriakijp@gmail.com>)\n- [Github - https://github.com/moriakijp](https://github.com/moriakijp)",
+      "picture": null,
+      "type": "Student",
+      "order": 5,
+      "assignedYear": 2018
+    },
+    {
+      "id": "cjg1i6am8i4lf0179vpxa54n8",
+      "name": "山本 寛之",
+      "title": "",
+      "description": "#そのたい焼きはわたしのエサです",
+      "picture": null,
+      "type": "Student",
+      "order": 6,
+      "assignedYear": 2018
+    },
+    {
+      "id": "cjg1jaog4i9p60179x97r97g1",
+      "name": "孫 夙悟",
+      "title": "",
+      "description": "日本大学文理学部情報科学科尾上ゼミ所属。C言語やRubyについて学びながら、尾上研究室で可視化について勉強中です。\n\n- [GitHub](https://github.com/syukugo?tab=stars)\n- [Wantendly](https://www.wantedly.com/user/profile/edit)",
+      "picture": null,
+      "type": "Student",
+      "order": 0,
+      "assignedYear": 2018
+    },
+    {
+      "id": "cjg1o7llvj16201792fdn3cpd",
+      "name": "出口 拓也",
+      "title": "",
+      "description": "気ままに趣味のイラスト描きながらプログラミング嗜んでます。\nRubyとC言語がメイン。",
+      "picture": null,
+      "type": "Student",
+      "order": 3,
+      "assignedYear": 2018
+    },
+    {
+      "id": "cjhwvy7acutcb01036bcevkkw",
+      "name": "田中 太樹",
+      "title": "",
+      "description": "- ハード、ソフト共にとにかく機械をいじるのが好きです。\n- 本を読むのも好きです。ただ読む時間がなかったりで最近は積んでいくことが多いです。**悲しい**\n- 最近の悩みは学校に日本語キーのものしかキーボードがなくて使いにくいことです。",
+      "picture": null,
+      "type": "Student",
+      "order": 1,
+      "assignedYear": 2018
+    },
+    {
+      "id": "cjhx6yyv4vlk10103wsbg8jit",
+      "name": "田中 大道",
+      "title": "",
+      "description": "###可視化についてはこのゼミで初めて触ります。\n\n主な言語はC言語、Rubyです。これから増やせていければいいなって考えてます。資格も今後増やしていきたいです。\n\n+ 所持スキル\n    + C言語プログラミング能力検定　3級",
+      "picture": null,
+      "type": "Student",
+      "order": 2,
+      "assignedYear": 2018
+    },
+    {
+      "id": "cjhxoalrkw2mv0111ims0kuoj",
+      "name": "宮本 悠佑",
+      "title": "",
+      "description": "- 人間になりたい",
+      "picture": null,
+      "type": "Student",
+      "order": 4,
+      "assignedYear": 2018
+    },
+    {
+      "id": "cjutlcyts04ip0186sxp25fjo",
+      "name": "荒木 創太郎",
+      "title": "",
+      "description": "- 横浜在住\n- プログラミング修業中\n- ネットワーク構築勉強中\n- 探検部",
+      "picture": null,
+      "type": "Student",
+      "order": 0,
+      "assignedYear": 2019
+    },
+    {
+      "id": "cjutlocp505ys0168pan9kdhu",
+      "name": "上野 瑞貴",
+      "title": "",
+      "description": "大学に入学し、プログラミングや基礎となる数学を学んできました。\n尾上研究室では情報可視化について学びます。",
+      "picture": null,
+      "type": "Student",
+      "order": 1,
+      "assignedYear": 2019
+    },
+    {
+      "id": "cjutlukio06lp01688suf625m",
+      "name": "坂本 愛弥",
+      "title": "",
+      "description": "パソコンはあまり得意ではありませんが、頑張ってます！",
+      "picture": null,
+      "type": "Student",
+      "order": 2,
+      "assignedYear": 2019
+    },
+    {
+      "id": "cjutlvqjw06lk0186skdq6llv",
+      "name": "出口 翼",
+      "title": "",
+      "description": "情報の科目に触れるのは大学からです\n出来ることを増やしていきたいです",
+      "picture": null,
+      "type": "Student",
+      "order": 3,
+      "assignedYear": 2019
+    },
+    {
+      "id": "cjutlwqli06v40168izwhxvry",
+      "name": "野村 理紗",
+      "title": "",
+      "description": "- がんばります",
+      "picture": null,
+      "type": "Student",
+      "order": 4,
+      "assignedYear": 2019
+    },
+    {
+      "id": "cjutm0nqq07560186tddc27rm",
+      "name": "船木 駿之介",
+      "title": "",
+      "description": "ゼミで色んなことを吸収して学んでいきたいと思っています。\nよろしくお願いします。",
+      "picture": null,
+      "type": "Student",
+      "order": 5,
+      "assignedYear": 2019
+    },
+    {
+      "id": "cjutm1i7i07d90168rg3pvkop",
+      "name": "望月 沙和",
+      "title": "",
+      "description": "TBD",
+      "picture": null,
+      "type": "Student",
+      "order": 6,
+      "assignedYear": 2019
+    },
+    {
+      "id": "ck8hcvb2hdghh0869sadvxmev",
+      "name": "高田 楓我",
+      "title": null,
+      "description": "React.jsやIonicなどのweb技術に興味があります。\n* [GitHub - https://github.com/FugaTakata ](https://github.com/FugaTakata)\n* [Twitter - https://twitter.com/maple__f](https://twitter.com/maple__f)",
+      "picture": null,
+      "type": "Student",
+      "order": 5,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ck9799g9jcw5b0869l3u8qdlq",
+      "name": "森 悠也",
+      "title": null,
+      "description": "- AtCoder頑張ってます\n- お酒が好きです",
+      "picture": null,
+      "type": "Student",
+      "order": 8,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ck979arswcw7t086923vwwemr",
+      "name": "伊藤 辰光",
+      "title": null,
+      "description": "TBD",
+      "picture": null,
+      "type": "Student",
+      "order": 0,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ck979bkbjcw9s08699lhkagjx",
+      "name": "織田 尚哉",
+      "title": null,
+      "description": "ベラルーシという国が好きです\n福島第一原発関連の研究に興味があります\n- Twitter → https://twitter.com/Oden612",
+      "picture": null,
+      "type": "Student",
+      "order": 1,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ck979c4rmcwax0869zb2noxfo",
+      "name": "金子 恭平",
+      "title": null,
+      "description": "AtCoderをやっています\n\n- https://github.com/kanekyo1234\n- https://twitter.com/kanekyohunter",
+      "picture": null,
+      "type": "Student",
+      "order": 2,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ck979cqpvcwca0869meg9r809",
+      "name": "上月 那奈子",
+      "title": null,
+      "description": "大学に入ってから、情報について学び始めました。数学系の方が得意です。頑張ります！",
+      "picture": null,
+      "type": "Student",
+      "order": 3,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ck979df8fcwdy0869lnl58ema",
+      "name": "近藤 みのり",
+      "title": null,
+      "description": "プログラミング習得頑張ります",
+      "picture": null,
+      "type": "Student",
+      "order": 4,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ck979hbdqcwmy08693x9oiipw",
+      "name": "畑佐 有輝",
+      "title": null,
+      "description": "よろしくお願いします",
+      "picture": null,
+      "type": "Student",
+      "order": 6,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ck979huencwo60869k2aaiie4",
+      "name": "三浦 佳苗",
+      "title": null,
+      "description": "- java scriptが扱えるように頑張ります。",
+      "picture": null,
+      "type": "Student",
+      "order": 7,
+      "assignedYear": 2020
+    },
+    {
+      "id": "ckwldh6jc89ca0d849c1cagp0",
+      "name": "阿部 沙亜弥",
+      "title": null,
+      "description": "###阿部沙亜弥\nできることを増やせるように頑張ります。\n- 踊ることが好きです",
+      "picture": null,
+      "type": "Student",
+      "order": 1,
+      "assignedYear": 2021
+    },
+    {
+      "id": "ckwldhv888amw0b90tcrwye2m",
+      "name": "浦丸 悠宇",
+      "title": null,
+      "description": "- [twitter](https://twitter.com/nu_yu21)\n- 麻雀できます。",
+      "picture": null,
+      "type": "Student",
+      "order": 2,
+      "assignedYear": 2021
+    },
+    {
+      "id": "ckwldl95489ul0c25w2sx4w0b",
+      "name": "工藤 正和",
+      "title": null,
+      "description": "強くなりたい",
+      "picture": null,
+      "type": "Student",
+      "order": 3,
+      "assignedYear": 2021
+    },
+    {
+      "id": "ckwldmkzc89x60c25d394bzzb",
+      "name": "小泉 秀平",
+      "title": null,
+      "description": "プログラミングは大学から。技術習得がんばります",
+      "picture": null,
+      "type": "Student",
+      "order": 4,
+      "assignedYear": 2021
+    },
+    {
+      "id": "ckwldnp3s89k30d84gegsfd1f",
+      "name": "中庭 陸汰",
+      "title": null,
+      "description": "ゼミでは情報可視化を通してプログラミングを習得したいです。よろしくお願いします。",
+      "picture": null,
+      "type": "Student",
+      "order": 5,
+      "assignedYear": 2021
+    },
+    {
+      "id": "ckwldonts89nu0d842ci9wbol",
+      "name": "沼部 恵",
+      "title": null,
+      "description": "テレビとカメラと映像編集が好きなジャニーズファンです",
+      "picture": null,
+      "type": "Student",
+      "order": 6,
+      "assignedYear": 2021
+    },
+    {
+      "id": "ckwldpjgo8a6p0c25vxle89bl",
+      "name": "守屋 瑛希",
+      "title": null,
+      "description": "大学で初めてプログラミングを学びました。頑張ります。",
+      "picture": null,
+      "type": "Student",
+      "order": 7,
+      "assignedYear": 2021
+    },
+    {
+      "id": "ckwldsr7c8aac0d84ipsxl128",
+      "name": "渡邉 南那",
+      "title": null,
+      "description": "TBD",
+      "picture": null,
+      "type": "Student",
+      "order": 8,
+      "assignedYear": 2021
+    },
+    {
+      "id": "ckwldtc1c8bgy0b902v27n0sl",
+      "name": "渡邉 みさと",
+      "title": null,
+      "description": "-  音楽が好きです\n-  プログラミングも好きです\n-  色々面白いことをやっていけたらなと思っています\n[Twitter ー https://twitter.com/Tsubame_misa](https://twitter.com/Tsubame_misa)\n[Github ー https://github.com/tsubame-misa ](https://github.com/tsubame-misa)",
+      "picture": null,
+      "type": "Student",
+      "order": 9,
+      "assignedYear": 2021
+    },
+    {
+      "id": "clbczlmb159v00b16cgytlvqv",
+      "name": "伊東 晴紀",
+      "title": null,
+      "description": "東で書く伊東です．プログラミング頑張ります．",
+      "picture": null,
+      "type": "Student",
+      "order": 1,
+      "assignedYear": 2022
+    },
+    {
+      "id": "clbczm7b959ws0b16e4xc3o51",
+      "name": "伊藤 和斗",
+      "title": null,
+      "description": "プログラミングは大学からなのでがんばりたい",
+      "picture": null,
+      "type": "Student",
+      "order": 2,
+      "assignedYear": 2022
+    },
+    {
+      "id": "clbczmyv65bzg0b11gdjaocp3",
+      "name": "高見 之斗",
+      "title": null,
+      "description": "情報可視化を活かしたアプリを作りたいです。よろしくお願いします。",
+      "picture": null,
+      "type": "Student",
+      "order": 3,
+      "assignedYear": 2022
+    },
+    {
+      "id": "clbcznr5k5c0p0b11jm2zyunb",
+      "name": "田子 友唯",
+      "title": null,
+      "description": "精進して行きます",
+      "picture": null,
+      "type": "Student",
+      "order": 4,
+      "assignedYear": 2022
+    },
+    {
+      "id": "clbczqtcu59nt0bzutdz08en3",
+      "name": "塚田 一晃",
+      "title": null,
+      "description": "人の役に立ちたい",
+      "picture": null,
+      "type": "Student",
+      "order": 5,
+      "assignedYear": 2022
+    },
+    {
+      "id": "clbczrrf15c8d0b11f7wvkbya",
+      "name": "樋口 佳亮",
+      "title": null,
+      "description": "プログラミングはあまり得意ではありませんが頑張ります。",
+      "picture": null,
+      "type": "Student",
+      "order": 6,
+      "assignedYear": 2022
+    },
+    {
+      "id": "clbd73l6660xq0b17ttqlvp6r",
+      "name": "田中 太樹 ",
+      "title": null,
+      "description": "文書データの階層クラスタリング結果の可視化に関して研究しています。",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 1,
+      "assignedYear": 2021
+    },
+    {
+      "id": "clbd7443v5z120b110j4ov6gq",
+      "name": "肖 天棟",
+      "title": null,
+      "description": "TBD",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 1,
+      "assignedYear": 2020
+    },
+    {
+      "id": "clbd76gic5x5c0bzupjpu9nps",
+      "name": "織田 尚哉",
+      "title": null,
+      "description": "くそでかいダンボールあるので全てその中にまとめている",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 1,
+      "assignedYear": 2022
+    },
+    {
+      "id": "clbd76zwr612a0b1742q2uwe1",
+      "name": "高田 楓我",
+      "title": null,
+      "description": "グラフ描画アルゴリズムのパラメータに関する研究をしています。Webアプリ開発が好きで、Web技術やデザインに興味があります。\n\n趣味は釣りです。\n\n- [GitHub - https://github.com/FugaTakata](https://github.com/FugaTakata)\n- [Twitter - https://twitter.com/maple__f](https://twitter.com/maple__f)\n- [RESUME - https://www.resume.id/f_maple](https://www.resume.id/f_maple)",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 2,
+      "assignedYear": 2022
+    },
+    {
+      "id": "clsgci7bdqmfd0b19dkn08i77",
+      "name": "荒牧諒亮",
+      "title": null,
+      "description": "音楽が好きです。いろいろな事をやっていきたいです。",
+      "picture": null,
+      "type": "Student",
+      "order": 1,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgcj5n0qjdx0a15rqs1sjst",
+      "name": "石川翼",
+      "title": null,
+      "description": "成長できるよう頑張ります。",
+      "picture": null,
+      "type": "Student",
+      "order": 2,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgcjr8bqjgr0a15l60bd1xl",
+      "name": "伊藤大貴",
+      "title": null,
+      "description": "お世話になります。よろしくお願いします。",
+      "picture": null,
+      "type": "Student",
+      "order": 3,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgckjbvqmle0b19t0yu310l",
+      "name": "井上隆大",
+      "title": null,
+      "description": "プログラミング頑張ります",
+      "picture": null,
+      "type": "Student",
+      "order": 4,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgcl7ocqjtj0a15vbrn77nf",
+      "name": "川邉開人",
+      "title": null,
+      "description": "プログラミング習得頑張りたいです。",
+      "picture": null,
+      "type": "Student",
+      "order": 5,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgclt0bqk2f0a15a7qeyn2l",
+      "name": "小出朋希",
+      "title": null,
+      "description": "-   プログラミングは大学からです\n-   お酒とゲームが好きです",
+      "picture": null,
+      "type": "Student",
+      "order": 6,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgcmjx1qnmg0b19kpl3by16",
+      "name": "白庄司拓真",
+      "title": null,
+      "description": "プログラミングチョットデキル\n* [GitHub - https://github.com/Shirashoji](https://github.com/Shirashoji)\n* [Twitter - https://twitter.com/shira_2003](https://twitter.com/shira_2003)",
+      "picture": null,
+      "type": "Student",
+      "order": 7,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgcnp36qky10a15ixl8htxt",
+      "name": "吉崎主馬",
+      "title": null,
+      "description": "TBD",
+      "picture": null,
+      "type": "Student",
+      "order": 8,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgcoag7ql4q0a15bj18arwg",
+      "name": "吉田捷馬",
+      "title": null,
+      "description": "趣味は機械いじり\n公式サイト ➤ http://kerachino.com",
+      "picture": null,
+      "type": "Student",
+      "order": 9,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgcoxrnql8x0a15dht1xzs0",
+      "name": "渡邉みさと",
+      "title": null,
+      "description": "平坦トーラスと少し仲良くなりました",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 2,
+      "assignedYear": 2023
+    },
+    {
+      "id": "clsgcpem2ql9v0a15mi0i95y8",
+      "name": "工藤正和",
+      "title": null,
+      "description": "TBD",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 1,
+      "assignedYear": 2023
+    },
+    {
+      "id": "cm482iane6ewb0717r7grufj7",
+      "name": "伊東晴紀",
+      "title": null,
+      "description": "TBD",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 0,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482jr6c6df507126kt2lto4",
+      "name": "塚田一晃",
+      "title": null,
+      "description": "Dota2が出来ます。",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 2,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482l1lb6dh70712yw88m8d4",
+      "name": "伊藤蓮",
+      "title": null,
+      "description": "数学系の方が得意ですが、情報も得意になれるよう頑張ります！",
+      "picture": null,
+      "type": "Student",
+      "order": 1,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482m9wa6dmm07129mrjc81y",
+      "name": "佐久間道仁",
+      "title": null,
+      "description": "プログラミング頑張ります。\n音楽がいろいろ好きです。",
+      "picture": null,
+      "type": "Student",
+      "order": 2,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482tl3x6goa07171fysfpdu",
+      "name": "伴野暖",
+      "title": null,
+      "description": "技術習得頑張ります",
+      "picture": null,
+      "type": "Student",
+      "order": 3,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482urbz6f6i0712dux70bne",
+      "name": "三石遥菜",
+      "title": null,
+      "description": "プログラミングできないのでがんばります。",
+      "picture": null,
+      "type": "Student",
+      "order": 4,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482vr6p6fb10712ydo20cl9",
+      "name": "村田智哉",
+      "title": null,
+      "description": "TBD",
+      "picture": null,
+      "type": "Student",
+      "order": 5,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482wo136ff20712knub64ue",
+      "name": "望月晃星",
+      "title": null,
+      "description": "- 野球がすき  \n- コードと友達になりたい",
+      "picture": null,
+      "type": "Student",
+      "order": 6,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482x9hs6fjh0712z3pixlyg",
+      "name": "吉村明裕",
+      "title": null,
+      "description": "- 音楽やったりゲームやったりゲームのシナリオ書いて自分でボツにしたりするのが趣味\n- プログラミングはかなりできない\n- 酒とサウナとうまい飯が好き\"",
+      "picture": null,
+      "type": "Student",
+      "order": 7,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cm482xq5d6heo0717a6de3857",
+      "name": "渡邉彩",
+      "title": null,
+      "description": "漫画と映画とコスプレとカートと宝塚歌劇と旅行と読書などが好きです。できることを増やしていきたいです。",
+      "picture": null,
+      "type": "Student",
+      "order": 8,
+      "assignedYear": 2024
+    },
+    {
+      "id": "cmbt09wflhyi407zvrc43pmt4",
+      "name": "境田悠希",
+      "title": null,
+      "description": "プログラミング頑張ります",
+      "picture": null,
+      "type": "Student",
+      "order": 0,
+      "assignedYear": 2025
+    },
+    {
+      "id": "cmbt0azgxhyq907zvyqedohkq",
+      "name": "坂口琴美",
+      "title": null,
+      "description": "ウミガメのスープが好きです！！！",
+      "picture": null,
+      "type": "Student",
+      "order": 1,
+      "assignedYear": 2025
+    },
+    {
+      "id": "cmbt0btdihy9s08136fybcbj9",
+      "name": "長谷川絢南",
+      "title": null,
+      "description": "プログラミングもそれ以外も、いろいろたくさん頑張ります。",
+      "picture": null,
+      "type": "Student",
+      "order": 2,
+      "assignedYear": 2025
+    },
+    {
+      "id": "cmbt0cfcrhyd30813wwguduck",
+      "name": "濵　瑛次",
+      "title": null,
+      "description": "# 濵 瑛次\n- プログラミングと資格取得頑張ります",
+      "picture": null,
+      "type": "Student",
+      "order": 3,
+      "assignedYear": 2025
+    },
+    {
+      "id": "cmbt0cywyhyhr081373x3odjj",
+      "name": "原田大輔",
+      "title": null,
+      "description": "数学系が苦手ですが、頑張ります",
+      "picture": null,
+      "type": "Student",
+      "order": 4,
+      "assignedYear": 2025
+    },
+    {
+      "id": "cmbt0dje6hzk907zvk6961mmr",
+      "name": "渡邊陽翔",
+      "title": null,
+      "description": "頑張って死ぬ気で食らいつきます。よろしくお願いします。\n\n[個人サイト](https://watanabeharuto.netlify.app/)",
+      "picture": null,
+      "type": "Student",
+      "order": 5,
+      "assignedYear": 2025
+    },
+    {
+      "id": "cmbt0eme0hz0v0813osrf85c1",
+      "name": "白庄司拓真",
+      "title": null,
+      "description": "色々頑張りたい\n- [GitHub - https://github.com/Shirashoji](https://github.com/Shirashoji)\n- [Twitter - https://twitter.com/shira_2003](https://twitter.com/shira_2003)",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 0,
+      "assignedYear": 2025
+    },
+    {
+      "id": "cmbt0f9v5hzb00813gqumi8gc",
+      "name": "吉崎主馬",
+      "title": null,
+      "description": "ノードリンク図を用いた根付き木のレイアウト手法について研究をしています。\n社会の役に立ちたいです。",
+      "picture": null,
+      "type": "GraduateStudent",
+      "order": 1,
+      "assignedYear": 2025
+    },
+    {
+      "id": "cmbt0mdcpi2hn0813u4lruvha",
+      "name": "織田尚哉",
+      "title": null,
+      "description": "- 不動産の業務支援システムを開発するソフトウェアエンジニアとして働きながら博士課程で研究を続けています\n- テキストデータの可視化を主に専門として研究しているつもりです\n- 麻雀が好きで家に全自動麻雀卓があります\n- 誘われたら何でもします",
+      "picture": null,
+      "type": "GraduateStudentDoctor",
+      "order": 0,
+      "assignedYear": 2025
+    }
+  ],
+  "posts": [
+    {
+      "id": "cjhwv59hsura30103nniesrqt",
+      "title": "尾上助教が着任しました",
+      "content": "尾上助教が日本大学文理学部情報科学科に着任しました。\n新たに研究室を立ち上げ、情報可視化やデータサイエンスを中心とした情報科学分野の教育研究に取り組んでいきます。",
+      "date": "2018-04-01"
+    },
+    {
+      "id": "cjhwvl1pyusc10103bhed0ono",
+      "title": "PacificVis 2018にてHonorable Mention Visualization Note Awardを受賞しました",
+      "content": "理化学研究所と京都大学との共同研究の成果をまとめた以下の論文が、国際会議The 11th IEEE Pacific Visualization Symposium (PacificVis 2018)でHonorable Mention Visualization Note Awardを受賞しました。\n\n* Onoue, Y., Kyoda, K., Kioka, M., Baba, K., Onami, S., & Koyamada, K. (2018). Development of an Integrated Visualization System for Phenotypic Character Networks. In Proceedings of IEEE Pacific Visualization 2018 (VisNotes) (pp. 21–25).",
+      "date": "2018-04-12"
+    },
+    {
+      "id": "cjhwvrvkwumd40111h0qrzvt7",
+      "title": "ゼミがスタートしました",
+      "content": "研究室第1期生として7人の学生を迎え、ゼミの活動をスタートしました。\nPythonやJavaScriptを用いて情報可視化の理論や実践を学んでいきます。",
+      "date": "2018-04-19"
+    },
+    {
+      "id": "cjjdlaq72pcgh0111eynht0ih",
+      "title": "HTML5 APP CONFERENCEで講演しました",
+      "content": "2018年7月8日開催の[HTML5 APP CONFERENCE](https://html5app-conf.connpass.com/event/87730/)にて「HTML5 アプリにおけるパフォーマンスの基礎知識」というタイトルで講演を行いました。\n\n* [発表資料](https://speakerdeck.com/likr/html5apuriniokerupahuomansufalseji-chu-zhi-shi)\n* [速報レポート](https://press.monaca.io/kanako/2740)",
+      "date": "2018-07-08"
+    },
+    {
+      "id": "cjlt4lrmr0p1q0125y304vuml",
+      "title": "共同研究の成果が国際論文誌PLOS ONEに掲載されました",
+      "content": "環境省「放射線の健康影響に係る研究調査事業」で行なった研究の成果が国際論文誌PLOS ONEに掲載されました。\n\n福島第1原子力発電所事故後半年間の放射線健康影響に関するTwitter上での動向を自然言語処理やネットワーク可視化のアプローチを用いて分析しました。\n\nオープンアクセスでどなたでもご覧いただけます。\n\nM. Tsubokura et al., “Twitter use in scientific communication revealed by visualization of information spreading by influencers within half a year after the Fukushima Daiichi nuclear power plant accident,” PLoS One, vol. 13, no. 9, pp. 1–14, 2018.\n\n[https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0203594](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0203594)",
+      "date": "2018-09-08"
+    },
+    {
+      "id": "cjm77b51f14m8017885cod7a2",
+      "title": "可視化情報学会 奨励賞を受賞しました",
+      "content": "可視化情報学会第29期学会賞として、尾上助教が奨励賞を受賞しました。\n2018年9月14日から16日にわたって開催された可視化情報シンポジウム内にて授賞式が行われました。\n\nまた、本シンポジウム内では、共同研究を含めて5件の研究発表を行いました。",
+      "date": "2018-09-15"
+    },
+    {
+      "id": "cjp9l29go07id0172fac6muz1",
+      "title": "FRONTEND CONFERENCE 2018で登壇しました",
+      "content": "11月24日にグランフロント大阪で開催されたFRONTEND CONFERENCE 2018にて「Rust + WebAssemblyで広がるWebの未来」というタイトルで登壇しました。\n\n発表資料は [http://bit.ly/2r4B8Lw](http://bit.ly/2r4B8Lw) をご覧ください。",
+      "date": "2018-11-24"
+    },
+    {
+      "id": "cjs5h0bls0f5b0106mswfo42l",
+      "title": "次世代Webカンファレンスで登壇しました",
+      "content": "1月14日に法政大学富士見ゲートで開催された[次世代Webカンファレンス](https://nextwebconf.connpass.com/event/103056/)において、Webのパフォーマンスをテーマにしたパネルディスカッションにパネリストとして登壇しました。\n\nディスカッションの録画が[https://youtu.be/nXvHsb3uCIw](https://youtu.be/nXvHsb3uCIw)で公開されています。",
+      "date": "2019-01-14"
+    },
+    {
+      "id": "cjs5hiset0h6d0125zgql2tj7",
+      "title": "毎日メディアカフェで登壇しました",
+      "content": "2月14日に開催された毎日メディアカフェ「情報の伝わり方を見える化すること～原発事故でSNSの果たした役割」に参加しました。\n昨秋に発表した論文「Twitter use in scientific communication revealed by visualization of information spreading by influencers within half a year after the Fukushima Daiichi nuclear power plant accident」について共同研究者の宇野先生、坪倉先生と共に紹介し、毎日新聞社の小川氏と著名インフルエンサーの@domoboku氏を混じえてSNSにおける情報発信について議論しました。\n\n詳細は[記事](https://www.facebook.com/mainichimediacafe/posts/2209845235924525?__xts__%5B0%5D=68.ARBnf-jAsmdX1h6Brp8dYVElfj-URY1uwhWIC3N06gBn0TsSFZkY9s2Q8yhnvBfcSlNZNF-TNq8e8q59XEupIjzmEtBLeZpeg_22VmzkfLEY_c6q7i2wA2bbwnOafgj0B57DFvLLY0UczT9deOGP-yhn0PdSxlp6ITsKhYoze_rjRj6UxHvpthrwDO0Viw_lps6ZNBXFYgQ831bWQtBLMiS2xgvrfPjEXc9jD5GnhbAYtGL5Ab9agTtaz7YN11nXEFUAXoqjUFNmIvp-FW_If9J_fMq3S0D6eisx33mEP37sB07u1ZOE_xf4CdM3QtHs1rVX3trwqTM1hsWeAaQq5rzADBk&__tn__=C-R)をご覧ください。",
+      "date": "2019-02-14"
+    },
+    {
+      "id": "cjwhj2qgv0yed0132z561tcub",
+      "title": "PacificVis 2019で研究発表をしました",
+      "content": "可視化分野の国際会議The 12th IEEE Pacific Visualization Symposium (PacificVis 2019)にて、以下2件の共著論文の発表を行いました。\n\n* N. Aoyama, Y. Onoue, Y. Ueno, H. Natsukawa, and K. Koyamada, “User Evaluation of Group-in-a-box Variants,” in Proceedings of IEEE Pacific Visualization 2019, 2019, pp. 127–136.\n* K. Arimoto, Y. Onoue, and H. Watanave, “Visual Analysis of Inter-firm Transaction Cluster Using Geo-network Visualization,” in The 12th IEEE Pacific Visualization Symposium, 2019.",
+      "date": "2019-04-26"
+    },
+    {
+      "id": "cjy0dmmln00ya0169nslmnzpc",
+      "title": "行政事業のデータベースサイトJUDGIT!を公開しました",
+      "content": "行政事業のデータベースサイト[JUDGIT!（ジャジット）](https://judgit.net/)を公開しました。\nJUDGIT!では、行政事業の概要や予算額、成果指標、支出先企業等の情報を横断的に検索できます。\n[構想日本](http://www.kosonippon.org/)、[ワセダクロニクル](http://www.wasedachronicle.org/)、[Visualizing.JP](https://visualizing.jp/)との4者による共同プロジェクトです。\n\nニュースサイトでも取り上げられました。\n\n* https://www.buzzfeed.com/jp/daisukefuruta/judgit\n* http://www.wasedachronicle.org/information/c67/\n* https://prtimes.jp/main/html/rd/p/000000007.000032375.html\n* https://www3.nhk.or.jp/news/html/20190711/k10011990621000.html\n* https://news.tv-asahi.co.jp/news_economy/articles/000159298.html\n",
+      "date": "2019-07-11"
+    },
+    {
+      "id": "ck391myumsc4r09917zqr6823",
+      "title": "FRONTEND CONFERENCE 2019で登壇しました。",
+      "content": "11月2日にグランフロント大阪で開催された[FRONTEND CONFERENCE 2019](https://2019.kfug.jp/)にて「モダンJavaScript再入門」というタイトルで登壇しました。\n\n発表資料を以下に公開しています。\n\n* https://speakerdeck.com/likr/re-introduction-to-modern-javascript",
+      "date": "2019-11-02"
+    },
+    {
+      "id": "ck391qdwtscbq0991t0y32y8x",
+      "title": "Rust.Tokyo 2019で登壇しました",
+      "content": "10月26日に開催された[Rust.Tokyo 2019](https://rust.tokyo/)にて「Web-based Data Visualization with Rust and WebAssembly」というタイトルで登壇しました。\n\n発表資料を以下に公開しています。\n\n* https://speakerdeck.com/likr/web-based-data-visualization-with-rust-and-webassembly",
+      "date": "2019-10-26"
+    },
+    {
+      "id": "ck3920glvsd070991rgsr75w5",
+      "title": "可視化情報シンポジウム2019で研究発表をしました",
+      "content": "[可視化情報シンポジウム2019](http://www.visualization.jp/symp2019/)にて、以下4件の研究成果の発表を行いました。\n\n* 夏川浩明, 石野隼伍, 尾上洋介, 京田耕司, 大浪修一, & 小山田耕二. (2019). 表現型特徴―遺伝子ネットワークの横断的探索を支援する視覚的分析. In 第47回可視化情報シンポジウム.\n* 尾上洋介, 有本昂平, 夏川浩明, & 小山田耕二. (2019). セマンティックエッジ束化を用いたグループ構造を持ったネットワークの可視化. In 第47回可視化情報シンポジウム.\n* 山田慧史, 有本昂平, 高田百合奈, & 尾上洋介. (2019). グリッドメッシュを用いた企業数の時系列ジオビジュアライゼーション. In 第47回可視化情報シンポジウム.\n* 有本昂平, 尾上洋介, & 渡邉英徳. (2019). Force-Directedグラフ描画による地域内取引ネットワークの可視化. In 第47回可視化情報シンポジウム.",
+      "date": "2019-07-27"
+    },
+    {
+      "id": "ck3939804sg8y09910vho8tdh",
+      "title": "「JUDGIT!」がLODチャレンジ2019 アプリケーション部門 優秀賞を受賞しました",
+      "content": "オープンデータ関連のコンテストである[Linked Open Dataチャレンジ Japan 2019（LODチャレンジ2019）](https://2019.lodc.jp/index.html)において、[JUDGIT!](https://judgit.net)がアプリケーション部門 優秀賞を受賞しました。\n\nhttps://2019.lodc.jp/archives/2019/pressRelease2019.html\n\n12月7日に開催される[授賞式シンポジウム](https://lodc2019.peatix.com/) で展示発表を行います。",
+      "date": "2019-11-08"
+    },
+    {
+      "id": "ck72jsva3lzv20869udzwye2t",
+      "title": "「JUDGIT!」が一般社団法人オープン&ビッグデータ活用・地方創生推進機構のオープンデータ・ビッグデータに関する優れた取り組みの表彰で最優秀賞を受賞しました",
+      "content": "「JUDGIT!」が、一般社団法人オープン&ビッグデータ活用・地方創生推進機構（VLED）のオープンデータに関する優れた取り組みを勝手に選んで勝手に表彰する「勝手表彰」で最優秀賞を受賞しました。\n\nhttp://www.vled.or.jp/news/2001/200129_001554.php",
+      "date": "2020-01-29"
+    },
+    {
+      "id": "cki74s5dk26fn0d389fyy2j1h",
+      "title": "毎日新聞で研究室の取り組みが紹介されました。",
+      "content": "2020年11月1日と3日の毎日新聞朝刊で行政事業情報の可視化に関する本研究の取り組みが紹介されました。\n\n詳細は毎日新聞Web版の記事をご覧ください。（全文読むためには会員登録が必要です。）\n\n- [行政レビュー形骸化　無駄発見「官」評価低 - 2020年11月1日毎日新聞朝刊](https://mainichi.jp/articles/20201101/ddm/003/010/086000c)\n- [行政レビュー　全体見渡す仕組み必要　予算分析サイト「ＪＵＤＧＩＴ！」を開発　尾上洋介・日本大学准教授 - 2020年11月3日毎日新聞朝刊](https://mainichi.jp/articles/20201103/ddm/008/010/065000c)\n",
+      "date": "2020-11-03"
+    },
+    {
+      "id": "cki757r3s29ls0b456hqeclfr",
+      "title": "可視化情報シンポジウム2020で研究発表をしました",
+      "content": "[可視化情報シンポジウム2020](https://www.vsj.jp/symp2020/index.html)にて、以下2件の研究成果の発表を行いました。\n\n- 尾上洋介 and 吉藤尚生, “粒子法を用いた計算土木工学におけるWebベースビジュアルアナリティクスシステムの開発,” 第48回可視化情報シンポジウム, 2020.\n- 津吹かおり, 馬場一貴, 内海千津子, 尾上洋介, and 小山田耕二, “子育てAIに関するユーザーインタビュー結果の可視化,” 第48回可視化情報シンポジウム, 2020.",
+      "date": "2020-09-26"
+    },
+    {
+      "id": "ckwljwgxc8scv0b90ysdw8o2k",
+      "title": "PacificVis 2021で研究発表をしました",
+      "content": "可視化分野の国際会議[The 14th IEEE Pacific Visualization Sympoium (PacificVis 2021)](http://vis.tju.edu.cn/pvis2021/index.html)にて、以下1件の研究成果の発表を行いました。\n\n- T. Xiao and Y. Onoue, “Visualization of Topic Transitions in SNSs Using Document Embedding and Dimensionality Reduction,” in 2021 IEEE 14th Pacific Visualization Symposium (PacificVis), 2021, pp. 216–220.",
+      "date": "2021-04-11"
+    },
+    {
+      "id": "ckwljzu2g8sjp0a962r5s6j7t",
+      "title": "第130回MUS・第59回EC合同研究発表会で研究発表をしました",
+      "content": "[第130回MUS・第59回EC合同研究発表会](https://www.ipsj.or.jp/kenkyukai/event/mus130ec59.html)にて、以下1件の研究成果の発表を行いました。\n\n- 渡邉みさと, 尾上洋介, 植村あい子, and 北原鉄朗, “管楽器を対象とした基礎的演奏技術向上のための音響特徴可視化アプリの試作,” 2021.",
+      "date": "2021-03-16"
+    },
+    {
+      "id": "ckwlk1rig8sul0b90ie1pqwd3",
+      "title": "MJIR2021で研究発表を行いました",
+      "content": "[MJIR2021 第10回 大学情報・機関調査研究集会](https://mjir.info/2021/05/19/mjir2021-%E7%AC%AC10%E5%9B%9E-%E5%A4%A7%E5%AD%A6%E6%83%85%E5%A0%B1%E3%83%BB%E6%A9%9F%E9%96%A2%E8%AA%BF%E6%9F%BB%E7%A0%94%E7%A9%B6%E9%9B%86%E4%BC%9A%E3%81%AE%E9%96%8B%E5%82%AC%E3%81%AB%E3%81%A4/)にて、以下1件の研究成果の発表を行いました。\n\n- 尾上洋介, 大川内隆朗, and 田中絵里子, “教学IRにおける視覚的分析アプローチの検討 ― 日本大学文理学部における視覚的分析システム構築事例 ―,” 2021.",
+      "date": "2021-11-14"
+    },
+    {
+      "id": "ckwlk3o6o8row0d84q2wvdi03",
+      "title": "CMMR2021で研究発表を行いました",
+      "content": "[the 15th International Symposium on CMMR](https://www.cmmr2021.gttm.jp/)にて、以下1件の研究発表を行いました。\n\n- M. Watanabe, Y. Onoue, A. Uemura, and T. Kitahara, “Suiview: A Web-based Application that Enables Users to Practice Wind Instrument Performance,” in Proceedings of the 15th International Symposium on CMMR, 2021, pp. 5–10.",
+      "date": "2021-11-16"
+    },
+    {
+      "id": "clsgaiwsnqala0a156m4xkrmx",
+      "title": "PacificVis 2022で研究発表をしました ",
+      "content": "可視化分野の国際会議[The 15th IEEE Pacific Visualization Sympoium (PacificVis 2022)](https://pvis2022.github.io/pvis2022/)にて、以下1件の研究成果の発表を行いました。\n\n- T. Tanaka and Y. Onoue, \"Summarized Dendrogram for Interactive Exploration of Hierarchical Document Cluster,\" in 2022 IEEE 15th Pacific Visualization Symposium (PacificVis), 2022.",
+      "date": "2022-04-13"
+    },
+    {
+      "id": "clsgapf6aqboy0a15s0rpyt70",
+      "title": "PacificVis 2023で研究発表をしました",
+      "content": "可視化分野の国際会議[The 16th IEEE Pacific Visualization Sympoium (PacificVis 2023)](https://pvis2023.github.io/pvis2023/)にて、以下2件の研究成果の発表を行いました。\n\n- N. Oda and Y. Onoue, “Story Gems: A Novel Approach for Semantic Aware Text Visualization,” in 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023.\n- F. Takata and Y. Onoue, “Hyperparameter Optimization for Graph Drawing,” in 2023 IEEE 16th Pacific Visualization Symposium (PacificVis), 2023.",
+      "date": "2023-04-20"
+    },
+    {
+      "id": "clsgd63cdqpm10b19cz1po2dl",
+      "title": "Journal of Visualizationに論文が掲載されました",
+      "content": "可視化分野の国際論文誌Journal of Visualizationに以下の論文が掲載されました。\n\n- T. Xiao, N. Oda and Y. Onoue, “Visualization of topic transitions in SNSs through document embedding and dimensionality reduction,” Journal of Visualization, 26, pp. 1405-1419, 2023.",
+      "date": "2023-12-01"
+    },
+    {
+      "id": "clsgdb9zeqn650a1521u3zdpx",
+      "title": "インタラクション2023で研究発表をしました",
+      "content": "[インタラクション2023](https://www.interaction-ipsj.org/2023/)にて、以下1件の研究発表を行いました。\n\n- 渡邉みさと, 沼部恵, 阿部沙亜弥 and 尾上洋介, \"BuzzLead:TikTokの流行曲予測システム,\" インタラクション2023, 2023.",
+      "date": "2023-03-10"
+    },
+    {
+      "id": "cm46b3n4pl1ue0815xm9l9w40",
+      "title": "PacificVis 2024で研究発表をしました",
+      "content": "可視化分野の国際会議[The 17th IEEE Pacific Visualization Sympoium (PacificVis 2024)](https://pacificvis.github.io/pvis2024/)にて、以下2件の研究成果の発表を行いました。\n\n- M. Watanabe and Y. Onoue, \"Cell Size Optimization for Graph Drawing on Torus,\" in 2024 IEEE 17th Pacific Visualization Symposium (PacificVis), 2024.\n- M. Kudo and Y. Onoue, \"Fuzzy Confluent Layered Drawings: Extension of Confluent Layered Drawings using Quasi-biclique,\" in 2024 IEEE 17th Pacific Visualization Symposium (PacificVis), 2024.",
+      "date": "2024-04-26"
+    },
+    {
+      "id": "cm482bkqx6cq00712lmxo3rtf",
+      "title": "第6回ダウン症候群口腔ケア・フォーラムin 神奈川で講演を行いました",
+      "content": "一般社団法人IKKA主催の[第6回ダウン症候群口腔ケア・フォーラムin 神奈川](https://yokohamapj.org/news/forum_vol6/)にて、以下の講演を行いました。\n- 尾上洋介, \"日々の口腔機能トレーニングを支援する「パタカラプラスアプリ」の開発,\" 2024.",
+      "date": "2024-10-25"
+    }
+  ],
+  "products": [
+    {
+      "id": "ck3av1qx9xd1x0991s04z9cqu",
+      "name": "E-Grid",
+      "description": "E-Gridは評価グリッド法とラダリングインタビューのためのビジュアルアナリティクスシステムです。E-Gridはネットワーク分析とグラフ描画の技術を用いることで、インタビューによって引き出された認知構造の効果的な分析を実現します。\n\nhttps://egrid.jp/\n\n\n関連文献\n\n* Y. Onoue, N. Kukimoto, N. Sakamoto, K. Misue, and K. Koyamada, “Layered Graph Drawing for Visualizing Evaluation Structures,” IEEE Comput. Graph. Appl., vol. 37, no. 2, pp. 20–30, Mar. 2017.\n* Y. Onoue, N. Kukimoto, N. Sakamoto, and K. Koyamada, “E-Grid: a visual analytics system for evaluation structures,” J. Vis., vol. 19, no. 4, pp. 753–768, 2016.",
+      "publishYear": 2016,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/XDm5D1tnQHmZBVfgbUJV",
+        "height": 540,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cjfa1vpcog1q40118vehwzxh2",
+          "name": "評価グリッド法"
+        }
+      ]
+    },
+    {
+      "id": "ck3aw2vv8xfms0991hs7issfo",
+      "name": "CausalNet",
+      "description": "CausalNetは生物学における表現型特徴ネットワークのビジュアルアナリティクスシステムです。階層グラフ描画とエッジ集中化の技術を用いることで、表現型特徴ネットワークから生命の発生現象の解明におけるデータ駆動分析を促進します。\n\n関連文献\n\n* Y. Onoue, N. Kukimoto, N. Sakamoto, and K. Koyamada, “Minimizing the Number of Edges via Edge Concentration in Dense Layered Graphs,” IEEE Trans. Vis. Comput. Graph., vol. 22, no. 6, pp. 1652–1661, 2016.\n* Y. Onoue, K. Kyoda, M. Kioka, K. Baba, S. Onami, and K. Koyamada, “Development of an Integrated Visualization System for Phenotypic Character Networks,” in Proceedings of IEEE Pacific Visualization 2018 (VisNotes), 2018, pp. 21–25.",
+      "publishYear": 2018,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/BMznwzppTsO5oJya7FFW",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cjfa1umfzg1mu0118hiyoi712",
+          "name": "生物学"
+        },
+        {
+          "id": "cjfa1ub2yhhkc0192kbmpu9xb",
+          "name": "ネットワーク可視化"
+        },
+        {
+          "id": "cjfa1qo89hhbx01925fktdjab",
+          "name": "グラフ描画"
+        }
+      ]
+    },
+    {
+      "id": "ck3aw9cfhxg2j0991m1eji4ua",
+      "name": "JUDGIT!",
+      "description": "[JUDGIT!（ジャジット）](https://judgit.net/)は、行政事業の概要や予算額、成果指標、支出先企業等の情報を横断的に検索できるデータベースサイトです。\n\n年間約5000件の行政事業の自己評価として公開されている行政事業レビューシートを整理し、データベース化を行いました。\n行政事業をデータに基づいて科学的に分析する基盤としても活用を進めていきます。\n\n[構想日本](http://www.kosonippon.org/)、[ワセダクロニクル](http://www.wasedachronicle.org/)、[Visualizing.JP](https://visualizing.jp/)との共同プロジェクトです。\n\n[https://judgit.net/](https://judgit.net/)",
+      "publishYear": 2019,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/X3Bp8cTAQZGwkQC4COE1",
+        "height": 670,
+        "width": 1280
+      },
+      "categories": [
+        {
+          "id": "cjy0cqrt900ik0116k0bq7amk",
+          "name": "公共政策"
+        }
+      ]
+    },
+    {
+      "id": "ck3axu32sxkcw0991qvdiqsb7",
+      "name": "iSEM",
+      "description": "iSEMは構造方程式モデリング(SEM; Structural Equation Modeling)を支援するビジュアルアナリティクスシステムです。構造方程式モデリングでは、変数間の関係を記述するために多数の試行錯誤が必要となります。iSEMは、可視化と対話的なモデリングによって、その試行錯誤の過程をサポートします。\n\nhttps://isem.likr-lab.com/",
+      "publishYear": 2017,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/I9SOlzLS2WBABVM53lTR",
+        "height": 1334,
+        "width": 2560
+      },
+      "categories": [
+        {
+          "id": "cjfa1ub2yhhkc0192kbmpu9xb",
+          "name": "ネットワーク可視化"
+        },
+        {
+          "id": "cjfajw0t8k08g0192gl286jld",
+          "name": "ビジュアルアナリティクス"
+        },
+        {
+          "id": "cjfajw69eikox0118c7j6h1e1",
+          "name": "統計分析"
+        }
+      ]
+    },
+    {
+      "id": "ck3cabydh4qx20991thnttcmx",
+      "name": "SEAL-V",
+      "description": "SEAL-Vは、気候変動に関する大規模アンサンブルシミュレーションデータから効率的なデータ取得を行い、地方自治体の気候変動適応政策に関わるコンサルタント・研究者が地図データに対して注目する領域（都道府県、市町村、河川流域）を対話的に指定し、抽出結果を可視化するアプリケーションです。\n\n参考文献\n\n- Y. Nakagawa et al., “Development of a system for efficient content-based retrieval to analyze large volumes of climate data,” Prog. Earth Planet. Sci., vol. 7, no. 9, 2020.",
+      "publishYear": 2017,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/sBWYuD2dSUSY8rhbOX1G",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cjfa1vc2mg1pm0118chtdp2an",
+          "name": "地球科学"
+        }
+      ]
+    },
+    {
+      "id": "ck3cal9at4ri60991tclfja3g",
+      "name": "WAMSIM",
+      "description": "WAMSIMは、放射線の健康影響を評価するWhack-A-Mole（WAM）モデルを使用した研究を支援するシミュレーターです。\nWAMモデルは、放射線のダメージとそれを修復する生物のからだの仕組みの相互作用を微分方程式として記述した数理モデルであり、従来不可能であった線量率に応じた放射線影響の推定が可能です。\nWAMSIMは、直感的なユーザーインタフェースによってWAMモデルのパラメーター設定を可能とします。\n\nhttps://wamsim.vdslab.jp/",
+      "publishYear": 2019,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/lI0IFXF5QKOkKNiWl6fm",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "ck3nwm0zo26qd0991lmfxkr3u",
+          "name": "放射線健康影響"
+        },
+        {
+          "id": "ck3nwmdil26ri0991i6g1lyk6",
+          "name": "数理モデル"
+        },
+        {
+          "id": "ck3nwmlck26sh099155e7wvka",
+          "name": "シミュレーション"
+        }
+      ]
+    },
+    {
+      "id": "ck3nwnzs726xp0991pcfuayvk",
+      "name": "TraNEco",
+      "description": "TraNEcoは、日本中で行われている企業間の取引データを対象に、1つの企業を頂点企業とした、企業エコシステムの比較可視化を行うためのアプリケーションです。約80万企業、10年分のデータを対話的に検索・可視化し、異なる頂点企業でのエコシステム比較やエコシステムの経時変化の分析に利用されます。",
+      "publishYear": 2019,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/8Fl8MNHlQHOGpEL4kMro",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "ckwlk80tk8u270b90yiga0dnl",
+          "name": "経済学"
+        },
+        {
+          "id": "cjfajw0t8k08g0192gl286jld",
+          "name": "ビジュアルアナリティクス"
+        },
+        {
+          "id": "cjfa1ub2yhhkc0192kbmpu9xb",
+          "name": "ネットワーク可視化"
+        }
+      ]
+    },
+    {
+      "id": "cki73k4i025le0a42gcw693cl",
+      "name": "放射線が及ぼす生体影響に関するアンケートの多変量可視化",
+      "description": "2019年度卒業生 孫 夙悟、宮本 悠佑、山本 寛之 の卒業演習作品です。\n\n概要：2018年に研費基盤研究B「放射線生体影響に関する物理学、疫学、生物学の認識文化の比較分析」( http://radi.rirc.kyoto-u.ac.jp/sci/ )にて放射線が及ぼす生体影響および分野間コミュニケーションについての認識についてのアンケートが実施された。しかし、本アンケートでは可視化手法として円グラフと棒グラフを採用しており、得ることが出来る情報は最低限の集計結果のみである。そこで本研究の目的は上記のアンケートデータに対し、多変量データの可視化手法を適用し、複数の質問に対する回答の相関関係を調べることでより深く結果から分かることを読み取る事である。\n\nhttps://codepen.io/sukedon/full/bGGmOzL",
+      "publishYear": 2020,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/A99ZCQPDSuyV5WL2kJpz",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "ck3cbeu984tg10991a2zymgec",
+          "name": "社会調査"
+        },
+        {
+          "id": "ck3cbg5c84tjr099181ngcfdh",
+          "name": "科学コミュニケーション"
+        }
+      ]
+    },
+    {
+      "id": "cki73ptqw25wt0a341hprb7ae",
+      "name": "文章類似度から見た行政事業の関係性",
+      "description": "2019年度卒業生 田中 太樹 による卒業演習作品です。\n\n概要：現在、我が国では年間5000近くの行政事業が行われている。これらの事業について国家財政健全化のために国家の制作として行政事業レビューを行っているが、現在それを比較参考にできるようまとめられているものは非常に少ない。そこで本研究では行政事業レビューシートにおける各事業の目的を用いて文章類似度を測定し各行政事業を可視化することで事業間、省庁間の関係について調査した。結果として各省庁、各主要政策・施策でそれぞれ違いがあることがわかった。\n\nhttps://judgit.vdslab.jp/document-similarity",
+      "publishYear": 2020,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/qT3iZSj5RqvNL5LporGY",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cjy0cqrt900ik0116k0bq7amk",
+          "name": "公共政策"
+        },
+        {
+          "id": "cki73pjps25r80a42q4qmtf5v",
+          "name": "機械学習"
+        }
+      ]
+    },
+    {
+      "id": "cki73yvd426th0b45r1m7y3ay",
+      "name": "福島第一原発事故に関するツイートの時間的地理的分布の可視化",
+      "description": "2019年度卒業生 田中 大道 による卒業演習作品です。\n\n概要：2011年3月に発生した福島第一原発事故では多くの被害が出ただけでなく、多くの情報が飛び交った。さらにテレビや新聞だけでなくTwitterをはじめとするSNSでの情報共有も多く見られた。そこで本研究では福島第一原発事故に関連するキーワードを基に6年6か月分のTwitterのデータを用いて情報の興味の流れを可視化した。可視化方法は2つの可視化図を2つのアプローチで作成し、最終的に見比べたことでわかったことを調べた。時間がたつにつれて人々の興味は薄れていくが、興味が再び強くなるタイミングが存在する。しかし興味の内容は異なっているものの、興味が強くなる時には理由が存在していた。\n\nhttps://codepen.io/HRMC/full/QWWEKXr",
+      "publishYear": 2020,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/G9GXlnUBTMyzvGdU0zWH",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cki73vz7425ej0d38u6wn3g40",
+          "name": "地理的可視化"
+        },
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cki73x9hs26rq0b45g8v9ku0z",
+          "name": "SNS分析"
+        }
+      ]
+    },
+    {
+      "id": "cki74233s267o0a341t572w0c",
+      "name": "Twitterにおける話題遷移ネットワーク可視化",
+      "description": "2019年度卒業生 出口 拓也 による卒業演習作品です。\n\n概要：近年、新聞やテレビよりもTwitterなどの情報発信ツールで情報収集がされることが多くなっている一方、不適切または不正確な情報が拡散されることも多い。実際に東日本大震災後に放射線や原発事故に関する科学的に不適切または不正確な情報が広がったり、根拠ない言説が流布された。しかしどのような過程で不適切または不正確な情報が拡散されるようになったのかは十分に調べられていない。そこで本研究では、話題の遷移をTwitterのハッシュタグを用いた話題遷移ネットワーク可視化で表すことで、拡散される過程を明らかにした。その結果から、話題が遷移していくうちに本筋とはかけ離れた話題に無理やりこじつけてツイートされていたり、差別的な意図がある造語を用いたハッシュタグを使用したツイートなどから、不適切または不正確な情報の拡散がなされていることが分かった。\n\nhttps://codepen.io/EntranceExit/full/RXgQmr",
+      "publishYear": 2020,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/CzqE1vORSe5AXiSvst8N",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cki73x9hs26rq0b45g8v9ku0z",
+          "name": "SNS分析"
+        },
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cjfa1ub2yhhkc0192kbmpu9xb",
+          "name": "ネットワーク可視化"
+        }
+      ]
+    },
+    {
+      "id": "cki747xr425r90d38s8aqufpz",
+      "name": "ネットワーク可視化 Jupyter Custom Widgetの開発",
+      "description": "2019年度卒業生 森田 瑛仁 による卒業演習作品です。\n\n概要：データ可視化・分析環境のトレンドをたどると、データサイエンティスト、アナリストを中心とした開発者らを取り巻く環境の進歩を垣間見ることができる。CUIで対話的実行可能なREPLをもつIPython、GUIチャートの描画に対応したQtConsole、WebベースのJupyter Notebook、クラウドベースのGoogle Colaboratoryと、たえず時代のニーズを満たすツールが開発されてきている。しかしPython言語の可視化・分析環境でよくつかわれるNetworkXに付随する可視化機能は、自由度が低いと感じた。そこで本稿では、Jupter Custom Widgetの実装から公開に至るまでの流れを把握して、そのポテンシャルを模索し、意味のある可視化ツールの実装方針を考察する。",
+      "publishYear": 2020,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/zHVPe0YJQxmx4kpvR4PP",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cjfa1ub2yhhkc0192kbmpu9xb",
+          "name": "ネットワーク可視化"
+        },
+        {
+          "id": "cki747sco273l0b45xa78pjnj",
+          "name": "可視化ツール開発"
+        },
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        }
+      ]
+    },
+    {
+      "id": "ckwljbdo08ow60c25cvaa6z3l",
+      "name": "LDAを用いたQiita記事のトピック可視化",
+      "description": "2020年度卒業生 荒木 創太郎 による卒業演習作品です。\n\n概要：プログラミングに用いられる言語は非常に多くある。それに伴い技術を紹介するサイト等が多くある。初学者や技術者の間でプログラミング技術共有サイトの一つであるQiitaが使用されている。初学者がプログラミング言語を学習するにあたり、現在使われている言語がどのような技術や分野に使用されているか知ることは、学びたい言語を決めるうえで有効である。また、Qiitaを内のトピックを知ることで、技術者は知見を広げることができる。しかし、サイト閲覧者が従来の検索やタグを用いて記事を読む方法では、今どの言語がどのような分野や技術に使用されているかを知るには時間がかかる。\n\nそのため本研究では、Qiitaに投稿された記事のデータを用いた可視化を行った。可視化には、Qiitaのに投稿された記事の本文を取得し、トピックモデルであるLDAを利用してトピックモデルの作成を行いブログ内のトピックの発見を行った。その後、トピックに使用される単語を用いてワードクラウドを作成し、タグを用いてツリーマップの作成を行うことで可視化を行った。可視化することで、Qiita内の複数あるトピックを全体を知ることができ、そのトピックに使用されている単語やタグを知ることができることを目指す。\n\n可視化結果より、Qiitaに投稿された記事の複数トピックを発見し、頻繁に使用される単語を発見した。また、各トピックに使用されるタグを用いたツリーマップにより、用いいられるプログラミング言語や技術を発見し、Qiita内の記事全体のトピックに関して考察を行った。\n\nhttps://arasou-0206.github.io/LDA_visualization/",
+      "publishYear": 2021,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/S7qLwZYkTJabSSNyjBXR",
+        "height": 180,
+        "width": 320
+      },
+      "categories": [
+        {
+          "id": "cki73pjps25r80a42q4qmtf5v",
+          "name": "機械学習"
+        },
+        {
+          "id": "ckwljaabc8of10d84kw9fagj3",
+          "name": "文書可視化"
+        },
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        }
+      ]
+    },
+    {
+      "id": "ckwljf1m08pcz0c25cr4vjmzv",
+      "name": "類似事業探索のための行政事業の俯瞰的可視化",
+      "description": "2020年度卒業生 上野 瑞貴、野村 理紗 による卒業演習作品です。\n\n概要：日本では1年間に約5000件の事業が中央省庁によって行われており、事業の目的やカテゴリは多岐にわたる。事業数は膨大で事業間の関係性は複雑になっており、行政事業全体を俯瞰する事や、事業と事業の類似などの関係性をチェックしていく事は難しいという問題がある。政府はこれらの問題に対して、行政事業レビューという取り組みを行い、全事業に対し、毎年無駄や改善点がないか点検を行っている。また、行政事業レビューという取り組みの中で、点検の透明性という観点から、行政事業レビューシートと呼ばれる統一した様式で事業の内容や執行実態、点検内容を誰もが閲覧可能な形で公開している。しかし、前述の通り約5000件という膨大な数ある事業全体、複雑な事業間の関係性を、行政事業レビューシートから俯瞰、把握する事はまだまだ難しいのが現状である。そこで本研究では、行政事業レビューシートの各項目を記載したデータを用いて、誰もが行政事業全体を俯瞰する事ができ、さらに、全体の俯瞰結果から事業を探索し、類似といった事業間の関係性を発見できるような可視化を行った。行政事業全体の俯瞰という目的に対しては、2019年度公開の行政事業レビューシートにおいて、実際に執行されている事業の事業概要から重要なキーワードを抽出し、事業の執行額を利用して、関連のあるキーワード同士を二次元空間上の近い位置に配置したキーワードバブルチャートを作成した。全体の俯瞰からさらに事業を探索し、類似といった事業間の関係性を見ていくという目的に対しては、キーワードバブルチャートでクリックしたキーワードが事業概要に含まれる事業を集め、事業概要の文書ベクトルを用いて階層的クラスタリングを行い、その結果をデンドログラムで表示した行政事業デンドログラムを作成した。また、それらの可視化結果を使用して、実際に行政事業全体や事業間の関係性について調査を行った。その結果、我々は事業概要が非常に類似した事業を発見し、それらの事業について考察を行った。\n\nhttps://ueno10.github.io/test/",
+      "publishYear": 2021,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/23fvqsYNTWnqJ6Bs5o5Q",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cjy0cqrt900ik0116k0bq7amk",
+          "name": "公共政策"
+        },
+        {
+          "id": "ckwljaabc8of10d84kw9fagj3",
+          "name": "文書可視化"
+        },
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        }
+      ]
+    },
+    {
+      "id": "ckwljiuyg8qxs0a96seunow0a",
+      "name": "サッカー観戦のための試合特徴の多次元データ可視化",
+      "description": "2020年度卒業生 坂本 愛弥、出口 翼 による卒業演習作品です。\n\n概要：オリンピックの開催が近づいており、さらに今回は日本開催ということで普段はスポーツ観戦しない人でもスポーツへの注目が高まっている。そこで私たちは、スポーツの中でもサッカーに注目し、サッカーの知識がない人でも観戦を楽しんでもらうために、Jリーグの試合の数値データから盛り上がった試合や注目すべき試合の可視化を行うサイトを作成した。可視化を行うにあたって、Hexbinでの散布図、平行座標プロット、レーダーチャートの3つの可視化図を用いた。Hexbinでは試合データの特徴分布、平行座標プロットではチームの特徴、レーダーチャートでは試合の詳細データを可視化した。結果として3つの可視化を相互に利用しあうことで注目度の高い試合やチームを発見することが出来た。\n\nhttps://tsubasadeguchi.github.io/soccer/",
+      "publishYear": 2021,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/icMwspTLTAWFu3GQVwgn",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "ckwljhlfk8ph30d84ju0hk4cr",
+          "name": "多次元データ可視化"
+        },
+        {
+          "id": "ckwljh9uw8qtf0a961ti0p9bu",
+          "name": "スポーツ可視化"
+        },
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        }
+      ]
+    },
+    {
+      "id": "ckwljl6ag8pn10d84nbccvs0t",
+      "name": "Twitterにおける情報拡散シミュレーション支援のための可視化システム",
+      "description": "2020年度卒業生 船木 駿之介、望月 沙和 による卒業演習作品です。\n\n概要：2011年3月に発生した福島第一原発事故以降、SNS（social networking service）で「放射線による健康被害」の情報発信が科学者・専門家らを中心に行われた。短期間で正しい・間違った情報問わず様々な内容が発信・拡散され、人々は混乱した。そこで、どうすれば正しい情報が広がっていくのかの議論が行われ、Twitterのインフルエンサーを起点とした情報拡散シミュレーションの研究が佐野ら1によって行われた。ユーザー間の繋がり（ネットワーク関係）から拡散状況を知る事は、シミュレーションを行う上で重要であることが分かった。我々は、拡散シミュレーションを支援することを目的にして、ネットワーク構造を把握しやすいような可視化システムを作成した。\n\nhttps://dorapon333.github.io/nivo2/",
+      "publishYear": 2021,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/KIIjgQswQPKkwHlFW75M",
+        "height": 180,
+        "width": 320
+      },
+      "categories": [
+        {
+          "id": "cki73x9hs26rq0b45g8v9ku0z",
+          "name": "SNS分析"
+        },
+        {
+          "id": "ck3nwmlck26sh099155e7wvka",
+          "name": "シミュレーション"
+        },
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        }
+      ]
+    },
+    {
+      "id": "ckwlkk38g8wgt0a96atkadnik",
+      "name": "吹view",
+      "description": "吹Viewとは、管楽器の練習を始めたばかりの初心者が安定した音を出せるようにするためのお手伝いをするアプリです。管楽器を練習したいユーザが気軽に録音し,高さ・強さ・音色の3観点からどの程度演奏が安定しているかを視覚的に確かめることができます。また、先生モードからは登録したユーザの演奏データを見てコメントをつけることができるため他者からの評価をもらうこともできます。\n\nhttps://suiview.vdslab.jp/\n\n参考文献\n\n- M. Watanabe, Y. Onoue, A. Uemura, and T. Kitahara, “Suiview: A Web-based Application that Enables Users to Practice Wind Instrument Performance,” in Proceedings of the 15th International Symposium on CMMR, 2021, pp. 5–10.\n- 渡邉みさと, 尾上洋介, 植村あい子, and 北原鉄朗, “管楽器を対象とした基礎的演奏技術向上のための音響特徴可視化アプリの試作,” 2021.",
+      "publishYear": 2021,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/0FEwRZFESw6gNOK7JsZz",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "ckwlkhes88url0d84lfgmzf5k",
+          "name": "音楽の可視化"
+        }
+      ]
+    },
+    {
+      "id": "cldv26e3g18820b18alfjirm2",
+      "name": "映画製作に関与する人物に着目した映画検索アプリケーションの開発",
+      "description": "2021年度卒業生 高田楓我、金子恭平、伊藤辰光 による卒業演習作品です。\n\n概要：映画ストリーミングサービスが普及したことより映画に触れる機会が多くなり、映画を探す機会もより多くなった。ストリーミングサービスのおすすめや映画検索サービスなど映画検索方法が充実しているが、おすすめで紹介される映画が視聴済みの映画ばかりであったり、第三者による評価が自身に合わず映画を見たいのに見れない状況が発生してしまうことがある。そこで我々は「自力で興味が持てる映画を効果的に探す」を目的とする映画検索アプリケーションを提案した。第三者の評価を入れない、人物に着目するなどの目的を解決できる要件を定義し、それを満たすアプリの製作を行った。本提案アプリでは Filmarks から第三者の評価を持たない映画の基本情報を取得し、任意の人物が携わった映画のジャンル、製作年度、共演関係などの情報からユーザーの好みを選択して映画を絞り込む機能を作成した。また、任意の人物の特徴を出すための機能として、人物の活躍時期を製作年度と映画に携わった回数で表す棒グラフ可視化、共演関係や共演回数をネットワークに落とし込んだ可視化をした。任意の人物を選択させるための検索機能や制作国とジャンルから絞り込まれた映画の中から共演回数の多い人物を提案する機能、映画情報から人物を選択できるような機能を作成した。これらが要件を満たし、特徴を読み取れたかをユーザー評価にて確認した。その結果、要件を満たし可視化図から特徴を読み取ることが可能であることがわかった。第三者の評価がないことによるメリットがあったの意見より「自力で興味が持てる映画を効果的に探す」という目的を達成できたことがわかった。\n\nhttps://movis.vdslab.jp/",
+      "publishYear": 2022,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/ltPePXaSEyD3CDgt0l0Z",
+        "height": 736,
+        "width": 1290
+      },
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cldv2723917o10bzwjakeiqk1",
+          "name": "エンターテイメント"
+        }
+      ]
+    },
+    {
+      "id": "cldv2ea9g185z0bzwdaivcxtz",
+      "name": "ロードマップ自動生成を用いた学習順序提示システムの開発",
+      "description": "2021年度卒業生 織田尚哉、森悠也、上月那奈子 による卒業演習作品です。\n\n概要：Web上にある技術に関する記事は、様々な習熟レベルの人へ向けた内容が混在しており、自身のレベルに適した記事を探す必要がある。また、技術によっては学習をする前提として別の技術について最低限の知識を必要とすることも多く、自身が有している知識がこれから学習しようとする分野においてどの程度関係があるかを判断することは難しい。ここで、特定の情報技術について新しく学習するにあたり、学習をするべき順序が直感的に理解ができるようなシステムがあれば、新たに学習を始める際に学習の効率を良くすることができると我々は考えた。学習手順を示すロードマップであればこの問題を解決できるが、これらのロードマップは特定の分野でしか存在していない点や作成に人的コストがかかるという問題点が存在する。本研究ではロードマップを自動的に生成し、対話的に操作ができるシステムを作成した。また、評価実験ではシステムが直感的に操作ができることや学習するべき技術の順番がわかりやすいなどの評価が得られ、新しく特定の技術を学習する際に学習順序を示すことができる有効的なシステムであることがわかった。\n\nhttps://roadmap-legends.vdslab.jp/",
+      "publishYear": 2022,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/5gf7xuuRIylIONsSRhkN",
+        "height": 630,
+        "width": 1197
+      },
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cldv2exkb187u0bzw6f28gqy5",
+          "name": "ITコミュニティ"
+        }
+      ]
+    },
+    {
+      "id": "cldv2h7f719bp0b0zwf3r8kle",
+      "name": "世界各国の音楽流行に関する特徴可視化システムの開発",
+      "description": "2021年度卒業生 三浦佳苗、畑佐有輝 による卒業演習作品です。\n\n概要：音楽番組やCMのBGMなど、音楽は私たちの生活の中に多岐にわたって広く浸透しており、日々生活を送っている中で毎日のように触れている。さらに音楽ストリーミングサービスが普及していることにより、世界中の幅広い音楽を聴くこと、また過去から現在までの音楽を聴くことができるようになった。そのため、いつ・どこ・誰でも音楽を楽しむことができ、生活の一部になりつつある。しかし音楽ストリーミングサービスが普及したことにより世界各国の過去から現在まで沢山の音楽が聴けるようになった一方で、新しい曲を探す際に沢山の音楽がある中でどの国・どの期間の音楽を聴けば良いのかが決めづらい問題が挙げられる。このことに対し、我々は国・期間ごとに音楽の特徴を見せることでどの国・どの期間の音楽を聴けば良いかが決まるきっかけを与えられると考えた。そこで本研究ではSpotify ChartとSpotify APIから得られたデータを用いて国と期間ごと、さらに地域ごとの音楽の特徴を読み取れる可視化システムを作成した。Spotify Chartでは、２０１７年１月から今日まで６９カ国を対象に各国の週間ランキングTop２００を更新している。Spotify APIでは、各曲の発売日・類似曲・曲の特徴を指標化したものなど、より詳細な情報が取得できる。そこで６９カ国を対象国とし、各国の週間ランキングTop２００にランクインした曲を対象にSpotify APIを用いてさらに詳細な情報を得たデータから本研究のテーマである「国、期間ごとの音楽の特徴を読み取れるシステムを作成すること」が達成するよう目指した。地域、国、期間に関する俯瞰的な可視化にはヒートマップを使用し、特定の国、期間による細かな一曲単位の可視化にはスワームプロットを使用した。また曲の詳細な特徴量の可視化にはレーダーチャートを使用した。これら複数の可視化を用いたシステムを使用することでテーマが達成できるかを我々が実際に使用した適用例とユーザー評価から調べた。その結果、適用例では地域、国、期間ごとの特徴が把握できたことが分かった。ユーザー評価では我々が作成したシステムによってユーザーは地域、国、期間ごとに音楽の特徴が読み取ることが可能であったこと、また使用した可視化図は適した手法であったことが分かった。つまり、我々が作成したシステムは国と期間ごと、さらに地域ごとの音楽の特徴を読み取ることに有効なシステムだと考えられること、また使用した可視化図の選択は適していたと考えられることが分かった。\n\nhttps://worldmusic.vdslab.jp/",
+      "publishYear": 2022,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/jKtycmgyQ4uwhDx77UIT",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cldv2723917o10bzwjakeiqk1",
+          "name": "エンターテイメント"
+        },
+        {
+          "id": "ckwlkhes88url0d84lfgmzf5k",
+          "name": "音楽の可視化"
+        }
+      ]
+    },
+    {
+      "id": "cldv2rifh19ju0b18rmjcklv0",
+      "name": "手牌構造の特徴可視化による麻雀初心者支援システム",
+      "description": "2022年度卒業生 小泉秀平、中庭陸汰、浦丸悠宇 による卒業演習作品です。\n\n概要：近年麻雀が広く知れ渡り遊ばれるようになった．麻雀は覚えることが多くありその中でも役を作ることが初心者には難しい．ここで，役は手牌によって構造が大きく左右されないことから，手牌から役を推定してユーザーに見せるシステムがあれば麻雀初心者の助けになると想定した．本研究では，手牌構造を特徴量として独自に定義することで，現在の手牌から狙うことのできる役を可視化するシステムを提案した．可視化には多変量データ可視化手法のRadvizとヒートマップを用いた．このシステムに対してアンケートを実施したところ，システムを直感的に操作することができ，どの役を狙いにいけるかわかるなどの評価が得られた．この結果より，麻雀初心者が練習できるシステムを開発できたことがわかった．\n\nhttps://mahjong-vis.vdslab.jp/",
+      "publishYear": 2023,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/HEIRSM1jQUeSUb0IiuVc",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cldv2723917o10bzwjakeiqk1",
+          "name": "エンターテイメント"
+        }
+      ]
+    },
+    {
+      "id": "cldv2ub9819ok0b18ckliguqk",
+      "name": "BuzzLead：TikTok の流行曲予測システム",
+      "description": "2022年度卒業生 渡邉みさと、沼部恵、阿部沙亜弥 による卒業演習作品です。\n\n概要：TikTokは動画に特化したSNSである．そのTikTokでマーケティングが増えている中で，TikTokを有効活用し自身の価値をPRしたいと考える人々が増えている．しかし，その際にどの楽曲を使えば再生数が伸びるのかが分からず，使用楽曲の選定がTikTok参入への障害になっていることも多い．そこでTikTokで過去に流行した楽曲のデータから次に流行しそうな楽曲を予測・提示するシステムがあればこの問題を解決できると我々は考えた．TikTokで流行しそうな楽曲の見解については音楽関係の研究者やマーケターが示しているが，使用者がより直感的にそれらの楽曲を発見できることが必要である．本研究では過去のデータの分析を自動的に行い，毎週流行しそうな楽曲を更新し提示できるシステム BuzzLead（ https://buzzlead.vdslab.jp/ ）を開発した．評価実験では「システムが提示した楽曲が実際に流行しそうだ」と判断する実験参加者が大多数を占めるなど予測が有用であったと判断できた．\n\nhttps://buzzlead.vdslab.jp/",
+      "publishYear": 2023,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/Dm6gPGxkRougfX8HWGeV",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cldv2723917o10bzwjakeiqk1",
+          "name": "エンターテイメント"
+        }
+      ]
+    },
+    {
+      "id": "cldv2xacf19km0bzwp1v5lkcr",
+      "name": "重要語句と類似度ネットワークに着目した論文探索システムの開発",
+      "description": "2022年度卒業生 守屋瑛希、工藤正和 による卒業演習作品です。\n\n概要：近年，技術の進歩が顕著となる中で，日夜多くの研究が行われ，論文が作成・提出されている．このような研究をするためには先行研究や論文を探す必要がある．論文を探索する中で，従来の論文探索サイトではフリーワードによる検索が基本となっており，使用者側に大きな負担がある．そこで，我々は他の手段で論文の探索が可能なシステムを開発すればこの負担を取り除けるのではないかと考えた．そこで，本研究では重要語句と類似度ネットワークに着目した論文探索システムを開発した．論文の重要語句はキーワードとして設定することで自ら検索を行う負担を減少させるためである．また，類似度ネットワークは論文と類似している他の論文でネットワークを形成することで同時に類似論文を複数確認できるため，効率的な探索を可能としている．本システムの評価実験では，キーワードを利用することで検索による探索と比較して平均探索時間が59.6秒の短縮ができた．また，ネットワークを利用することでリストに表示する場合と比較して平均探索時間が58.8秒の短縮ができた．これらの結果から，本システムの有用性が確認できた．さらに，アンケートからシステムを直感的に操作でき，論文探索に使用したいなどの評価が得られたため，システムの目的を達成できた．\n\nhttps://vdslab-paper-vis.netlify.app/",
+      "publishYear": 2023,
+      "picture": null,
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "ckwljaabc8of10d84kw9fagj3",
+          "name": "文書可視化"
+        }
+      ]
+    },
+    {
+      "id": "clsg9mc50q8mx0b19wqvzepka",
+      "name": "運指の可視化に基づいたプロセカの上達支援システムの開発",
+      "description": "2023年度卒業生 伊東晴紀 、伊藤和斗 、田子友唯  による卒業演習作品です。\n\n概要：音楽ゲームの1つに「プロジェクトセカイカラフルステージ！feat.初音ミク(以下 プロセカ)」がある．このプロセカはGoogle Playにおいて，音楽&リズムカテゴリの無料アプリランキングの上位に位置しており，人気である．プロセカではライフが存在しており，タイミング良くノーツをタップできないとライフが減っていく．ライフが0になるとクリアとはならない．クリアしたいとなったときには練習が必要になる．プロセカにおいて練習するには繰り返しプレイし，クリアするために必要なことを考えたり，自然に取り方がわかるまで慣れたりする．プロセカ以外でもアプリやサイトを利用し練習するができる．楽曲のプレイ動画を利用し一時停止してノーツの取り方を考えたり，クリアするときに注意する点やノーツの取り方の解説を見てクリアのために活かしたりする．しかし，プレイ動画を利用して練習するサイトやアプリはクリアするための情報はなく，クリアするための情報を解説しているものでは実際にプレイするときの感覚がわからない．そこで我々は，クリアするための情報，特に譜面の取り方の提示，およびプレイ動画とともに譜面の取り方を表示させることで，プロセカの上達を支援するようなシステムを開発した．本システムの機能は，譜面をどう取ればいいか，譜面のどこが難しいか，ある楽曲を練習するための楽曲はなにか，という要件から作成した．評価実験より，どの要件についても，我々が提示したいものについての表示と読み取りはできたと考える．特に譜面のどこが難しいかという要件については達成していると考えた．しかし，譜面をどう取ればいいか，ある楽曲を練習するための楽曲はなにかという要件の機能については改善の必要があった．\n\nhttps://proseka-fingering.vdslab.jp/",
+      "publishYear": 2024,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/7AEzSw26Tim9KZLyMVmJ",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cldv2723917o10bzwjakeiqk1",
+          "name": "エンターテイメント"
+        },
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        }
+      ]
+    },
+    {
+      "id": "clsg9r28vq97q0b19gdly16g7",
+      "name": "試合特徴の可視化に基づいたDota2の観戦支援システムの開発",
+      "description": "2023年度卒業生 塚田一晃 、樋口佳亮  による卒業演習作品です。\n\n概要：近年のeSportsはとても人気であり，観戦者数は100万人を超えることもある．その中でも人気なゲームの一つであるのがDota2である．Dota2はYouTubeを利用することで過去のプロの試合の動画を見ることができ，プロの試合の動画を投稿しているチャンネルの登録者数は100万人を超えているものもある．しかしYouTubeでは検索方法に文字列を用いており，試合の内容を示す試合時間などの特徴量を用いて過去の試合を検索することが出来ない．また，Dota2にはOpenDotaを始めとする試合解析サイトが存在するが，これらのシステムでも試合の特徴量を用いて過去の試合を検索することは出来なかった．そこで我々は，試合の特徴量を用いて過去の試合を複数検索出来ることを目的とした本システムを作成した．試合の特徴量を用いた検索機能はフィルター機能を実装し，ネットワーク図で可視化することで試合の探索を行いやすくした．本システムについて評価実験のためにインタビューを行ったところ，本システムの目的である特徴量を用いて過去の試合を複数検索することはおおむね達成されているという結果が得られた．しかし，本システムの操作の難しさの改善と検索機能の追加が必要であるという結果も得られた．\n\nhttps://dota2-highlight-vis.vdslab.jp/",
+      "publishYear": 2024,
+      "picture": {
+        "url": "https://ap-northeast-1.graphassets.com/AeI80VGBRUenAFQ7utBi7z/ogNfNRWdQm5ykDHyMmS9",
+        "height": 630,
+        "width": 1200
+      },
+      "categories": [
+        {
+          "id": "cki73iaww25py0a34k27o89ib",
+          "name": "卒業演習"
+        },
+        {
+          "id": "cldv2723917o10bzwjakeiqk1",
+          "name": "エンターテイメント"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "cjy0d5z2w00lv01692m55jjae",
+      "name": "「JUDGIT!」プロジェクト",
+      "description": "現在年間約5000の行政事業が中央省庁によって行われており、その全体像を俯瞰的に理解することは行政官や専門家にとっても決して容易ではありません。また、多くの市民にとっても行政事業は馴染みの薄いものとなっており、政策形成への市民の参画障壁を高めています。行政事業に関する情報を整備し、誰もが容易にアクセスできるようにすることは、行政事業の俯瞰的なデータ分析や市民参加による健全な政策形成プロセスの構築に必要です。\n\nそのような問題意識のもと、本研究室は[政策シンクタンク構想日本](http://www.kosonippon.org/)、[Visualizing.JP](https://visualizing.jp/)、[ジャーナリズムNGOワセダクロニクル](http://www.wasedachronicle.org/)と共同のプロジェクトチームを立ち上げ、行政事業の概要や予算額、成果指標、支出先企業等の情報を横断的に検索できるデータベースサイト「[JUDGIT!（ジャジット）](https://judgit.net/)」を公開しました。\n\n今後もJUDGIT!の継続的な運用や、行政事業情報を活用した研究に取り組んでいきます。\n\n[https://judgit.net/](https://judgit.net/)",
+      "startYear": 2018,
+      "endYear": null,
+      "picture": null,
+      "categories": [
+        {
+          "id": "cjy0cqrt900ik0116k0bq7amk",
+          "name": "公共政策"
+        }
+      ]
+    },
+    {
+      "id": "ck3ax7fyuxicj0991t8xlnc72",
+      "name": "気候変動適応技術社会実装プログラム（SI-CAT）",
+      "description": "文部科学省 気候変動適応技術社会実装プログラム (SI-CAT: Social Implementation Program on Climate Change Adaptation Technology)では、地方自治体が将来の気候変動に備えた適応政策を策定する上での支援をする科学技術の研究開発を行っています。\n\n本研究室は、SI-CAT共同参画技術開発機関の京都大学学術情報メディアセンター小山田研究室のグループの一部として参画し、気候変動による降雨リスク情報のビジュアルアナリティクスシステムSEAL-Vの開発を進めています。\n\nhttps://si-cat.jp/",
+      "startYear": 2015,
+      "endYear": 2020,
+      "picture": null,
+      "categories": [
+        {
+          "id": "cjfa1vc2mg1pm0118chtdp2an",
+          "name": "地球科学"
+        },
+        {
+          "id": "cjy0cqrt900ik0116k0bq7amk",
+          "name": "公共政策"
+        }
+      ]
+    },
+    {
+      "id": "ck3azklv3xq7m099147j3kdmy",
+      "name": "CRESTビッグデータ応用「データ駆動型解析による多細胞生物の発生メカニズムの解明」",
+      "description": "科学技術振興機構（JST）CRESTビッグデータ応用領域における「データ駆動型解析による多細胞生物の発生メカニズムの解明」では、高性能観測装置とバイオイメージインフォマティクスによって得られる表現型特徴ビッグデータを用いたデータ駆動科学を実現するための研究開発に取り組んでいます。\n\n本研究室は京都大学学術情報メディアセンター小山田グループに参画し、理化学研究所生命システム研究センター大浪グループと京都大学医学研究科川上グループと協働しながら、表現型特徴ビッグデータを対象とした新たな可視化技術やビジュアルアナリティクスシステムの開発を行っています。\n\nhttps://www.jst.go.jp/kisoken/crest/project/44/15656709.html",
+      "startYear": 2015,
+      "endYear": 2021,
+      "picture": null,
+      "categories": [
+        {
+          "id": "cjfa1umfzg1mu0118hiyoi712",
+          "name": "生物学"
+        },
+        {
+          "id": "cjfajw0t8k08g0192gl286jld",
+          "name": "ビジュアルアナリティクス"
+        }
+      ]
+    },
+    {
+      "id": "ck3nxis8h29jd0991gs1hs1w2",
+      "name": "放射線生体影響に関する物理学、疫学、生物学の認識文化の比較分析",
+      "description": "科研費基盤研究（B）「放射線生体影響に関する物理学、疫学、生物学の認識文化の比較分析」では、放射線被ばく問題に関与する複数の科学分野間の関係に注目し、各分野の「認識文化」の比較検討を行っています。\n放射線被ばく問題の混迷の原因を科学者共同体の内部に探り、合意形成に向けた新たな分野間コミュニケーションと真の学際研究のあり方を構想することを目指しています。\n\nhttp://radi.rirc.kyoto-u.ac.jp/sci/index.html",
+      "startYear": 2016,
+      "endYear": 2019,
+      "picture": null,
+      "categories": [
+        {
+          "id": "ck3cbg5c84tjr099181ngcfdh",
+          "name": "科学コミュニケーション"
+        },
+        {
+          "id": "ck3nwm0zo26qd0991lmfxkr3u",
+          "name": "放射線健康影響"
+        }
+      ]
+    },
+    {
+      "id": "ckwlknwkw8wud0a96m3t21ds6",
+      "name": "計算土木工学におけるデータ可視化手法およびUIの開発",
+      "description": "土木構造物の設計に適した計算力学的手法を実現、提供するソフトウェア開発において、本研究では、土木建造物の研究者や設計者にとって操作性の良いユーザインタフェースや分かりやすいデータ可視化手法を研究、開発します。[株式会社フィックスターズ](https://www.fixstars.com/)との共同研究です。",
+      "startYear": 2019,
+      "endYear": 2020,
+      "picture": null,
+      "categories": [
+        {
+          "id": "cki8rbdps075a0a858vnd80dn",
+          "name": "計算土木工学"
+        },
+        {
+          "id": "cjfajw0t8k08g0192gl286jld",
+          "name": "ビジュアルアナリティクス"
+        },
+        {
+          "id": "ck3nwmlck26sh099155e7wvka",
+          "name": "シミュレーション"
+        }
+      ]
+    },
+    {
+      "id": "ckwll78kg8yj20a966rstdsaw",
+      "name": "パタカラプラス",
+      "description": "バンビの会（染色体障害児・者を支える会）との共同プロジェクト「[パタカラプラス](https://banbinokai.com/%E3%80%8C%E3%83%91%E3%82%BF%E3%82%AB%E3%83%A9%E3%83%97%E3%83%A9%E3%82%B9%E3%80%8D%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E3%81%94%E7%B4%B9%E4%BB%8B/)」において、ダウン症候群のある方々の口腔機能訓練を楽しく継続的に行うためのモバイルアプリケーションの開発を行っています。",
+      "startYear": 2021,
+      "endYear": 2022,
+      "picture": null,
+      "categories": [
+        {
+          "id": "ckwll6cxk8wzv0d84kahi3tsb",
+          "name": "障害者支援"
+        },
+        {
+          "id": "ckwll6vg88xmt0c25ls9l337k",
+          "name": "モバイルアプリケーション開発"
+        },
+        {
+          "id": "ckwll74pk8x6y0d84htv90y25",
+          "name": "音声情報処理"
+        }
+      ]
+    },
+    {
+      "id": "ckwlliqx48yi20c25z3f4t2wv",
+      "name": "大規模企業間取引データの可視化・分析",
+      "description": "日本中で行われている企業間の取引データを対象に、企業や行政の意思決定者が大量のデータから気付きを得て、効果的な意思決定ができるような可視化・分析の方法を研究しています。[株式会社帝国データバンク](https://www.tdb.co.jp/)との共同プロジェクトです。",
+      "startYear": 2018,
+      "endYear": null,
+      "picture": null,
+      "categories": [
+        {
+          "id": "cjfa1ub2yhhkc0192kbmpu9xb",
+          "name": "ネットワーク可視化"
+        },
+        {
+          "id": "cjfajw0t8k08g0192gl286jld",
+          "name": "ビジュアルアナリティクス"
+        },
+        {
+          "id": "ckwlk80tk8u270b90yiga0dnl",
+          "name": "経済学"
+        }
+      ]
+    }
+  ]
+}
