@@ -11,3 +11,6 @@
 [context.deploy-preview]
   command = "npm run build"
   publish = ".next"
+
+[functions]
+  region = "ap-northeast-1"
