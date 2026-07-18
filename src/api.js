@@ -3,22 +3,21 @@ import pg from "pg";
 const { Pool } = pg;
 
 let pool = null;
-let isMockMode = false;
 
 function getPool() {
-  if (isMockMode) return null;
   if (pool) return pool;
 
   const databaseUrl = process.env.DATABASE_URL;
   if (!databaseUrl) {
-    console.warn("DATABASE_URL is not set. Falling back to mock data.");
-    isMockMode = true;
-    return null;
+    throw new Error("DATABASE_URL is not set.");
   }
 
   pool = new Pool({
-    connectionString: databaseUrl,
-    connectionTimeoutMillis: 2000,
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    },
+    connectionTimeoutMillis: 2000
   });
 
   pool.on("error", (err) => {
@@ -28,30 +27,14 @@ function getPool() {
   return pool;
 }
 
-async function executeQuery(query, params = [], mockFallback = []) {
+async function executeQuery(query, params = []) {
   const p = getPool();
-  if (!p || isMockMode) {
-    return typeof mockFallback === "function" ? mockFallback() : mockFallback;
-  }
-  try {
-    const res = await p.query(query, params);
-    return res.rows;
-  } catch (error) {
-    console.error(
-      "Database query failed, falling back to mock data:",
-      error.message
-    );
-    isMockMode = true;
-    if (pool) {
-      pool.end().catch(() => {});
-      pool = null;
-    }
-    return typeof mockFallback === "function" ? mockFallback() : mockFallback;
-  }
+  const res = await p.query(query, params);
+  return res.rows;
 }
 
 export function getCategories() {
-  return executeQuery("SELECT id, name FROM categories", [], []).then(
+  return executeQuery("SELECT id, name FROM categories", []).then(
     (rows) => ({ categories: rows })
   );
 }
@@ -72,7 +55,6 @@ export async function getMembers() {
       assigned_year AS "assignedYear"
     FROM members
     ORDER BY "order" ASC, id ASC`,
-    [],
     []
   );
 
@@ -89,16 +71,14 @@ export async function getMembers() {
 export function getPost(postId) {
   return executeQuery(
     "SELECT id, title, content, date::text AS date FROM posts WHERE id = $1 LIMIT 1",
-    [postId],
-    []
+    [postId]
   ).then((rows) => ({ post: rows[0] || null }));
 }
 
 export async function getPostCount() {
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM posts",
-    [],
-    [{ count: 0 }]
+    []
   );
   return rows[0]?.count ?? 0;
 }
@@ -110,10 +90,9 @@ export async function getPosts(page = 1, perPage = 5) {
   const [posts, countRes] = await Promise.all([
     executeQuery(
       "SELECT id, title, content, date::text AS date FROM posts ORDER BY date DESC, id DESC LIMIT $1 OFFSET $2",
-      [limit, offset],
-      []
+      [limit, offset]
     ),
-    executeQuery("SELECT COUNT(*)::int AS count FROM posts", [], [{ count: 0 }]),
+    executeQuery("SELECT COUNT(*)::int AS count FROM posts", []),
   ]);
 
   return {
@@ -127,7 +106,7 @@ export async function getPosts(page = 1, perPage = 5) {
 }
 
 export function getPostIds() {
-  return executeQuery("SELECT id FROM posts", [], []).then((rows) => ({
+  return executeQuery("SELECT id FROM posts", []).then((rows) => ({
     posts: rows,
   }));
 }
@@ -159,13 +138,11 @@ export async function getProducts(page = 1, perPage = 5) {
       GROUP BY p.id
       ORDER BY p.publish_year DESC, p.id ASC
       LIMIT $1 OFFSET $2`,
-      [limit, offset],
-      []
+      [limit, offset]
     ),
     executeQuery(
       "SELECT COUNT(*)::int AS count FROM products",
-      [],
-      [{ count: 0 }]
+      []
     ),
   ]);
 
@@ -201,8 +178,7 @@ export function getProduct(productId) {
     LEFT JOIN categories c ON pc.category_id = c.id
     WHERE p.id = $1
     GROUP BY p.id`,
-    [productId],
-    []
+    [productId]
   ).then((rows) => ({ product: rows[0] || null }));
 }
 
@@ -242,13 +218,11 @@ export async function getProductsByCategoryId(
       GROUP BY p.id
       ORDER BY p.publish_year DESC, p.id ASC
       LIMIT $1 OFFSET $2`,
-      [limit, offset, categoryId],
-      []
+      [limit, offset, categoryId]
     ),
     executeQuery(
       "SELECT COUNT(*)::int AS count FROM product_categories WHERE category_id = $1",
-      [categoryId],
-      [{ count: 0 }]
+      [categoryId]
     ),
   ]);
 
@@ -265,14 +239,13 @@ export async function getProductsByCategoryId(
 export async function getProductCountByCategoryId(categoryId) {
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM product_categories WHERE category_id = $1",
-    [categoryId],
-    [{ count: 0 }]
+    [categoryId]
   );
   return rows[0]?.count ?? 0;
 }
 
 export function getProductIds() {
-  return executeQuery("SELECT id FROM products", [], []).then((rows) => ({
+  return executeQuery("SELECT id FROM products", []).then((rows) => ({
     products: rows,
   }));
 }
@@ -280,8 +253,7 @@ export function getProductIds() {
 export async function getProductCount() {
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM products",
-    [],
-    [{ count: 0 }]
+    []
   );
   return rows[0]?.count ?? 0;
 }
@@ -291,7 +263,6 @@ export async function getProductCategories() {
     `SELECT DISTINCT c.id, c.name 
      FROM categories c
      INNER JOIN product_categories pc ON c.id = pc.category_id`,
-    [],
     []
   );
   return { productCategories: rows };
@@ -325,13 +296,11 @@ export async function getProjects(page = 1, perPage = 5) {
       GROUP BY p.id
       ORDER BY p.start_year DESC, p.id ASC
       LIMIT $1 OFFSET $2`,
-      [limit, offset],
-      []
+      [limit, offset]
     ),
     executeQuery(
       "SELECT COUNT(*)::int AS count FROM projects",
-      [],
-      [{ count: 0 }]
+      []
     ),
   ]);
 
@@ -368,8 +337,7 @@ export function getProject(projectId) {
     LEFT JOIN categories c ON pc.category_id = c.id
     WHERE p.id = $1
     GROUP BY p.id`,
-    [projectId],
-    []
+    [projectId]
   ).then((rows) => ({ project: rows[0] || null }));
 }
 
@@ -410,13 +378,11 @@ export async function getProjectsByCategoryId(
       GROUP BY p.id
       ORDER BY p.start_year DESC, p.id ASC
       LIMIT $1 OFFSET $2`,
-      [limit, offset, categoryId],
-      []
+      [limit, offset, categoryId]
     ),
     executeQuery(
       "SELECT COUNT(*)::int AS count FROM project_categories WHERE category_id = $1",
-      [categoryId],
-      [{ count: 0 }]
+      [categoryId]
     ),
   ]);
 
@@ -433,14 +399,13 @@ export async function getProjectsByCategoryId(
 export async function getProjectCountByCategoryId(categoryId) {
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM project_categories WHERE category_id = $1",
-    [categoryId],
-    [{ count: 0 }]
+    [categoryId]
   );
   return rows[0]?.count ?? 0;
 }
 
 export function getProjectIds() {
-  return executeQuery("SELECT id FROM projects", [], []).then((rows) => ({
+  return executeQuery("SELECT id FROM projects", []).then((rows) => ({
     projects: rows,
   }));
 }
@@ -448,8 +413,7 @@ export function getProjectIds() {
 export async function getProjectCount() {
   const rows = await executeQuery(
     "SELECT COUNT(*)::int AS count FROM projects",
-    [],
-    [{ count: 0 }]
+    []
   );
   return rows[0]?.count ?? 0;
 }
@@ -459,7 +423,6 @@ export async function getProjectCategories() {
     `SELECT DISTINCT c.id, c.name 
      FROM categories c
      INNER JOIN project_categories pc ON c.id = pc.category_id`,
-    [],
     []
   );
   return { projectCategories: rows };

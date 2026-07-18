@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { getProjectCategories, getProjectsByCategoryId } from "../../../../api";
 import CategoryTag from "../../../../components/category-tag";

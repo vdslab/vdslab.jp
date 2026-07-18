@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getPost } from "../../../../api";
 import NewsArticle from "../../../../components/news-article";
 
