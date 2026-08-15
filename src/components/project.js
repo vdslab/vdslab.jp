@@ -21,10 +21,7 @@ function Project({ project }) {
               <CategoryTag
                 key={category.id}
                 category={category}
-                href={{
-                  pathname: "/projects/[categoryId]/[page]",
-                  query: { categoryId: category.id, page: 1 },
-                }}
+                href={`/projects/${category.id}/1`}
               />
             ))}
           </div>
