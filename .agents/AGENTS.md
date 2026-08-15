@@ -8,7 +8,7 @@
 
 ## 技術スタック (Tech Stack)
 - **Framework**: [Next.js](https://nextjs.org/) (v13 App Router, React 18)
-- **CSS / UI**: [Bulma](https://bulma.io/) (v0.9.4)
+- **CSS / UI**: [Bulma](https://bulma.io/) (v1.0.4)
 - **Database**: PostgreSQL (Node.js `pg` Pool クライアント)
 - **Markdown Rendering**: `markdown-it`
 - **Hosting / Infra**: [Netlify](https://www.netlify.com/) (`@netlify/plugin-nextjs`, リージョン: `ap-northeast-1`)
@@ -77,9 +77,15 @@ vdslab.jp/
    - `@netlify/plugin-nextjs` を使用して Next.js App Router の SSR / アセット配信を行います。
 
 4. **スタイリングと UI**:
-   - UI フレームワークには Bulma を採用しており、グローバルスタイルは `src/app/layout.js` で読み込まれています。
+   - UI フレームワークには Bulma を採用しており、グローバルスタイルは `src/app/globals.css` (および `src/app/layout.js`) で読み込まれています。
    - レスポンシブデザインや Bulma クラス (`columns`, `column`, `hero`, `tabs`, `content` など) の整合性を維持してください。
+   - **インラインスタイル禁止**: 原則として JSX 内での `style={{ ... }}` べた書きは禁止し、Bulma 1.0 の CSS カスタムプロパティ（`--bulma-*`）や `globals.css`、Bulma 標準ユーティリティクラス（`.tag.is-link`, `.is-sticky-top`, `.is-disabled` 等）で一元管理してください。
+   - **著作権記号**: フッター等の Copyright 表示には絵文字セレクタ付き文字（`©️`）ではなく、HTML 実体参照 `&copy;` またはテキスト `©` を使用してください。
 
-5. **テスト・CI**:
+5. **Next.js App Router のベストプラクティス**:
+   - `<Link>` コンポーネントの `href` には Pages Router 形式のオブジェクト（`{ pathname: "/path/[id]", query: ... }`）を渡さず、文字列テンプレート（例: ``href={`/products/${id}/1`}``）を使用してください。
+   - `/news/list` → `/news/list/1` などのパスリダイレクトは、コンポーネント内だけでなく `next.config.js` の `redirects()` でも定義してください。
+
+6. **テスト・CI**:
    - Pull Request 作成時および master への push 時に GitHub Actions で Lint と Playwright テストが自動実行されます。
    - 変更を加えた際は `npm run lint` および `npm test` が通過することを確認してください。
