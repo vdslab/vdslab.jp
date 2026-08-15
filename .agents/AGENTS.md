@@ -64,7 +64,7 @@ vdslab.jp/
 
 1. **ブランチ運用と Pull Request (Branch Protection)**:
    - `master` ブランチは GitHub で Branch Protection が設定されており、直接の `push` は禁止されています。
-   - すべての修正・機能追加は、最新の `master` からフィーチャーブランチ（例: `feature/xxx`, `fix/xxx`）を作成して作業を行ってください。
+   - 作業開始前に必ずリモートの最新 `master` を取得（`git fetch origin` / `git checkout master && git pull origin master`）し、最新の `master` からフィーチャーブランチ（例: `feature/xxx`, `fix/xxx`, `docs/xxx`）を作成して作業を行ってください。
    - 変更完了後はリモートにブランチを push し、`master` に向けた Pull Request を作成して CI パス後にマージします。
 
 2. **データベース接続**:
