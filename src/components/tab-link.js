@@ -8,7 +8,7 @@ export default function TabLink({ children, exact, href, activePath }) {
   const match = exact ? pathname === href : pathname.startsWith(activePath);
   return (
     <li className={match ? "is-active" : ""}>
-      <Link href={href} style={{ color: match ? "rgb(32,88,90)" : "white" }}>
+      <Link href={href} aria-current={match ? "page" : undefined}>
         {children}
       </Link>
     </li>

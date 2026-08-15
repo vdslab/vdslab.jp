@@ -39,21 +39,17 @@ export default async function NewsListPage({ params }) {
         <nav className="pagination is-centered">
           <Link
             href={`/news/list/${page - 1}`}
-            className="pagination-previous"
-            style={{
-              pointerEvents: page <= 1 ? "none" : "auto",
-            }}
-            disabled={page === 1}
+            className={`pagination-previous ${page <= 1 ? "is-disabled" : ""}`}
+            aria-disabled={page <= 1}
+            disabled={page <= 1}
           >
             前へ
           </Link>
           <Link
             href={`/news/list/${page + 1}`}
-            className="pagination-next"
-            style={{
-              pointerEvents: page >= maxPage ? "none" : "auto",
-            }}
-            disabled={page === maxPage}
+            className={`pagination-next ${page >= maxPage ? "is-disabled" : ""}`}
+            aria-disabled={page >= maxPage}
+            disabled={page >= maxPage}
           >
             次へ
           </Link>

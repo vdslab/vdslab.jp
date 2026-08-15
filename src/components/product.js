@@ -21,10 +21,7 @@ function Product({ product }) {
               <CategoryTag
                 key={category.id}
                 category={category}
-                href={{
-                  pathname: "/products/[categoryId]/[page]",
-                  query: { categoryId: category.id, page: 1 },
-                }}
+                href={`/products/${category.id}/1`}
               />
             ))}
           </div>

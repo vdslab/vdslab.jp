@@ -1,0 +1,46 @@
+@import "bulma/css/bulma.css";
+
+:root {
+  /* ブランドカラー: hsl(182, 48%, 24%) = #20585a = rgb(32,88,90) */
+  --bulma-primary-h: 182;
+  --bulma-primary-s: 48%;
+  --bulma-primary-l: 24%;
+  --bulma-primary-invert-l: 100%;
+  --bulma-primary: hsl(182, 48%, 24%);
+  --bulma-primary-invert: #ffffff;
+
+  /* リンクカラー・タグカラー */
+  --bulma-link-h: 182;
+  --bulma-link-s: 48%;
+  --bulma-link-l: 24%;
+  --bulma-link-invert-l: 100%;
+  --bulma-link: hsl(182, 48%, 24%);
+  --bulma-link-invert: #ffffff;
+
+  /* メニューラベルカラー */
+  --bulma-menu-label-color: var(--bulma-text-strong);
+
+  /* タブのフォント・コントラスト */
+  --bulma-tabs-boxed-link-active-background-color: var(--bulma-scheme-main);
+  --bulma-tabs-link-active-color: var(--bulma-primary);
+}
+
+/* Bulma 1.0 Hero 内の Tabs 調整 */
+.hero.is-primary .tabs.is-boxed li.is-active a {
+  font-weight: 700;
+}
+
+/* ページネーション無効状態 */
+.pagination-previous.is-disabled,
+.pagination-next.is-disabled,
+.pagination-link.is-disabled,
+.pagination-previous[disabled],
+.pagination-next[disabled] {
+  pointer-events: none;
+}
+
+/* スティッキーサイドバー */
+.is-sticky-top {
+  position: sticky;
+  top: 3rem;
+}

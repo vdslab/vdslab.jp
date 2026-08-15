@@ -54,7 +54,7 @@ export default async function IndexPage() {
             <h2>Links</h2>
           </div>
           <aside className="menu">
-            <p style={{ color: "#000" }} className="menu-label">
+            <p className="menu-label">
               大学関係
             </p>
             <ul className="menu-list">
@@ -70,7 +70,7 @@ export default async function IndexPage() {
                 </a>
               </li>
             </ul>
-            <p style={{ color: "#000" }} className="menu-label">
+            <p className="menu-label">
               Publications
             </p>
             <ul className="menu-list">
@@ -83,7 +83,7 @@ export default async function IndexPage() {
                 <a href="https://orcid.org/0000-0003-2739-3249">ORCID</a>
               </li>
             </ul>
-            <p style={{ color: "#000" }} className="menu-label">
+            <p className="menu-label">
               Products
             </p>
             <ul className="menu-list">

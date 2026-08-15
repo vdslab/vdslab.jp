@@ -69,41 +69,33 @@ const getGraduateStudentDoctor = (membars) => {
 };
 
 const Staff = ({ member }) => (
-  <article className="media">
-    <div className="tile is-ancestor">
-      <div className="tile is-vertical">
-        <div className="tile is-parent" style={{ paddingBottom: 0 }}>
-          <div className="tile is-child" style={{ paddingBottom: 0 }}>
-            <div className="column" style={{ paddingBottom: 0 }}>
-              <h4 className="title is-4 is-inline">{member.name}</h4>
-              &nbsp;
-              <p className="subtitle is-inline">{member.title}</p>
-            </div>
-          </div>
-        </div>
-        <div className="tile is-parent">
-          <div className="tile is-child is-2">
-            <div className="column is-half-mobile is-offset-one-quarter-mobile">
-              <figure className="image">
-                <Image
-                  src={member.picture.url}
-                  alt={member.name}
-                  width={member.picture.width}
-                  height={member.picture.height}
-                />
-              </figure>
-            </div>
-          </div>
-          <div className="tile is-child">
-            <div className="column">
-              <div
-                className="content"
-                dangerouslySetInnerHTML={{
-                  __html: toHTML(member.description),
-                }}
+  <article className="media mb-5">
+    <div className="media-content">
+      <div className="mb-2">
+        <h4 className="title is-4 is-inline">{member.name}</h4>
+        &nbsp;
+        <p className="subtitle is-inline">{member.title}</p>
+      </div>
+      <div className="columns">
+        {member.picture && (
+          <div className="column is-2 is-half-mobile is-offset-one-quarter-mobile">
+            <figure className="image">
+              <Image
+                src={member.picture.url}
+                alt={member.name}
+                width={member.picture.width}
+                height={member.picture.height}
               />
-            </div>
+            </figure>
           </div>
+        )}
+        <div className="column">
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: toHTML(member.description),
+            }}
+          />
         </div>
       </div>
     </div>
@@ -111,31 +103,19 @@ const Staff = ({ member }) => (
 );
 
 const Student = ({ member }) => (
-  <article className="media">
-    <div className="tile is-ancestor">
-      <div className="tile is-vertical">
-        <div className="tile is-parent" style={{ paddingBottom: 0 }}>
-          <div className="tile is-child" style={{ paddingBottom: 0 }}>
-            <div className="column" style={{ paddingBottom: 0 }}>
-              <h5 className="title is-5 is-inline">{member.name}</h5>
-              &nbsp;
-              <p className="subtitle is-inline">{member.title}</p>
-            </div>
-          </div>
-        </div>
-        <div className="tile is-parent">
-          <div className="tile is-child">
-            <div className="column">
-              <div
-                className="content"
-                dangerouslySetInnerHTML={{
-                  __html: toHTML(member.description),
-                }}
-              />
-            </div>
-          </div>
-        </div>
+  <article className="media mb-4">
+    <div className="media-content">
+      <div className="mb-2">
+        <h5 className="title is-5 is-inline">{member.name}</h5>
+        &nbsp;
+        <p className="subtitle is-inline">{member.title}</p>
       </div>
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{
+          __html: toHTML(member.description),
+        }}
+      />
     </div>
   </article>
 );
@@ -193,7 +173,7 @@ export default async function MembersPage() {
     <div>
       <div className="columns">
         <div className="column is-2">
-          <aside className="menu" style={{ position: "sticky", top: "48px" }}>
+          <aside className="menu is-sticky-top">
             <p className="menu-label">Members</p>
             <ul className="menu-list">
               <li>

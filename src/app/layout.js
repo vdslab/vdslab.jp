@@ -1,4 +1,4 @@
-import "bulma/css/bulma.css";
+import "./globals.css";
 import Image from "next/image";
 import logoSvg from "../../public/images/logo.svg";
 import TabLink from "../components/tab-link";
@@ -49,13 +49,10 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ja">
+    <html lang="ja" data-theme="light">
       <body>
         <div>
-          <section
-            className="hero is-primary is-bold"
-            style={{ backgroundColor: "rgb(32,88,90)", backgroundImage: "none" }}
-          >
+          <section className="hero is-primary">
             <div className="hero-body">
               <div className="container has-text-centered">
                 <div className="column is-half-desktop is-offset-one-quarter-desktop">
@@ -101,7 +98,7 @@ export default function RootLayout({ children }) {
           <footer className="footer">
             <div className="container">
               <div className="content has-text-centered">
-                <p>©️ {new Date().getFullYear()} Yosuke Onoue</p>
+                <p>&copy; {new Date().getFullYear()} Yosuke Onoue</p>
               </div>
             </div>
           </footer>
