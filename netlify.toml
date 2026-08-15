@@ -2,6 +2,9 @@
   command = "npm run build"
   publish = ".next"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 # 今後すべてのブランチデプロイ（プレビュー環境）で動作するビルド設定
 [context.branch-deploy]
   command = "npm run build"
