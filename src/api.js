@@ -1,37 +1,5 @@
-import pg from "pg";
+import { executeQuery } from "./db/pool";
 
-const { Pool } = pg;
-
-let pool = null;
-
-function getPool() {
-  if (pool) return pool;
-
-  const databaseUrl = process.env.DATABASE_URL;
-  if (!databaseUrl) {
-    throw new Error("DATABASE_URL is not set.");
-  }
-
-  pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false
-    },
-    connectionTimeoutMillis: 2000
-  });
-
-  pool.on("error", (err) => {
-    console.error("Unexpected error on idle client", err);
-  });
-
-  return pool;
-}
-
-async function executeQuery(query, params = []) {
-  const p = getPool();
-  const res = await p.query(query, params);
-  return res.rows;
-}
 
 export function getCategories() {
   return executeQuery("SELECT id, name FROM categories", []).then(
@@ -427,3 +395,15 @@ export async function getProjectCategories() {
   );
   return { projectCategories: rows };
 }
+
+export async function getImageBinary(imageId) {
+  const rows = await executeQuery(
+    `SELECT id, data, mime_type AS "mimeType", width, height, filename, created_at AS "createdAt"
+     FROM images
+     WHERE id = $1
+     LIMIT 1`,
+    [imageId]
+  );
+  return rows[0] || null;
+}
+

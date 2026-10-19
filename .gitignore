@@ -3,3 +3,5 @@ node_modules
 out
 .netlify
 .env
+test-results
+playwright-report
