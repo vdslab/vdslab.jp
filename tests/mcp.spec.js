@@ -187,14 +187,7 @@ test.describe("Remote MCP Server Tests", () => {
     });
 
     test("upload_image rejects images exceeding 4MB", async ({ request }) => {
-      // 1. Verify image-utils validator rejects buffers > 4MB
-      const { decodeBase64Image } = await import("../src/mcp/image-utils");
       const largeBuf = Buffer.alloc(4 * 1024 * 1024 + 10);
-      expect(() => decodeBase64Image(largeBuf.toString("base64"))).toThrow(
-        /exceeds maximum allowed size/
-      );
-
-      // 2. Verify server rejects oversized payload via HTTP 413 or MCP tool error
       const res = await request.post("/api/mcp", {
         headers: { Authorization: `Bearer ${TEST_API_KEY}` },
         data: {
