@@ -1,4 +1,7 @@
 // @ts-check
+const { loadEnvConfig } = require("@next/env");
+loadEnvConfig(process.cwd());
+
 const { defineConfig, devices } = require("@playwright/test");
 
 /**

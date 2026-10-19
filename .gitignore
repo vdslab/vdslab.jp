@@ -3,5 +3,9 @@ node_modules
 out
 .netlify
 .env
+.env.*
+.env*.local
+.prod-baseline*.json
+.agents/teamwork/
 test-results
 playwright-report

@@ -87,3 +87,9 @@ CREATE TABLE IF NOT EXISTS images (
   filename VARCHAR(255),
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Secondary performance indexes
+CREATE INDEX IF NOT EXISTS idx_members_type ON members(type);
+CREATE INDEX IF NOT EXISTS idx_posts_date ON posts(date DESC);
+CREATE INDEX IF NOT EXISTS idx_products_publish_year ON products(publish_year DESC);
+CREATE INDEX IF NOT EXISTS idx_projects_start_year ON projects(start_year DESC);
