@@ -32,20 +32,24 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Configure Staging Database for CI
+        env:
+          SECRET_STAGING_URL: ${{ secrets.DATABASE_URL_STAGING }}
+          SECRET_DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          RAW_URL="${{ secrets.DATABASE_URL_STAGING }}"
-          if [ -z "$RAW_URL" ]; then
-            RAW_URL="${{ secrets.DATABASE_URL }}"
-          fi
-          if [ -z "$RAW_URL" ]; then
-            echo "::error::Neither DATABASE_URL_STAGING nor DATABASE_URL secret is set!"
+          if [ -n "$SECRET_STAGING_URL" ]; then
+            STAGING_URL="$SECRET_STAGING_URL"
+          elif [ -n "$SECRET_DATABASE_URL" ]; then
+            STAGING_URL=$(node -e '
+              const u = new URL(process.env.SECRET_DATABASE_URL);
+              if (u.pathname === "/vdslab_jp") {
+                u.pathname = "/vdslab_jp_staging";
+              }
+              console.log(u.toString());
+            ')
+          else
+            echo "::error::Neither DATABASE_URL_STAGING nor DATABASE_URL secret is set! Fork PRs do not have access to repository secrets."
             exit 1
           fi
-          STAGING_URL=$(node -e '
-            const u = new URL(process.argv[1]);
-            u.pathname = "/vdslab_jp_staging";
-            console.log(u.toString());
-          ' "$RAW_URL")
           echo "::add-mask::$STAGING_URL"
           echo "DATABASE_URL=$STAGING_URL" >> $GITHUB_ENV
 

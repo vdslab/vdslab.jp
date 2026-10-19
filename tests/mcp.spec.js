@@ -5,17 +5,6 @@ const { loadEnvConfig } = require("@next/env");
 
 loadEnvConfig(process.cwd());
 
-// Ensure tests always target the staging database (never mutate production)
-if (process.env.DATABASE_URL) {
-  try {
-    const dbUrl = new URL(process.env.DATABASE_URL);
-    if (dbUrl.pathname === "/vdslab_jp") {
-      dbUrl.pathname = "/vdslab_jp_staging";
-      process.env.DATABASE_URL = dbUrl.toString();
-    }
-  } catch (_) {}
-}
-
 const TEST_API_KEY =
   process.env.MCP_API_KEY || "test-mcp-api-key-for-playwright";
 
