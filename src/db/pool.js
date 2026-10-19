@@ -19,7 +19,7 @@ export function getPool() {
       ssl: {
         rejectUnauthorized: false,
       },
-      connectionTimeoutMillis: 2000,
+      connectionTimeoutMillis: 10000,
     });
 
     pool.on("error", (err) => {

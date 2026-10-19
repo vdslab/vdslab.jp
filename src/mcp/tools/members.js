@@ -1,13 +1,13 @@
 import crypto from "crypto";
-import { executeQuery } from "../../db/pool";
+import { executeQuery } from "../../db/pool.js";
 import {
   listMembersShape,
   getMemberShape,
   createMemberShape,
   updateMemberShape,
   deleteMemberShape,
-} from "../schemas";
-import { resolvePictureInput, toolSuccess, toolError } from "./utils";
+} from "../schemas.js";
+import { resolvePictureInput, toolSuccess, toolError } from "./utils.js";
 
 const MEMBER_REVALIDATION_TARGETS = ["/members"];
 
@@ -113,7 +113,8 @@ export function registerMemberTools(server, options = {}) {
           );
         }
 
-        const memberId = id ? id.trim() : crypto.randomUUID();
+        const memberId =
+          id && id.trim() ? id.trim() : crypto.randomUUID();
         const pic = await resolvePictureInput({ imageId, picture });
 
         const rows = await executeQuery(

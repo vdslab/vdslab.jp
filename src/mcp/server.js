@@ -1,10 +1,10 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerImageTools } from "./tools/images";
-import { registerNewsTools } from "./tools/news";
-import { registerMemberTools } from "./tools/members";
-import { registerProjectTools } from "./tools/projects";
-import { registerProductTools } from "./tools/products";
-import { registerCategoryTools } from "./tools/categories";
+import { registerImageTools } from "./tools/images.js";
+import { registerNewsTools } from "./tools/news.js";
+import { registerMemberTools } from "./tools/members.js";
+import { registerProjectTools } from "./tools/projects.js";
+import { registerProductTools } from "./tools/products.js";
+import { registerCategoryTools } from "./tools/categories.js";
 
 /**
  * Creates and initializes the VDSLab MCP Server with all 27 tools.

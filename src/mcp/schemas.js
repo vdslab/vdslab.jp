@@ -15,7 +15,11 @@ export const pictureSchema = z.object({
 
 export const dateSchema = z
   .string()
-  .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format");
+  .regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format")
+  .refine((val) => {
+    const d = new Date(val + "T00:00:00Z");
+    return !isNaN(d.getTime()) && d.toISOString().slice(0, 10) === val;
+  }, "Invalid calendar date");
 
 // Image tools schemas
 export const uploadImageShape = {
@@ -23,7 +27,11 @@ export const uploadImageShape = {
     .string()
     .min(1)
     .describe("Base64 or Data URL encoded image (PNG, JPEG, WebP, GIF, max 4MB)"),
-  filename: z.string().optional().describe("Optional original file name"),
+  filename: z
+    .string()
+    .nullable()
+    .optional()
+    .describe("Optional original file name"),
 };
 
 export const listImagesShape = {
@@ -80,13 +88,17 @@ export const createNewsShape = {
   title: z.string().min(1).describe("News title"),
   content: z.string().min(1).describe("News body (Markdown supported)"),
   date: dateSchema.describe("Publication date in YYYY-MM-DD format"),
-  id: z.string().optional().describe("Optional custom ID (defaults to UUID)"),
+  id: z
+    .string()
+    .nullable()
+    .optional()
+    .describe("Optional custom ID (defaults to UUID)"),
 };
 
 export const updateNewsShape = {
   id: z.string().min(1).describe("News post ID to update"),
   title: z.string().min(1).optional().describe("Updated title"),
-  content: z.string().optional().describe("Updated body"),
+  content: z.string().nullable().optional().describe("Updated body"),
   date: dateSchema.optional().describe("Updated date in YYYY-MM-DD format"),
 };
 
@@ -131,7 +143,11 @@ export const createMemberShape = {
     .nullable()
     .optional()
     .describe("Direct picture object { url, width, height }"),
-  id: z.string().optional().describe("Optional custom ID (defaults to UUID)"),
+  id: z
+    .string()
+    .nullable()
+    .optional()
+    .describe("Optional custom ID (defaults to UUID)"),
 };
 
 export const updateMemberShape = {
@@ -188,6 +204,7 @@ export const createProjectShape = {
   description: z.string().nullable().optional().describe("Project description"),
   categoryIds: z
     .array(z.string())
+    .nullable()
     .optional()
     .describe("Category IDs linked to this project"),
   imageId: z
@@ -199,7 +216,11 @@ export const createProjectShape = {
     .nullable()
     .optional()
     .describe("Direct picture object { url, width, height }"),
-  id: z.string().optional().describe("Optional custom ID (defaults to UUID)"),
+  id: z
+    .string()
+    .nullable()
+    .optional()
+    .describe("Optional custom ID (defaults to UUID)"),
 };
 
 export const updateProjectShape = {
@@ -210,6 +231,7 @@ export const updateProjectShape = {
   description: z.string().nullable().optional().describe("Updated description"),
   categoryIds: z
     .array(z.string())
+    .nullable()
     .optional()
     .describe("Replace associated category IDs (if provided)"),
   imageId: z
@@ -257,6 +279,7 @@ export const createProductShape = {
   description: z.string().nullable().optional().describe("Product description"),
   categoryIds: z
     .array(z.string())
+    .nullable()
     .optional()
     .describe("Category IDs linked to this product"),
   imageId: z
@@ -268,7 +291,11 @@ export const createProductShape = {
     .nullable()
     .optional()
     .describe("Direct picture object { url, width, height }"),
-  id: z.string().optional().describe("Optional custom ID (defaults to UUID)"),
+  id: z
+    .string()
+    .nullable()
+    .optional()
+    .describe("Optional custom ID (defaults to UUID)"),
 };
 
 export const updateProductShape = {
@@ -278,6 +305,7 @@ export const updateProductShape = {
   description: z.string().nullable().optional().describe("Updated description"),
   categoryIds: z
     .array(z.string())
+    .nullable()
     .optional()
     .describe("Replace associated category IDs (if provided)"),
   imageId: z
@@ -300,7 +328,11 @@ export const listCategoriesShape = {};
 
 export const createCategoryShape = {
   name: z.string().min(1).describe("Category name"),
-  id: z.string().optional().describe("Optional custom ID (defaults to UUID)"),
+  id: z
+    .string()
+    .nullable()
+    .optional()
+    .describe("Optional custom ID (defaults to UUID)"),
 };
 
 export const updateCategoryShape = {

@@ -1,4 +1,4 @@
-import { getImageBinary } from "../../../../api";
+import { getImageBinary } from "../../../../api.js";
 
 export const dynamic = "force-dynamic";
 

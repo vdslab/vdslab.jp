@@ -1,4 +1,4 @@
-import { executeQuery } from "../../db/pool";
+import { executeQuery } from "../../db/pool.js";
 
 /**
  * Resolves picture fields (picture_url, picture_width, picture_height)

@@ -1,12 +1,12 @@
 import crypto from "crypto";
-import { executeQuery } from "../../db/pool";
+import { executeQuery } from "../../db/pool.js";
 import {
   listCategoriesShape,
   createCategoryShape,
   updateCategoryShape,
   deleteCategoryShape,
-} from "../schemas";
-import { toolSuccess, toolError } from "./utils";
+} from "../schemas.js";
+import { toolSuccess, toolError } from "./utils.js";
 
 const CATEGORY_REVALIDATION_TARGETS = [
   "/",
@@ -58,7 +58,8 @@ export function registerCategoryTools(server, options = {}) {
     createCategoryShape,
     async ({ name, id }) => {
       try {
-        const categoryId = id ? id.trim() : crypto.randomUUID();
+        const categoryId =
+          id && id.trim() ? id.trim() : crypto.randomUUID();
         const rows = await executeQuery(
           `INSERT INTO categories (id, name)
            VALUES ($1, $2)

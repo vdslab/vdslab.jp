@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
-import { authenticateRequest } from "../../../mcp/auth";
-import { createMcpServer } from "../../../mcp/server";
+import { authenticateRequest } from "../../../mcp/auth.js";
+import { createMcpServer } from "../../../mcp/server.js";
 
 export const dynamic = "force-dynamic";
 
@@ -57,7 +57,25 @@ export async function POST(request) {
   await server.connect(transport);
 
   // 4. Delegate to transport
-  return await transport.handleRequest(effectiveRequest);
+  try {
+    return await transport.handleRequest(effectiveRequest);
+  } catch (err) {
+    console.error("MCP transport error:", err);
+    return new Response(
+      JSON.stringify({
+        jsonrpc: "2.0",
+        error: {
+          code: -32603,
+          message: err.message || "Internal error",
+        },
+        id: null,
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  }
 }
 
 /**

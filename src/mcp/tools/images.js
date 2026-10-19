@@ -1,11 +1,12 @@
 import crypto from "crypto";
-import { executeQuery } from "../../db/pool";
-import { decodeBase64Image } from "../image-utils";
+import { executeQuery } from "../../db/pool.js";
+import { decodeBase64Image } from "../image-utils.js";
 import {
   uploadImageShape,
   listImagesShape,
   deleteImageShape,
-} from "../schemas";
+} from "../schemas.js";
+import { toolSuccess, toolError } from "./utils.js";
 
 let imagesTableEnsured = false;
 
@@ -60,7 +61,9 @@ export function registerImageTools(server, options = {}) {
         await ensureImagesTable();
 
         const id = crypto.randomUUID();
-        const cleanFilename = filename ? filename.trim().slice(0, 255) : null;
+        const cleanFilename = filename?.trim()
+          ? filename.trim().slice(0, 255)
+          : null;
 
         await executeQuery(
           `INSERT INTO images (id, data, mime_type, width, height, filename)
@@ -82,19 +85,9 @@ export function registerImageTools(server, options = {}) {
           await options.onRevalidate([`/api/images/${id}`]);
         }
 
-        return {
-          content: [
-            {
-              type: "text",
-              text: JSON.stringify(result, null, 2),
-            },
-          ],
-        };
+        return toolSuccess(result);
       } catch (error) {
-        return {
-          isError: true,
-          content: [{ type: "text", text: `upload_image error: ${error.message}` }],
-        };
+        return toolError("upload_image", error);
       }
     }
   );
@@ -135,19 +128,9 @@ export function registerImageTools(server, options = {}) {
           totalPages: Math.ceil(totalCount / perPage),
         };
 
-        return {
-          content: [
-            {
-              type: "text",
-              text: JSON.stringify(result, null, 2),
-            },
-          ],
-        };
+        return toolSuccess(result);
       } catch (error) {
-        return {
-          isError: true,
-          content: [{ type: "text", text: `list_images error: ${error.message}` }],
-        };
+        return toolError("list_images", error);
       }
     }
   );
@@ -165,10 +148,7 @@ export function registerImageTools(server, options = {}) {
           [id]
         );
         if (existing.length === 0) {
-          return {
-            isError: true,
-            content: [{ type: "text", text: `Image '${id}' not found.` }],
-          };
+          return toolError("delete_image", new Error(`Image '${id}' not found.`));
         }
 
         const imageUrl = `/api/images/${id}`;
@@ -176,15 +156,15 @@ export function registerImageTools(server, options = {}) {
         if (!force) {
           const [memberRefs, projectRefs, productRefs] = await Promise.all([
             executeQuery(
-              "SELECT id, name FROM members WHERE picture_url = $1",
+              "SELECT id, name FROM members WHERE picture_url = $1 OR picture_url LIKE '%' || $1",
               [imageUrl]
             ),
             executeQuery(
-              "SELECT id, name FROM projects WHERE picture_url = $1",
+              "SELECT id, name FROM projects WHERE picture_url = $1 OR picture_url LIKE '%' || $1",
               [imageUrl]
             ),
             executeQuery(
-              "SELECT id, name FROM products WHERE picture_url = $1",
+              "SELECT id, name FROM products WHERE picture_url = $1 OR picture_url LIKE '%' || $1",
               [imageUrl]
             ),
           ]);
@@ -199,15 +179,12 @@ export function registerImageTools(server, options = {}) {
             const summary = references
               .map((r) => `${r.type} '${r.name}' (id: ${r.id})`)
               .join(", ");
-            return {
-              isError: true,
-              content: [
-                {
-                  type: "text",
-                  text: `Cannot delete image '${id}': it is referenced by ${references.length} record(s): ${summary}. Set force: true to delete anyway.`,
-                },
-              ],
-            };
+            return toolError(
+              "delete_image",
+              new Error(
+                `Cannot delete image '${id}': it is referenced by ${references.length} record(s): ${summary}. Set force: true to delete anyway.`
+              )
+            );
           }
         }
 
@@ -217,23 +194,12 @@ export function registerImageTools(server, options = {}) {
           await options.onRevalidate([`/api/images/${id}`]);
         }
 
-        return {
-          content: [
-            {
-              type: "text",
-              text: JSON.stringify(
-                { success: true, message: `Image '${id}' deleted successfully.` },
-                null,
-                2
-              ),
-            },
-          ],
-        };
+        return toolSuccess({
+          success: true,
+          message: `Image '${id}' deleted successfully.`,
+        });
       } catch (error) {
-        return {
-          isError: true,
-          content: [{ type: "text", text: `delete_image error: ${error.message}` }],
-        };
+        return toolError("delete_image", error);
       }
     }
   );

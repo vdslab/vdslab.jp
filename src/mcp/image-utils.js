@@ -62,15 +62,24 @@ export function parseImageMetadata(buffer) {
       // Standalone markers without payload
       if (
         marker === 0xd8 || // SOI
-        marker === 0xd9 || // EOI
         marker === 0x01 || // TEM
         (marker >= 0xd0 && marker <= 0xd7) // RSTn
       ) {
         continue;
       }
+      if (marker === 0xd9) {
+        // EOI: End Of Image reached before SOF
+        break;
+      }
 
       if (offset + 2 > buffer.length) break;
       const length = buffer.readUInt16BE(offset);
+      if (length < 2) {
+        throw new Error("Invalid JPEG: segment length too small");
+      }
+      if (offset + length > buffer.length) {
+        throw new Error("Invalid JPEG: segment truncated");
+      }
 
       // Start Of Frame markers containing dimensions
       if (

@@ -1,13 +1,13 @@
 import crypto from "crypto";
-import { executeQuery, withTransaction } from "../../db/pool";
+import { executeQuery, withTransaction } from "../../db/pool.js";
 import {
   listProductsShape,
   getProductShape,
   createProductShape,
   updateProductShape,
   deleteProductShape,
-} from "../schemas";
-import { resolvePictureInput, toolSuccess, toolError } from "./utils";
+} from "../schemas.js";
+import { resolvePictureInput, toolSuccess, toolError } from "./utils.js";
 
 const PRODUCT_REVALIDATION_TARGETS = [
   "/",
@@ -137,8 +137,10 @@ export function registerProductTools(server, options = {}) {
       id,
     }) => {
       try {
-        const productId = id ? id.trim() : crypto.randomUUID();
+        const productId =
+          id && id.trim() ? id.trim() : crypto.randomUUID();
         const pic = await resolvePictureInput({ imageId, picture });
+        const targetCategoryIds = categoryIds ?? [];
 
         await withTransaction(async (client) => {
           await client.query(
@@ -157,8 +159,8 @@ export function registerProductTools(server, options = {}) {
             ]
           );
 
-          if (categoryIds && categoryIds.length > 0) {
-            for (const catId of categoryIds) {
+          if (targetCategoryIds.length > 0) {
+            for (const catId of targetCategoryIds) {
               await client.query(
                 `INSERT INTO product_categories (product_id, category_id)
                  VALUES ($1, $2)
@@ -212,6 +214,11 @@ export function registerProductTools(server, options = {}) {
           return toolError("update_product", new Error(`Product '${id}' not found.`));
         }
 
+        const pic =
+          imageId !== undefined || picture !== undefined
+            ? await resolvePictureInput({ imageId, picture })
+            : undefined;
+
         await withTransaction(async (client) => {
           const updates = [];
           const values = [id];
@@ -231,7 +238,6 @@ export function registerProductTools(server, options = {}) {
           }
 
           if (imageId !== undefined || picture !== undefined) {
-            const pic = await resolvePictureInput({ imageId, picture });
             updates.push(`picture_url = $${idx++}`);
             values.push(pic ? pic.picture_url : null);
             updates.push(`picture_width = $${idx++}`);
@@ -252,7 +258,8 @@ export function registerProductTools(server, options = {}) {
               "DELETE FROM product_categories WHERE product_id = $1",
               [id]
             );
-            for (const catId of categoryIds) {
+            const targetCategoryIds = categoryIds ?? [];
+            for (const catId of targetCategoryIds) {
               await client.query(
                 `INSERT INTO product_categories (product_id, category_id)
                  VALUES ($1, $2)

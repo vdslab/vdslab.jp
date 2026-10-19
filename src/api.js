@@ -1,4 +1,4 @@
-import { executeQuery } from "./db/pool";
+import { executeQuery } from "./db/pool.js";
 
 
 export function getCategories() {
@@ -397,13 +397,20 @@ export async function getProjectCategories() {
 }
 
 export async function getImageBinary(imageId) {
-  const rows = await executeQuery(
-    `SELECT id, data, mime_type AS "mimeType", width, height, filename, created_at AS "createdAt"
-     FROM images
-     WHERE id = $1
-     LIMIT 1`,
-    [imageId]
-  );
-  return rows[0] || null;
+  try {
+    const rows = await executeQuery(
+      `SELECT id, data, mime_type AS "mimeType", width, height, filename, created_at AS "createdAt"
+       FROM images
+       WHERE id = $1
+       LIMIT 1`,
+      [imageId]
+    );
+    return rows[0] || null;
+  } catch (err) {
+    if (err.code === "42P01") {
+      return null;
+    }
+    throw err;
+  }
 }
 

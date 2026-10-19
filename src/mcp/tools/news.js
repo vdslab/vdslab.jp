@@ -1,13 +1,13 @@
 import crypto from "crypto";
-import { executeQuery } from "../../db/pool";
+import { executeQuery } from "../../db/pool.js";
 import {
   listNewsShape,
   getNewsShape,
   createNewsShape,
   updateNewsShape,
   deleteNewsShape,
-} from "../schemas";
-import { toolSuccess, toolError } from "./utils";
+} from "../schemas.js";
+import { toolSuccess, toolError } from "./utils.js";
 
 const NEWS_REVALIDATION_TARGETS = [
   "/",
@@ -85,7 +85,8 @@ export function registerNewsTools(server, options = {}) {
     createNewsShape,
     async ({ title, content, date, id }) => {
       try {
-        const postId = id ? id.trim() : crypto.randomUUID();
+        const postId =
+          id && id.trim() ? id.trim() : crypto.randomUUID();
         const rows = await executeQuery(
           `INSERT INTO posts (id, title, content, date)
            VALUES ($1, $2, $3, $4::date)
