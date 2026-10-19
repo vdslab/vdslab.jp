@@ -1,4 +1,7 @@
 // @ts-check
+const { loadEnvConfig } = require("@next/env");
+loadEnvConfig(process.cwd());
+
 const { defineConfig, devices } = require("@playwright/test");
 
 /**
@@ -38,5 +41,9 @@ module.exports = defineConfig({
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000, // 2分のタイムアウト（ビルド時間を考慮）
+    env: {
+      ...process.env,
+      MCP_API_KEY: process.env.MCP_API_KEY || "test-mcp-api-key-for-playwright",
+    },
   },
 });

@@ -1,10 +1,11 @@
+const { ALLOWED_IMAGE_DOMAINS } = require("./src/config/images");
+
 module.exports = {
   images: {
-    domains: [
-      "ap-northeast-1.graphassets.com",
-      "media.graphcms.com",
-      "media.graphassets.com",
-    ],
+    domains: ALLOWED_IMAGE_DOMAINS,
+  },
+  experimental: {
+    serverComponentsExternalPackages: ["@modelcontextprotocol/sdk"],
   },
   async redirects() {
     return [

@@ -36,7 +36,7 @@ test.describe("Smoke Tests", () => {
 
     // 代表的な見出しが表示されていることを確認
     await expect(page.getByRole("heading", { name: "About" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "News" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "News", exact: true })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Links" })).toBeVisible();
 
     // コンソールエラーの確認 (警告として出力)
@@ -99,7 +99,7 @@ test.describe("Smoke Tests", () => {
     expect(page.url()).toMatch(/\/news\/list\/\d+/);
 
     // News 見出しが表示されていることを確認
-    await expect(page.getByRole("heading", { name: "News" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "News", exact: true })).toBeVisible();
 
     // コンソールエラーの確認 (警告として出力)
     checkConsoleErrors(consoleErrors, "ニュース一覧 (/news/list)");
