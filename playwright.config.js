@@ -2,6 +2,17 @@
 const { loadEnvConfig } = require("@next/env");
 loadEnvConfig(process.cwd());
 
+// Ensure Playwright tests and webServer always use the staging database (never mutate production)
+if (process.env.DATABASE_URL) {
+  try {
+    const dbUrl = new URL(process.env.DATABASE_URL);
+    if (dbUrl.pathname === "/vdslab_jp") {
+      dbUrl.pathname = "/vdslab_jp_staging";
+      process.env.DATABASE_URL = dbUrl.toString();
+    }
+  } catch (_) {}
+}
+
 const { defineConfig, devices } = require("@playwright/test");
 
 /**

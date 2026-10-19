@@ -31,11 +31,29 @@ jobs:
       - name: Install Playwright browsers and OS dependencies
         run: npx playwright install --with-deps chromium
 
+      - name: Configure Staging Database for CI
+        run: |
+          RAW_URL="${{ secrets.DATABASE_URL_STAGING }}"
+          if [ -z "$RAW_URL" ]; then
+            RAW_URL="${{ secrets.DATABASE_URL }}"
+          fi
+          if [ -z "$RAW_URL" ]; then
+            echo "::error::Neither DATABASE_URL_STAGING nor DATABASE_URL secret is set!"
+            exit 1
+          fi
+          STAGING_URL=$(node -e '
+            const u = new URL(process.argv[1]);
+            u.pathname = "/vdslab_jp_staging";
+            console.log(u.toString());
+          ' "$RAW_URL")
+          echo "::add-mask::$STAGING_URL"
+          echo "DATABASE_URL=$STAGING_URL" >> $GITHUB_ENV
+
       - name: Run Playwright tests
         run: npm test
         env:
           CI: "true"
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}
 
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
