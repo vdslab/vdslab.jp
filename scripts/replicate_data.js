@@ -341,17 +341,17 @@ async function replicateData(options = {}) {
       console.log("[Target] Applying DDL schema (enums, tables, constraints, secondary indexes)...");
       await targetClient.query(ddlSql);
 
-      // Explicitly ensure ownership for vdslab_jp on all target objects
+      // Explicitly ensure ownership for vdslab_jp_staging on all target objects
       await targetClient.query(`
-        ALTER TYPE member_type OWNER TO vdslab_jp;
-        ALTER TABLE categories OWNER TO vdslab_jp;
-        ALTER TABLE members OWNER TO vdslab_jp;
-        ALTER TABLE posts OWNER TO vdslab_jp;
-        ALTER TABLE products OWNER TO vdslab_jp;
-        ALTER TABLE product_categories OWNER TO vdslab_jp;
-        ALTER TABLE projects OWNER TO vdslab_jp;
-        ALTER TABLE project_categories OWNER TO vdslab_jp;
-        ALTER TABLE images OWNER TO vdslab_jp;
+        ALTER TYPE member_type OWNER TO vdslab_jp_staging;
+        ALTER TABLE categories OWNER TO vdslab_jp_staging;
+        ALTER TABLE members OWNER TO vdslab_jp_staging;
+        ALTER TABLE posts OWNER TO vdslab_jp_staging;
+        ALTER TABLE products OWNER TO vdslab_jp_staging;
+        ALTER TABLE product_categories OWNER TO vdslab_jp_staging;
+        ALTER TABLE projects OWNER TO vdslab_jp_staging;
+        ALTER TABLE project_categories OWNER TO vdslab_jp_staging;
+        ALTER TABLE images OWNER TO vdslab_jp_staging;
       `);
       console.log("[Target] DDL applied and ownership assigned successfully.");
     }
