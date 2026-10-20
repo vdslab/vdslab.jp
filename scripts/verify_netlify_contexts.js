@@ -30,7 +30,8 @@ const EXPECTED_PROD_DB = "vdslab_jp";
 const EXPECTED_STAGING_DB = "vdslab_jp_staging";
 const EXPECTED_HOST = process.env.EXPECTED_DB_HOST || (process.env.DATABASE_URL ? (new URL(process.env.DATABASE_URL)).hostname : null);
 const EXPECTED_PORT = "5432";
-const EXPECTED_USER = "vdslab_jp";
+const EXPECTED_PROD_USER = "vdslab_jp";
+const EXPECTED_STAGING_USER = "vdslab_jp_staging";
 const EXPECTED_MCP_KEY = "test-mcp-api-key-for-playwright";
 
 // Resolve Netlify Auth Token safely
@@ -110,7 +111,7 @@ async function fetchRawApi() {
   }
 }
 
-async function testDatabaseHandshake(dbUrl, expectedDbName, label) {
+async function testDatabaseHandshake(dbUrl, expectedDbName, label, expectedUser = EXPECTED_PROD_USER) {
   if (!dbUrl || typeof dbUrl !== "string") {
     assert(false, `Database Handshake: ${label}`, "No valid connection URL to test");
     return;
@@ -132,9 +133,9 @@ async function testDatabaseHandshake(dbUrl, expectedDbName, label) {
       `Expected '${expectedDbName}', but connected to '${actualDb}'`
     );
     assert(
-      actualUser === EXPECTED_USER,
-      `Handshake ${label}: connected as user '${EXPECTED_USER}'`,
-      `Expected '${EXPECTED_USER}', but user is '${actualUser}'`
+      actualUser === expectedUser,
+      `Handshake ${label}: connected as user '${expectedUser}'`,
+      `Expected '${expectedUser}', but user is '${actualUser}'`
     );
     const targetHost = parseDbUrl(dbUrl)?.host || EXPECTED_HOST;
     assert(
@@ -361,14 +362,14 @@ async function main() {
 
   if (prodRaw && typeof prodRaw === "string") {
     console.log("  Testing production resolved URL handshake...");
-    await testDatabaseHandshake(prodRaw, EXPECTED_PROD_DB, "Production URL");
+    await testDatabaseHandshake(prodRaw, EXPECTED_PROD_DB, "Production URL", EXPECTED_PROD_USER);
   } else {
     assert(false, "A9: Production URL Database Handshake", "Cannot test: production URL unresolvable");
   }
 
   if (dpRaw && typeof dpRaw === "string") {
     console.log("  Testing deploy-preview resolved URL handshake...");
-    await testDatabaseHandshake(dpRaw, EXPECTED_STAGING_DB, "Deploy-Preview URL");
+    await testDatabaseHandshake(dpRaw, EXPECTED_STAGING_DB, "Deploy-Preview URL", EXPECTED_STAGING_USER);
   } else {
     assert(false, "A10: Deploy-Preview URL Database Handshake", "Cannot test: deploy-preview URL unresolvable");
   }
